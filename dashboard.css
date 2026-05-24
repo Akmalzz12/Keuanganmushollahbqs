@@ -312,16 +312,11 @@ border-radius:10px;
 .sidebar{
 position:fixed;
 top:0;
-right:-320px;
-width:280px;
+left:-280px;
+width:260px;
 height:100vh;
 background:white;
-z-index:100;
-padding:24px 20px;
-transition:.3s;
-display:flex;
-flex-direction:column;
-box-shadow:-10px 0 30px rgba(0,0,0,.08);
+z-index:2000;
 }
 
 .sidebar.active{
@@ -410,7 +405,7 @@ background:rgba(0,0,0,.3);
 opacity:0;
 pointer-events:none;
 transition:.25s;,
-z-index:90;
+z-index:1500;
 }
 
 .overlay.active{
