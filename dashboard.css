@@ -312,17 +312,20 @@ border-radius:10px;
 .sidebar{
 position:fixed;
 top:0;
-left:-100%;
+left:0;
 width:85%;
 max-width:340px;
 height:100vh;
 background:white;
 z-index:2000;
-transition:.25s;
+padding:24px 20px;
+box-shadow:0 10px 30px rgba(0,0,0,.12);
+transition:.3s ease;
+transform:translateX(-100%);
 }
 
 .sidebar.active{
-left:0;
+transform:translateX(0);
 }
 
 /* top */
