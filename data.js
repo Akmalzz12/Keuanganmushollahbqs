@@ -143,7 +143,7 @@ const transaksi = {
       tipe: "pengeluaran",
       title: "Konsumsi kerja bakti",
       tanggal: "24 Mei 2026",
-      nominal: 185.000
+      nominal: 185000
     }
 
   ],
