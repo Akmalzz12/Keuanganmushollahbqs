@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Dashboard</title>
+
+<link rel="stylesheet" href="dashboard.css">
+
+<script src="data.js"></script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- tombol scroll -->
+  <button id="scrollTopBtn"
+  class="scroll-top">
+
+    <svg width="20"
+    height="20"
+    viewBox="0 0 24 24"
+    fill="none">
+
+      <path
+      d="M6 14l6-6 6 6"
+      stroke="white"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"/>
+
+    </svg>
+
+  </button>
+
+  <!-- HEADER -->
+  <div class="top-fixed">
+
+    <!-- NAVBAR -->
+    <div class="navbar">
+
+      <h1 class="navbar-title">
+        Kas Mushollah
+      </h1>
+
+      <button id="menuBtn"
+      class="menu-btn-navbar">
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+      </button>
+
+    </div>
+
+    <!-- OVERLAY -->
+    <div id="overlay"
+    class="overlay"></div>
+
+    <!-- SIDEBAR -->
+    <div id="sidebar"
+    class="sidebar">
+
+      <div class="sidebar-top">
+
+        <div class="sidebar-header">
+          Menu
+        </div>
+
+        <button id="closeSidebar"
+        class="close-sidebar">
+
+          ✕
+
+        </button>
+
+      </div>
+
+      <div class="sidebar-menu">
+
+        <a href="rekening.html"
+        class="sidebar-item">
+
+          <div class="sidebar-icon">
+            💳
+          </div>
+
+          <div class="sidebar-text">
+
+            <h3>Rekening Mushollah</h3>
+
+            <p>
+              Informasi rekening
+            </p>
+
+          </div>
+
+        </a>
+
+        <a href="struktur.html"
+        class="sidebar-item">
+
+          <div class="sidebar-icon">
+            👥
+          </div>
+
+          <div class="sidebar-text">
+
+            <h3>Struktur DKM</h3>
+
+            <p>
+              Pengurus mushollah
+            </p>
+
+          </div>
+
+        </a>
+
+      </div>
+
+    </div>
+
+    <!-- SALDO -->
+    <div class="section">
+
+      <div class="saldo-box">
+
+        <p class="saldo-title">
+
+          <span class="saldo-icon">
+            💰
+          </span>
+
+          Total Saldo
+
+        </p>
+
+        <h1 class="saldo-jumlah"
+        id="saldo">
+
+          Rp 0
+
+        </h1>
+
+        <p class="saldo-subtitle"
+        id="update">
+
+          -
+
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- BULAN -->
+    <div class="section">
+
+      <div class="bulan-box">
+
+        <select id="pilih-bulan">
+        </select>
+
+      </div>
+
+      <!-- MENU -->
+      <div class="menu-box">
+
+        <button
+        class="menu-btn active"
+        data-tipe="pemasukan">
+
+          Pemasukan
+
+        </button>
+
+        <button
+        class="menu-btn"
+        data-tipe="pengeluaran">
+
+          Pengeluaran
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- RIWAYAT -->
+  <div class="riwayat-scroll">
+
+    <div class="section">
+
+      <div class="riwayat-box">
+
+        <h2 class="riwayat-title">
+          Riwayat Transaksi
+        </h2>
+
+        <!-- list transaksi -->
+        <div id="riwayat-list"></div>
+
+        <!-- total -->
+        <div class="grand-total-box">
+
+          <p class="grand-label">
+            Total Keseluruhan
+          </p>
+
+          <h2 id="grand-total">
+            Rp 0
+          </h2>
+
+        </div>
+
+        <!-- end text -->
+        <div class="end-text">
+
+          Anda sudah mencapai akhir.<br>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+
+/* =========================
+   AMBIL ANGKA
+========================= */
+
+function ambilAngka(nominal){
+
+  if(
+    nominal === undefined ||
+    nominal === null ||
+    nominal === ""
+  ){
+    return 0;
+  }
+
+  return Number(nominal) || 0;
+
+}
+
+/* =========================
+   HITUNG TOTAL
+========================= */
+
+function hitungTotal(tipe){
+
+  let total = 0;
+
+  Object.values(transaksi).forEach(list => {
+
+    list.forEach(item => {
+
+      const tipeItem =
+      String(item.tipe)
+      .trim()
+      .toLowerCase();
+
+      if(tipeItem === tipe){
+
+        total += ambilAngka(item.nominal);
+
+      }
+
+    });
+
+  });
+
+  return total;
+
+}
+
+/* =========================
+   TOTAL & SALDO
+========================= */
+
+const totalPemasukan =
+hitungTotal("pemasukan");
+
+const totalPengeluaran =
+hitungTotal("pengeluaran");
+
+const saldo =
+totalPemasukan - totalPengeluaran;
+
+/* tampil saldo */
+
+document.getElementById("saldo")
+.innerText =
+"Rp " +
+saldo.toLocaleString("id-ID");
+
+/* =========================
+   LAST UPDATE
+========================= */
+
+document.getElementById("update")
+.innerText = lastUpdate;
+
+/* =========================
+   PILIH BULAN
+========================= */
+
+const selectBulan =
+document.getElementById("pilih-bulan");
+
+daftarBulan.forEach((bulan)=>{
+
+  const option =
+  document.createElement("option");
+
+  option.value = bulan;
+
+  option.textContent = bulan;
+
+  selectBulan.appendChild(option);
+
+});
+
+/* =========================
+   FILTER TIPE
+========================= */
+
+let tipeAktif =
+"pemasukan";
+
+const buttons =
+document.querySelectorAll(".menu-btn");
+
+buttons.forEach((btn)=>{
+
+  btn.addEventListener("click",()=>{
+
+    buttons.forEach((b)=>{
+      b.classList.remove("active");
+    });
+
+    btn.classList.add("active");
+
+    tipeAktif =
+    btn.dataset.tipe;
+
+    tampilkanTransaksi();
+
+  });
+
+});
+
+/* =========================
+   TAMPIL TRANSAKSI
+========================= */
+
+const list =
+document.getElementById("riwayat-list");
+
+function tampilkanTransaksi(){
+
+  const bulanDipilih =
+  selectBulan.value;
+
+  const dataBulan =
+  transaksi[bulanDipilih] || [];
+
+  let html = "";
+  let total = 0;
+
+  dataBulan.forEach((item)=>{
+
+    const tipeItem =
+    String(item.tipe)
+    .trim()
+    .toLowerCase();
+
+    if(tipeItem === tipeAktif){
+
+      const angka =
+      ambilAngka(item.nominal);
+
+      total += angka;
+
+      html += `
+
+      <div class="item">
+
+        <div class="item-left">
+
+          <h3>${item.title}</h3>
+
+          <p>${item.tanggal}</p>
+
+        </div>
+
+        <div class="
+          nominal
+          ${tipeItem}
+        ">
+
+          ${tipeItem === "pemasukan" ? "+" : "-"}Rp ${angka.toLocaleString("id-ID")}
+
+        </div>
+
+      </div>
+
+      `;
+
+    }
+
+  });
+
+  /* tampil transaksi */
+
+  list.innerHTML = html;
+
+  /* tampil total */
+
+  const grandTotal =
+  document.getElementById("grand-total");
+
+  grandTotal.innerText =
+  "Rp " +
+  total.toLocaleString("id-ID");
+
+  /* warna total */
+
+  if(tipeAktif === "pemasukan"){
+
+    grandTotal.style.color =
+    "#16a34a";
+
+  } else {
+
+    grandTotal.style.color =
+    "#ef4444";
+
+  }
+
+}
+
+/* pertama kali */
+
+tampilkanTransaksi();
+
+/* ganti bulan */
+
+selectBulan.addEventListener(
+"change",
+tampilkanTransaksi
+);
+
+/* =========================
+   SCROLL TO TOP
+========================= */
+
+const scrollBtn =
+document.getElementById(
+"scrollTopBtn"
+);
+
+const scrollArea =
+document.querySelector(
+".riwayat-scroll"
+);
+
+scrollArea.addEventListener(
+"scroll",
+()=>{
+
+  if(scrollArea.scrollTop > 200){
+
+    scrollBtn.style.display =
+    "flex";
+
+  } else {
+
+    scrollBtn.style.display =
+    "none";
+
+  }
+
+});
+
+scrollBtn.addEventListener(
+"click",
+()=>{
+
+  scrollArea.scrollTo({
+
+    top:0,
+    behavior:"smooth"
+
+  });
+
+});
+
+/* =========================
+   SIDEBAR
+========================= */
+
+const menuBtn =
+document.getElementById("menuBtn");
+
+const sidebar =
+document.getElementById("sidebar");
+
+const overlay =
+document.getElementById("overlay");
+
+const closeSidebar =
+document.getElementById("closeSidebar");
+
+menuBtn.addEventListener("click",()=>{
+
+  sidebar.classList.add("active");
+  overlay.classList.add("active");
+
+});
+
+overlay.addEventListener("click",()=>{
+
+  sidebar.classList.remove("active");
+  overlay.classList.remove("active");
+
+});
+
+closeSidebar.addEventListener("click",()=>{
+
+  sidebar.classList.remove("active");
+  overlay.classList.remove("active");
+
+});
+
+</script>
+
+</body>
+</html>

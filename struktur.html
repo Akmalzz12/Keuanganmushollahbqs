@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>struktur Anggota</title>
+
+<link rel="stylesheet"
+href="dashboard.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- NAVBAR -->
+  <div class="navbar">
+
+    <h1 class="navbar-title">
+      Struktur Anggota
+    </h1>
+
+    <button id="menuBtn"
+    class="menu-btn-navbar">
+
+      <span></span>
+      <span></span>
+      <span></span>
+
+    </button>
+
+  </div>
+
+  <!-- OVERLAY -->
+  <div id="overlay"
+  class="overlay"></div>
+
+  <!-- SIDEBAR -->
+  <div id="sidebar"
+  class="sidebar">
+
+    <div class="sidebar-top">
+
+      <div class="sidebar-header">
+        Menu
+      </div>
+
+      <button id="closeSidebar"
+      class="close-sidebar">
+
+        ✕
+
+      </button>
+
+    </div>
+
+    <div class="sidebar-menu">
+
+      <a href="dashboard.html"
+      class="sidebar-item">
+
+        <div class="sidebar-icon">
+          📊
+        </div>
+
+        <div class="sidebar-text">
+
+          <h3>Dashboard</h3>
+
+          <p>
+            Laporan kas
+          </p>
+
+        </div>
+
+      </a>
+
+      <a href="rekening.html"
+      class="sidebar-item">
+
+        <div class="sidebar-icon">
+          💳
+        </div>
+
+        <div class="sidebar-text">
+
+          <h3>Rekening mushollah</h3>
+
+          <p>
+            Informasi rekening
+          </p>
+
+        </div>
+
+      </a>
+
+    </div>
+
+  </div>
+
+  <!-- CONTENT -->
+  <div class="struktur-page">
+
+  <div class="jabatan-card">
+    <p class="jabatan-title">
+      Ketua DKM
+    </p>
+    <h2 class="jabatan-name">
+      Ustadz Muhammad Nur
+    </h2>
+  </div>
+
+  <div class="jabatan-card">
+    <p class="jabatan-title">
+      Wakil DKM
+    </p>
+    <h2 class="jabatan-name">
+      Muhammad Chaidir
+    </h2>
+  </div>
+
+  <div class="jabatan-card">
+    <p class="jabatan-title">
+      Sekretaris
+    </p>
+    <h2 class="jabatan-name">
+      Ibrahim Adi
+    </h2>
+  </div>
+  
+  <div class="jabatan-card">
+    <p class="jabatan-title">
+      Bendahara 1
+    </p>
+    <h2 class="jabatan-name">
+      Akhmad Zamyani
+    </h2>
+  </div>
+  
+  <div class="jabatan-card">
+    <p class="jabatan-title">
+      Bendahara 2
+    </p>
+    <h2 class="jabatan-name">
+      Muh. Akmal Apriyansyah
+    </h2>
+  </div>
+  
+  <div class="jabatan-card">
+    <p class="jabatan-title">
+      Ketua Umum
+    </p>
+    <h2 class="jabatan-name">
+      Zainal
+    </h2>
+  </div>
+  
+  <div class="jabatan-card">
+    <p class="jabatan-title">
+      Ketua Kerohanian
+    </p>
+    <h2 class="jabatan-name">
+      Aji Pangestu
+    </h2>
+  </div>
+  
+  <div class="jabatan-card">
+    <p class="jabatan-title">
+      Ketua Kepemudaan
+    </p>
+    <h2 class="jabatan-name">
+      Iqbal Ghifari
+    </h2>
+  </div>
+
+</div>
+
+<script>
+
+/* =========================
+   SIDEBAR
+========================= */
+
+const menuBtn =
+document.getElementById("menuBtn");
+
+const sidebar =
+document.getElementById("sidebar");
+
+const overlay =
+document.getElementById("overlay");
+
+const closeSidebar =
+document.getElementById("closeSidebar");
+
+menuBtn.addEventListener("click",()=>{
+
+  sidebar.classList.add("active");
+  overlay.classList.add("active");
+
+});
+
+overlay.addEventListener("click",()=>{
+
+  sidebar.classList.remove("active");
+  overlay.classList.remove("active");
+
+});
+
+closeSidebar.addEventListener("click",()=>{
+
+  sidebar.classList.remove("active");
+  overlay.classList.remove("active");
+
+});
+
+/* =========================
+   COPY REKENING
+========================= */
+
+function copyRekening(nomor){
+
+  navigator.clipboard.writeText(nomor);
+
+  alert("Nomor rekening berhasil disalin");
+
+}
+
+</script>
+
+</body>
+</html>
