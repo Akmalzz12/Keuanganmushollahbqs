@@ -58,26 +58,40 @@ function login(){
   const password =
   document.getElementById("password").value;
 
-  // username & password
-  const userBenar = "Mei";
-  const passBenar = "2026";
+  /* username */
+  const userBenar = "A";
+
+  /* banyak password */
+  const daftarPassword = [
+
+    "a",
+    "admin123",
+    "mushollah",
+    "dkm2026"
+
+  ];
+
+  /* cek login */
 
   if(
+
     username === userBenar &&
-    password === passBenar
+    daftarPassword.includes(password)
+
   ){
 
-    // pindah halaman
+    /* pindah halaman */
+
     window.location.href =
     "dashboard.html";
 
-  }else{
+  } else {
 
     alert("Username atau password salah");
 
   }
 
-}
+    }
 
 </script>
 
