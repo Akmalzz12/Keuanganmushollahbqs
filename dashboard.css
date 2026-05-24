@@ -312,7 +312,7 @@ border-radius:10px;
 .sidebar{
 position:fixed;
 top:0;
-left:-280px;
+left:-100px;
 width:320px;
 height:100vh;
 background:white;
