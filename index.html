@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Keuangan</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="login-box">
+
+    <h1>Login</h1>
+
+    <p>Silakan masuk ke akun Anda</p>
+
+    <div class="input-group">
+  <label>Username</label>
+
+  <input
+    type="text"
+    id="username"
+    placeholder="Masukkan username">
+</div>
+
+<div class="input-group">
+  <label>Password</label>
+
+  <input
+    type="password"
+    id="password"
+    placeholder="Masukkan password">
+</div>
+
+    <button
+class="login-btn"
+onclick="login()">
+
+  Login
+
+</button>
+
+    <div class="footer-text">
+      Sistem Pencatatan Keuangan Mushollah Baqiatus Sholihat
+    </div>
+
+  </div>
+  
+  <script>
+
+function login(){
+
+  const username =
+  document.getElementById("username").value;
+
+  const password =
+  document.getElementById("password").value;
+
+  // username & password
+  const userBenar = "A";
+  const passBenar = "a";
+
+  if(
+    username === userBenar &&
+    password === passBenar
+  ){
+
+    // pindah halaman
+    window.location.href =
+    "dashboard.html";
+
+  }else{
+
+    alert("Username atau password salah");
+
+  }
+
+}
+
+</script>
+
+</body>
+</html>
