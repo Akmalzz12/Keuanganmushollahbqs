@@ -9,7 +9,7 @@ font-family:'Poppins',sans-serif;
 
 body{
 background:#f4f7fb;
-height:100vh;
+min-height:100vh;
 overflow:hidden;
 }
 
