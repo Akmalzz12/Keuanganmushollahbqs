@@ -1,5 +1,5 @@
 const lastUpdate =
-"Update terakhir 23 Mei 2026";
+"Update terakhir 24 Mei 2026";
 
 const daftarBulan = [
 
@@ -138,6 +138,12 @@ const transaksi = {
       title: "Tagihan listrik",
       tanggal: "14 Mei 2026",
       nominal: 385000
+    },
+    {
+      tipe: "pengeluaran",
+      title: "Konsumsi kerja bakti",
+      tanggal: "24 Mei 2026",
+      nominal: 185.000
     }
 
   ],
