@@ -34,6 +34,15 @@ flex-direction:column;
 padding:0 15px;
 }
 
+/* bagian riwayat bisa scroll */
+
+.riwayat-scroll{
+flex:1;
+overflow-y:auto;
+background:#f4f7fb;
+padding-bottom:48px;
+}
+
 /* =========================
    SALDO
 ========================= */
@@ -201,15 +210,6 @@ color:#ef4444;
 padding-top: 5px;
 background:#f4f7fb;
 z-index:10;
-}
-
-/* bagian riwayat bisa scroll */
-
-.riwayat-scroll{
-flex:1;
-overflow-y:auto;
-padding:10px 0 30px;
-background:#f4f7fb;
 }
 
 .section:last-child{
@@ -537,4 +537,29 @@ text-transform:uppercase;
 font-size:19px;
 color:#2563eb;
 font-weight:700;
+}
+
+/* =========================
+   FOOTER
+========================= */
+.footer{
+width:100%;
+margin-top:24px;
+padding:20px 16px;
+background:#2563eb;
+border-top:1px solid #e5e7eb;
+text-align:center;
+}
+
+.footer p{
+font-size:15px;
+font-weight:600;
+color:white;
+margin-bottom:4px;
+font-family:'Poppins',sans-serif;
+}
+
+.footer span{
+font-size:14px;
+color:white;
 }
