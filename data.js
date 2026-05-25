@@ -159,7 +159,7 @@ const transaksi = {
     },
     {
       tipe: "pengeluaran",
-      title: "Tambahan amplop ustadz Fatih",
+      title: "Tambahan bayar ustdz Fatih",
       tanggal: "24 Mei 2026",
       nominal: 50000
     }
