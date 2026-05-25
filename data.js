@@ -144,6 +144,18 @@ const transaksi = {
       title: "Konsumsi kerja bakti",
       tanggal: "24 Mei 2026",
       nominal: 185000
+    },
+    {
+      tipe: "pengeluaran",
+      title: "Beli tissue jelly 1",
+      tanggal: "24 Mei 2026",
+      nominal: 10000
+    },
+    {
+      tipe: "pengeluaran",
+      title: "Beli kantong plastik",
+      tanggal: "24 Mei 2026",
+      nominal: 7000
     }
 
   ],
