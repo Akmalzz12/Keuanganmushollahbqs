@@ -3,67 +3,404 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0">
 
-<title>struktur Anggota</title>
+<title>Struktur Pengurus</title>
 
-<link rel="stylesheet"
-href="dashboard.css">
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#f5f7fb;
+color:#111827;
+overflow-x:hidden;
+}
+
+/* NAVBAR */
+
+.navbar{
+position:sticky;
+top:0;
+left:0;
+width:100%;
+height:64px;
+background:white;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 10px;
+box-shadow:0 6px 18px rgba(0,0,0,.05);
+z-index:1000;
+}
+
+.navbar-title{
+font-size:18px;
+font-weight:700;
+font-family:'Poppins',sans-serif;
+}
+
+.navbar-left{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.back-btn{
+display:flex;
+align-items:center;
+justify-content:center;
+text-decoration:none;
+color:#111827;
+}
+
+/* HAMBURGER */
+
+.menu-btn{
+border:none;
+background:none;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+gap:6px;
+cursor:pointer;
+padding:4px;
+width:42px;
+height:42px;
+}
+
+.menu-btn span{
+width:26px;
+height:2.8px;
+background:#111827;
+border-radius:999px;
+}
+
+/* OVERLAY */
+
+.overlay{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.35);
+opacity:0;
+visibility:hidden;
+transition:.25s;
+z-index:1500;
+}
+
+.overlay.active{
+opacity:1;
+visibility:visible;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+position:fixed;
+top:0;
+left:0;
+width:78%;
+max-width:300px;
+height:100vh;
+background:white;
+padding:24px 18px;
+box-shadow:0 10px 30px rgba(0,0,0,.12);
+transform:translateX(-100%);
+transition:.3s ease;
+z-index:2000;
+display:flex;
+flex-direction:column;
+}
+
+.sidebar.active{
+transform:translateX(0);
+}
+
+.sidebar-top{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:26px;
+}
+
+.sidebar-title{
+font-size:22px;
+font-weight:700;
+}
+
+.close-btn{
+width:40px;
+height:40px;
+border:none;
+border-radius:12px;
+background:#f1f5f9;
+font-size:18px;
+cursor:pointer;
+}
+
+/* MENU */
+
+.sidebar-menu{
+display:flex;
+flex-direction:column;
+gap:12px;
+}
+
+.sidebar-item{
+display:flex;
+align-items:center;
+gap:14px;
+padding:16px;
+border-radius:20px;
+background:#f8fafc;
+text-decoration:none;
+border:1px solid #e5e7eb;
+color:#111827;
+}
+
+.sidebar-icon{
+display:flex;
+align-items:center;
+justify-content:center;
+width:42px;
+height:42px;
+min-width:42px;
+border-radius:12px;
+background:#eff6ff;
+color:#2563eb;
+}
+
+.sidebar-text{
+display:flex;
+flex-direction:column;
+justify-content:center;
+}
+
+.sidebar-text h3{
+font-size:15px;
+font-weight:600;
+margin:0;
+line-height:1.2;
+}
+
+.sidebar-text p{
+font-size:12px;
+color:#64748b;
+margin-top:2px;
+line-height:1.2;
+}
+
+/* PAGE */
+
+.page{
+padding:44px 16px 40px;
+}
+
+/* STRUKTUR */
+
+.struktur-container{
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:18px;
+}
+
+.line{
+width:2px;
+height:26px;
+background:#cbd5e1;
+border-radius:20px;
+}
+
+.row{
+display:flex;
+justify-content:center;
+gap:14px;
+flex-wrap:wrap;
+width:100%;
+}
+
+.bottom-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:14px;
+width:100%;
+}
+
+.kepemudaan-wrap{
+display:flex;
+justify-content:center;
+width:100%;
+margin-top:14px;
+}
+
+/* CARD */
+
+.jabatan{
+background:white;
+border:1px solid #dbeafe;
+border-radius:24px;
+padding:18px 16px;
+text-align:center;
+box-shadow:
+0 8px 20px rgba(0,0,0,.05);
+min-width:170px;
+}
+
+.jabatan.utama{
+background:
+linear-gradient(
+135deg,
+#2563eb,
+#1d4ed8
+);
+
+color:white;
+border:none;
+
+padding:26px 20px;
+
+box-shadow:
+0 14px 35px rgba(37,99,235,.25);
+}
+
+.badge{
+display:inline-block;
+padding:6px 12px;
+border-radius:999px;
+font-size:11px;
+font-weight:600;
+background:#eff6ff;
+color:#2563eb;
+margin-bottom:10px;
+}
+
+.jabatan.utama .badge{
+background:
+rgba(255,255,255,.18);
+color:white;
+}
+
+.jabatan h2{
+font-size:22px;
+font-weight:700;
+margin:0;
+}
+
+.jabatan h3{
+font-size:17px;
+font-weight:600;
+margin:0;
+color:#111827;
+}
+
+.jabatan h4{
+font-size:15px;
+font-weight:600;
+margin:0;
+color:#111827;
+}
+
+</style>
 
 </head>
 
 <body>
 
-<div class="container">
+<!-- NAVBAR -->
 
-  <!-- NAVBAR -->
-  <div class="navbar">
+<div class="navbar">
 
-    <h1 class="navbar-title">
-      Struktur Anggota
-    </h1>
+<div class="navbar-left">
 
-    <button id="menuBtn"
-    class="menu-btn-navbar">
+<a
+href="dashboard.html"
+class="back-btn">
 
-      <span></span>
-      <span></span>
-      <span></span>
+<svg
+xmlns="http://www.w3.org/2000/svg"
+width="22"
+height="22"
+viewBox="0 0 24 24"
+fill="none"
+stroke="currentColor"
+stroke-width="2.5"
+stroke-linecap="round"
+stroke-linejoin="round">
 
-    </button>
+<path d="m15 18-6-6 6-6"/>
 
-  </div>
+</svg>
 
-  <!-- OVERLAY -->
-  <div id="overlay"
-  class="overlay"></div>
+</a>
 
-  <!-- SIDEBAR -->
-  <div id="sidebar"
-  class="sidebar">
+<div class="navbar-title">
+Struktur Pengurus
+</div>
 
-    <div class="sidebar-top">
+</div>
 
-      <div class="sidebar-header">
-        Menu
-      </div>
+<button
+class="menu-btn"
+id="menuBtn">
 
-      <button id="closeSidebar"
-      class="close-sidebar">
+<span></span>
+<span></span>
+<span></span>
 
-        ✕
+</button>
 
-      </button>
+</div>
 
-    </div>
+<!-- OVERLAY -->
 
-    <div class="sidebar-menu">
+<div
+class="overlay"
+id="overlay">
+</div>
 
-      <a href="dashboard.html"
-      class="sidebar-item">
+<!-- SIDEBAR -->
 
-        <div class="sidebar-icon">
+<div
+class="sidebar"
+id="sidebar">
+
+<div class="sidebar-top">
+
+<div class="sidebar-title">
+Menu
+</div>
+
+<button
+class="close-btn"
+id="closeBtn">
+
+✕
+
+</button>
+
+</div>
+
+<div class="sidebar-menu">
+
+<a
+href="dashboard.html"
+class="sidebar-item">
+
+<div class="sidebar-icon">
 
 <svg
 xmlns="http://www.w3.org/2000/svg"
@@ -82,24 +419,28 @@ stroke-linejoin="round">
 <rect x="14" y="14" width="7" height="7" rx="2"></rect>
 
 </svg>
+
 </div>
 
-        <div class="sidebar-text">
+<div class="sidebar-text">
 
-          <h3>Dashboard</h3>
+<h3>
+Dashboard
+</h3>
 
-          <p>
-            Laporan keuangan
-          </p>
+<p>
+Halaman utama
+</p>
 
-        </div>
+</div>
 
-      </a>
+</a>
 
-      <a href="rekening.html"
-      class="sidebar-item">
+<a
+href="rekening.html"
+class="sidebar-item">
 
-        <div class="sidebar-icon">
+<div class="sidebar-icon">
 
 <svg
 xmlns="http://www.w3.org/2000/svg"
@@ -112,157 +453,245 @@ stroke-width="2"
 stroke-linecap="round"
 stroke-linejoin="round">
 
-<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-<circle cx="9" cy="7" r="4"></circle>
-<path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-<path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+<rect
+x="2"
+y="5"
+width="20"
+height="14"
+rx="2">
+</rect>
+
+<path d="M16 12h2"></path>
+<path d="M2 9h20"></path>
 
 </svg>
+
 </div>
 
-        <div class="sidebar-text">
+<div class="sidebar-text">
 
-          <h3>Rekening mushollah</h3>
+<h3>
+Rekening Mushollah
+</h3>
 
-          <p>
-            Informasi rekening
-          </p>
+<p>
+Informasi rekening
+</p>
 
-        </div>
+</div>
 
-      </a>
+</a>
 
-    </div>
+</div>
 
-  </div>
+</div>
 
-  <!-- CONTENT -->
-  <div class="struktur-page">
+<!-- PAGE -->
 
-  <div class="jabatan-card">
-    <p class="jabatan-title">
-      Ketua DKM
-    </p>
-    <h2 class="jabatan-name">
-      Ustadz Muhammad Nur
-    </h2>
-  </div>
+<div class="page">
 
-  <div class="jabatan-card">
-    <p class="jabatan-title">
-      Wakil DKM
-    </p>
-    <h2 class="jabatan-name">
-      Muhammad Chaidir
-    </h2>
-  </div>
+<!-- STRUKTUR -->
 
-  <div class="jabatan-card">
-    <p class="jabatan-title">
-      Sekretaris
-    </p>
-    <h2 class="jabatan-name">
-      Ibrahim Adi
-    </h2>
-  </div>
-  
-  <div class="jabatan-card">
-    <p class="jabatan-title">
-      Bendahara 1
-    </p>
-    <h2 class="jabatan-name">
-      Akhmad Zamyani
-    </h2>
-  </div>
-  
-  <div class="jabatan-card">
-    <p class="jabatan-title">
-      Bendahara 2
-    </p>
-    <h2 class="jabatan-name">
-      Muh. Akmal Apriyansyah
-    </h2>
-  </div>
-  
-  <div class="jabatan-card">
-    <p class="jabatan-title">
-      Ketua Umum
-    </p>
-    <h2 class="jabatan-name">
-      Zainal
-    </h2>
-  </div>
-  
-  <div class="jabatan-card">
-    <p class="jabatan-title">
-      Ketua Kerohanian
-    </p>
-    <h2 class="jabatan-name">
-      Aji Pangestu
-    </h2>
-  </div>
-  
-  <div class="jabatan-card">
-    <p class="jabatan-title">
-      Ketua Kepemudaan
-    </p>
-    <h2 class="jabatan-name">
-      Iqbal Ghifari
-    </h2>
-  </div>
+<div class="struktur-container">
+
+<!-- Ketua -->
+
+<div class="jabatan utama">
+
+<span class="badge">
+Ketua DKM
+</span>
+
+<h2>
+Ustadz Muhammad Nur
+</h2>
+
+</div>
+
+<div class="line"></div>
+
+<!-- Wakil -->
+
+<div class="jabatan">
+
+<span class="badge">
+Wakil Ketua
+</span>
+
+<h3>
+Muhammad Chaidir
+</h3>
+
+</div>
+
+<div class="line"></div>
+
+<!-- Sekretaris -->
+
+<div class="jabatan">
+
+<span class="badge">
+Sekretaris
+</span>
+
+<h3>
+Ibrahim Adi
+</h3>
+
+</div>
+
+<div class="line"></div>
+
+<!-- Bendahara -->
+
+<div class="row">
+
+<div class="jabatan">
+
+<span class="badge">
+Bendahara 1
+</span>
+
+<h3>
+Akhmad Zamyani
+</h3>
+
+</div>
+
+<div class="jabatan">
+
+<span class="badge">
+Bendahara 2
+</span>
+
+<h3>
+Muh. Akmal. A
+</h3>
+
+</div>
+
+</div>
+
+<div class="line"></div>
+
+<!-- Ketua Umum & Kerohanian -->
+
+<div class="bottom-grid">
+
+<div class="jabatan">
+
+<span class="badge">
+Ketua Umum
+</span>
+
+<h4>
+Zainal
+</h4>
+
+</div>
+
+<div class="jabatan">
+
+<span class="badge">
+Ket. Kerohanian
+</span>
+
+<h4>
+Aji Pangestu
+</h4>
+
+</div>
+
+</div>
+
+<!-- Kepemudaan -->
+
+<div class="kepemudaan-wrap">
+
+<div class="jabatan">
+
+<span class="badge">
+Ket. Kepemudaan
+</span>
+
+<h4>
+Iqbal Ghifari
+</h4>
+
+</div>
+
+</div>
+
+</div>
 
 </div>
 
 <script>
 
-/* =========================
-   SIDEBAR
-========================= */
-
 const menuBtn =
-document.getElementById("menuBtn");
+document.getElementById(
+"menuBtn"
+);
 
 const sidebar =
-document.getElementById("sidebar");
+document.getElementById(
+"sidebar"
+);
 
 const overlay =
-document.getElementById("overlay");
+document.getElementById(
+"overlay"
+);
 
-const closeSidebar =
-document.getElementById("closeSidebar");
+const closeBtn =
+document.getElementById(
+"closeBtn"
+);
 
-menuBtn.addEventListener("click",()=>{
+menuBtn.addEventListener(
+"click",
+()=>{
 
-  sidebar.classList.add("active");
-  overlay.classList.add("active");
+sidebar.classList.add(
+"active"
+);
 
-});
-
-overlay.addEventListener("click",()=>{
-
-  sidebar.classList.remove("active");
-  overlay.classList.remove("active");
-
-});
-
-closeSidebar.addEventListener("click",()=>{
-
-  sidebar.classList.remove("active");
-  overlay.classList.remove("active");
-
-});
-
-/* =========================
-   COPY REKENING
-========================= */
-
-function copyRekening(nomor){
-
-  navigator.clipboard.writeText(nomor);
-
-  alert("Nomor rekening berhasil disalin");
+overlay.classList.add(
+"active"
+);
 
 }
+);
+
+overlay.addEventListener(
+"click",
+()=>{
+
+sidebar.classList.remove(
+"active"
+);
+
+overlay.classList.remove(
+"active"
+);
+
+}
+);
+
+closeBtn.addEventListener(
+"click",
+()=>{
+
+sidebar.classList.remove(
+"active"
+);
+
+overlay.classList.remove(
+"active"
+);
+
+}
+);
 
 </script>
 
