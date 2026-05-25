@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
 *{
   margin:0;
   padding:0;
@@ -28,6 +30,7 @@ body{
   text-align:center;
   margin-bottom:10px;
   font-size:32px;
+  font-family:'Poppins',sans-serif;
 }
 
 .login-box p{
@@ -80,6 +83,7 @@ body{
   font-weight:bold;
   cursor:pointer;
   transition:0.3s;
+  font-family:'Poppins',sans-serif;
 }
 
 .login-btn:hover{
