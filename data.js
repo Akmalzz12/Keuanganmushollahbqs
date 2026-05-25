@@ -147,7 +147,7 @@ const transaksi = {
     },
     {
       tipe: "pengeluaran",
-      title: "Beli tissue jelly 1",
+      title: "Beli tissue jelly 1 pack",
       tanggal: "24 Mei 2026",
       nominal: 10000
     },
@@ -156,6 +156,12 @@ const transaksi = {
       title: "Beli kantong plastik",
       tanggal: "24 Mei 2026",
       nominal: 7000
+    },
+    {
+      tipe: "pengeluaran",
+      title: "Tambahan amplop ustadz Fatih",
+      tanggal: "24 Mei 2026",
+      nominal: 50000
     }
 
   ],
