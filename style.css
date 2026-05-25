@@ -10,8 +10,7 @@ body{
   display:flex;
   justify-content:center;
   align-items:center;
-  background:
-  linear-gradient(135deg,#0f172a,#1e293b);
+  background:white;
 }
 
 .login-box{
@@ -23,20 +22,20 @@ body{
   border:1px solid rgba(255,255,255,0.1);
   box-shadow:
   0 10px 30px rgba(0,0,0,0.3);
-  color:white;
+  color:#2563eb;
 }
 
 .login-box h1{
   text-align:center;
   margin-bottom:10px;
-  font-size:28px;
+  font-size:32px;
 }
 
 .login-box p{
   text-align:center;
   margin-bottom:30px;
-  color:#cbd5e1;
-  font-size:14px;
+  color:#444444;
+  font-size:16px;
 }
 
 .input-group{
@@ -47,13 +46,13 @@ body{
   display:block;
   margin-bottom:8px;
   font-size:14px;
-  color:#e2e8f0;
+  color:#2563eb;
 }
 
 .input-group input{
   width:100%;
   padding:14px;
-  border:none;
+  border:2px solid #2563eb;
   outline:none;
   border-radius:12px;
   background:rgba(255,255,255,0.1);
@@ -76,7 +75,7 @@ body{
   padding:14px;
   border:none;
   border-radius:12px;
-  background:#38bdf8;
+  background:#2563eb;
   color:white;
   font-size:16px;
   font-weight:bold;
@@ -91,7 +90,7 @@ body{
 
 .footer-text{
   text-align:center;
-  margin-top:20px;
-  font-size:13px;
-  color:#94a3b8;
+  margin-top:22px;
+  font-size:15px;
+  color:#444444;
 }
