@@ -364,10 +364,65 @@ totalPemasukan - totalPengeluaran;
 
 /* tampil saldo */
 
-document.getElementById("saldo")
-.innerText =
+const saldoElement =
+document.getElementById("saldo");
+
+function animasiSaldo(target){
+
+let dots = 0;
+
+/* animasi menghitung */
+
+const loadingInterval =
+setInterval(()=>{
+
+dots++;
+
+if(dots > 3){
+dots = 1;
+}
+
+saldoElement.innerText =
+"Menghitung" + ".".repeat(dots);
+
+},200);
+
+/* tunggu sebelum animasi saldo */
+
+setTimeout(()=>{
+
+clearInterval(loadingInterval);
+
+let current = 0;
+
+const increment =
+target / 80;
+
+const interval =
+setInterval(()=>{
+
+current += increment;
+
+if(current >= target){
+
+current = target;
+
+clearInterval(interval);
+
+}
+
+saldoElement.innerText =
 "Rp " +
-saldo.toLocaleString("id-ID");
+Math.floor(current)
+.toLocaleString("id-ID");
+
+},15);
+
+},4000);
+
+}
+
+animasiSaldo(saldo);
 
 /* =========================
    LAST UPDATE
