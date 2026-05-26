@@ -559,9 +559,8 @@ font-weight:700;
 ========================= */
 .footer{
 position:relative;
-left:50%;
-transform:translateX(-50%);
 width:100vw;
+margin-left:calc(50% - 50vw);
 margin-top:24px;
 padding:20px 16px;
 background:#2563eb;
