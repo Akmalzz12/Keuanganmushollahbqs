@@ -558,19 +558,22 @@ font-weight:700;
    FOOTER
 ========================= */
 .footer{
-width:100%;
-margin-top:24px;
-padding:20px 16px;
+width:calc(100% + 32px);
+margin-left:-16px;
+margin-top:40px;
+margin-bottom:-1px;
 background:#2563eb;
 border-top:1px solid #e5e7eb;
+padding:25px 20px;
 text-align:center;
 }
 
 .footer p{
 font-size:15px;
-font-weight:600;
 color:white;
-margin-bottom:4px;
+line-height:1.6;
+margin-bottom:6px;
+font-weight:600;
 font-family:'Poppins',sans-serif;
 }
 
