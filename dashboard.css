@@ -55,7 +55,7 @@ color:white;
 box-shadow:0 10px 50px rgba(37,99,235,.25);
 position:relative;
 overflow:hidden;
-margin-top: 15px;
+margin-top: 10px;
 }
 
 .saldo-box::before{
