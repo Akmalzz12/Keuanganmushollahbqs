@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
+html,body{
+margin:0;
+padding:0;
+width:100%;
+overflow-x:hidden;
+}
+
 *{
 margin:0;
 padding:0;
@@ -558,13 +565,15 @@ font-weight:700;
    FOOTER
 ========================= */
 .footer{
-width:100%;
+position:relative;
+left:50%;
+transform:translateX(-50%);
+width:100vw;
 margin-top:24px;
-padding:20px 16px;
+padding:20px 16px 35px;
 background:#2563eb;
 border-top:1px solid #e5e7eb;
 text-align:center;
-padding-bottom:20px;
 }
 
 .footer p{
