@@ -4,6 +4,11 @@
    RESET
 ========================= */
 
+html,
+body{
+overflow-x:hidden;
+}
+
 *{
 margin:0;
 padding:0;
@@ -34,7 +39,6 @@ min-height:100vh;
 margin:auto;
 display:flex;
 flex-direction:column;
-overflow:hidden;
 }
 
 /* =========================
@@ -500,7 +504,10 @@ font-weight:700;
 ========================= */
 
 .footer{
-width:100%;
+position:relative;
+left:50%;
+transform:translateX(-50%);
+width:100vw;
 margin-top:40px;
 background:#2563eb;
 border-top:1px solid #e5e7eb;
