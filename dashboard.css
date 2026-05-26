@@ -292,8 +292,7 @@ align-items:center;
 gap:5px;
 cursor:pointer;
 padding:0;
-
-margin-right:4px;
+transform:translateX(-6px);
 }
 
 .menu-btn-navbar span{
