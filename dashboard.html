@@ -46,16 +46,16 @@ content="width=device-width, initial-scale=1.0">
 
       <div class="navbar-brand">
 
-  <img
-  src="logo.png"
-  alt="Logo Mushollah"
-  class="navbar-logo">
+        <img
+        src="logo.png"
+        alt="Logo Mushollah"
+        class="navbar-logo">
 
-  <h1 class="navbar-title">
-    Kas Mushollah Baqiatus
-  </h1>
+        <h1 class="navbar-title">
+          Kas Mushollah Baqiatus
+        </h1>
 
-</div>
+      </div>
 
       <button id="menuBtn"
       class="menu-btn-navbar">
@@ -98,31 +98,31 @@ content="width=device-width, initial-scale=1.0">
 
           <div class="sidebar-icon">
 
-<svg
-xmlns="http://www.w3.org/2000/svg"
-width="22"
-height="22"
-viewBox="0 0 24 24"
-fill="none"
-stroke="currentColor"
-stroke-width="2"
-stroke-linecap="round"
-stroke-linejoin="round">
+            <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round">
 
-<rect
-x="2"
-y="5"
-width="20"
-height="14"
-rx="2">
-</rect>
+              <rect
+              x="2"
+              y="5"
+              width="20"
+              height="14"
+              rx="2">
+              </rect>
 
-<path d="M16 12h2"></path>
-<path d="M2 9h20"></path>
+              <path d="M16 12h2"></path>
+              <path d="M2 9h20"></path>
 
-</svg>
-</div>
+            </svg>
 
+          </div>
 
           <div class="sidebar-text">
 
@@ -139,26 +139,27 @@ rx="2">
         <a href="struktur.html"
         class="sidebar-item">
 
-         <div class="sidebar-icon">
+          <div class="sidebar-icon">
 
-<svg
-xmlns="http://www.w3.org/2000/svg"
-width="22"
-height="22"
-viewBox="0 0 24 24"
-fill="none"
-stroke="currentColor"
-stroke-width="2"
-stroke-linecap="round"
-stroke-linejoin="round">
+            <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round">
 
-<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-<circle cx="9" cy="7" r="4"></circle>
-<path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-<path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
 
-</svg>
-</div>
+            </svg>
+
+          </div>
 
           <div class="sidebar-text">
 
@@ -244,37 +245,44 @@ stroke-linejoin="round">
 
   </div>
 
-  <!-- RIWAYAT -->
-<div class="riwayat-scroll">
+  <!-- MAIN CONTENT -->
+  <div class="main-content">
 
-  <div class="section">
+    <!-- RIWAYAT -->
+    <div class="riwayat-scroll">
 
-    <div class="riwayat-box">
+      <div class="section">
 
-      <h2 class="riwayat-title">
-        Riwayat Transaksi
-      </h2>
+        <div class="riwayat-box">
 
-      <!-- list transaksi -->
-      <div id="riwayat-list"></div>
+          <h2 class="riwayat-title">
+            Riwayat Transaksi
+          </h2>
 
-      <!-- total -->
-      <div class="grand-total-box">
+          <!-- list transaksi -->
+          <div id="riwayat-list"></div>
 
-        <p class="grand-label">
-          Total Keseluruhan
-        </p>
+          <!-- total -->
+          <div class="grand-total-box">
 
-        <h2 id="grand-total">
-          Rp 0
-        </h2>
+            <p class="grand-label">
+              Total Keseluruhan
+            </p>
 
-      </div>
+            <h2 id="grand-total">
+              Rp 0
+            </h2>
 
-      <!-- end text -->
-      <div class="end-text">
+          </div>
 
-        Anda sudah mencapai akhir.<br>
+          <!-- end text -->
+          <div class="end-text">
+
+            Anda sudah mencapai akhir.<br>
+
+          </div>
+
+        </div>
 
       </div>
 
@@ -282,21 +290,21 @@ stroke-linejoin="round">
 
   </div>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-
-    <p>
-      © 2026 Mushollah Baqiatus Sholihat.
-      All Rights Reserved.
-    </p>
-
-    <span>
-      Developed by Hamba Allah.
-    </span>
-
-  </footer>
-
 </div>
+
+<!-- FOOTER -->
+<footer class="footer">
+
+  <p>
+    © 2026 Mushollah Baqiatus Sholihat.
+    All Rights Reserved.
+  </p>
+
+  <span>
+    Developed by Hamba Allah.
+  </span>
+
+</footer>
 
 <script>
 
@@ -362,16 +370,12 @@ hitungTotal("pengeluaran");
 const saldo =
 totalPemasukan - totalPengeluaran;
 
-/* tampil saldo */
-
 const saldoElement =
 document.getElementById("saldo");
 
 function animasiSaldo(target){
 
 let dots = 0;
-
-/* animasi menghitung */
 
 const loadingInterval =
 setInterval(()=>{
@@ -386,8 +390,6 @@ saldoElement.innerText =
 "Menghitung" + ".".repeat(dots);
 
 },200);
-
-/* tunggu sebelum animasi saldo */
 
 setTimeout(()=>{
 
@@ -451,7 +453,7 @@ daftarBulan.forEach((bulan)=>{
 
 });
 
-  selectBulan.value = "Mei 2026";
+selectBulan.value = "Mei 2026";
 
 /* =========================
    FILTER TIPE
@@ -474,10 +476,8 @@ buttons.forEach((btn)=>{
 
   btn.addEventListener("click",()=>{
 
-    /* simpan posisi scroll lama */
-
     scrollPositions[tipeAktif] =
-    scrollArea.scrollTop;
+    window.scrollY;
 
     buttons.forEach((b)=>{
       b.classList.remove("active");
@@ -490,9 +490,7 @@ buttons.forEach((btn)=>{
 
     tampilkanTransaksi();
 
-    /* kembalikan posisi */
-
-    scrollArea.scrollTo({
+    window.scrollTo({
 
       top:
       scrollPositions[tipeAktif],
@@ -500,7 +498,9 @@ buttons.forEach((btn)=>{
       behavior:"smooth"
 
     });
+
   });
+
 });
 
 /* =========================
@@ -564,11 +564,7 @@ function tampilkanTransaksi(){
 
   });
 
-  /* tampil transaksi */
-
   list.innerHTML = html;
-
-  /* tampil total */
 
   const grandTotal =
   document.getElementById("grand-total");
@@ -576,8 +572,6 @@ function tampilkanTransaksi(){
   grandTotal.innerText =
   "Rp " +
   total.toLocaleString("id-ID");
-
-  /* warna total */
 
   if(tipeAktif === "pemasukan"){
 
@@ -593,11 +587,11 @@ function tampilkanTransaksi(){
 
 }
 
-/* pertama kali */
-
 tampilkanTransaksi();
 
-/* ganti bulan */
+/* =========================
+   GANTI BULAN
+========================= */
 
 selectBulan.addEventListener(
 "change",
@@ -605,7 +599,7 @@ selectBulan.addEventListener(
 
   tampilkanTransaksi();
 
-  scrollArea.scrollTo({
+  window.scrollTo({
 
     top:0,
     behavior:"smooth"
@@ -622,11 +616,6 @@ selectBulan.addEventListener(
 const scrollBtn =
 document.getElementById(
 "scrollTopBtn"
-);
-
-const scrollArea =
-document.querySelector(
-".riwayat-scroll"
 );
 
 window.addEventListener(
@@ -651,12 +640,12 @@ scrollBtn.addEventListener(
 "click",
 ()=>{
 
-  window.scrollTo({
+window.scrollTo({
 
-    top:0,
-    behavior:"smooth"
+top:0,
+behavior:"smooth"
 
-  });
+});
 
 });
 
@@ -678,22 +667,22 @@ document.getElementById("closeSidebar");
 
 menuBtn.addEventListener("click",()=>{
 
-  sidebar.classList.add("active");
-  overlay.classList.add("active");
+sidebar.classList.add("active");
+overlay.classList.add("active");
 
 });
 
 overlay.addEventListener("click",()=>{
 
-  sidebar.classList.remove("active");
-  overlay.classList.remove("active");
+sidebar.classList.remove("active");
+overlay.classList.remove("active");
 
 });
 
 closeSidebar.addEventListener("click",()=>{
 
-  sidebar.classList.remove("active");
-  overlay.classList.remove("active");
+sidebar.classList.remove("active");
+overlay.classList.remove("active");
 
 });
 
