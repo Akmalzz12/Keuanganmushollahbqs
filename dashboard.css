@@ -272,6 +272,8 @@ padding:15px 20px;
 border-bottom:1px solid #e5e7eb;
 z-index:1000;
 box-shadow:0 2px 10px rgba(0,0,0,0.06);
+box-sizing:border-box;
+overflow:hidden;
 }
 
 .navbar-title{
@@ -290,6 +292,7 @@ align-items:center;
 gap:5px;
 cursor:pointer;
 padding:0;
+flex-shrink:0;
 }
 
 .menu-btn-navbar span{
