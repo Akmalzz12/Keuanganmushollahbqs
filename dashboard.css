@@ -34,14 +34,6 @@ flex-direction:column;
 padding:0 15px;
 }
 
-/* bagian riwayat bisa scroll */
-
-.riwayat-scroll{
-flex:1;
-overflow-y:auto;
-padding:10px 0 0;
-background:#f4f7fb;
-}
 
 /* =========================
    SALDO
