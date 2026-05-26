@@ -378,6 +378,10 @@ function animasiSaldo(target){
 
 let dots = 0;
 
+/* =========================
+   LOADING MENGHITUNG
+========================= */
+
 const loadingInterval =
 setInterval(()=>{
 
@@ -391,6 +395,10 @@ saldoElement.innerText =
 "Menghitung" + ".".repeat(dots);
 
 },200);
+
+/* =========================
+   ANIMASI ANGKA
+========================= */
 
 setTimeout(()=>{
 
@@ -411,6 +419,28 @@ if(current >= target){
 current = target;
 
 clearInterval(interval);
+
+/* =========================
+   EFEK KEDIP
+========================= */
+
+saldoElement.animate(
+
+[
+{ opacity:1 },
+{ opacity:.2 },
+{ opacity:1 },
+{ opacity:.2 },
+{ opacity:1 },
+{ opacity:.2 },
+{ opacity:1 }
+],
+
+{
+duration:1000
+}
+
+);
 
 }
 
