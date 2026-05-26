@@ -396,12 +396,24 @@ daftarBulan.forEach((bulan)=>{
 let tipeAktif =
 "pemasukan";
 
+let scrollPositions = {
+
+  pemasukan:0,
+  pengeluaran:0
+
+};
+
 const buttons =
 document.querySelectorAll(".menu-btn");
 
 buttons.forEach((btn)=>{
 
   btn.addEventListener("click",()=>{
+
+    /* simpan posisi scroll lama */
+
+    scrollPositions[tipeAktif] =
+    scrollArea.scrollTop;
 
     buttons.forEach((b)=>{
       b.classList.remove("active");
@@ -414,8 +426,17 @@ buttons.forEach((btn)=>{
 
     tampilkanTransaksi();
 
-  });
+    /* kembalikan posisi */
 
+    scrollArea.scrollTo({
+
+      top:
+      scrollPositions[tipeAktif],
+
+      behavior:"smooth"
+
+    });
+  });
 });
 
 /* =========================
@@ -516,7 +537,18 @@ tampilkanTransaksi();
 
 selectBulan.addEventListener(
 "change",
-tampilkanTransaksi
+()=>{
+
+  tampilkanTransaksi();
+
+  scrollArea.scrollTo({
+
+    top:0,
+    behavior:"smooth"
+
+  });
+
+}
 );
 
 /* =========================
