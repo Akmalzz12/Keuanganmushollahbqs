@@ -629,21 +629,21 @@ document.querySelector(
 ".riwayat-scroll"
 );
 
-scrollArea.addEventListener(
+window.addEventListener(
 "scroll",
 ()=>{
 
-  if(scrollArea.scrollTop > 200){
+if(window.scrollY > 200){
 
-    scrollBtn.style.display =
-    "flex";
+scrollBtn.style.display =
+"flex";
 
-  } else {
+} else {
 
-    scrollBtn.style.display =
-    "none";
+scrollBtn.style.display =
+"none";
 
-  }
+}
 
 });
 
@@ -651,7 +651,7 @@ scrollBtn.addEventListener(
 "click",
 ()=>{
 
-  scrollArea.scrollTo({
+  window.scrollTo({
 
     top:0,
     behavior:"smooth"
