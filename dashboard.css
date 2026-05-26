@@ -292,7 +292,8 @@ align-items:center;
 gap:5px;
 cursor:pointer;
 padding:0;
-flex-shrink:0;
+position:relative;
+right:6px;
 }
 
 .menu-btn-navbar span{
