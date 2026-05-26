@@ -10,7 +10,7 @@ font-family:'Poppins',sans-serif;
 body{
 background:#f4f7fb;
 height:100vh;
-overflow:hidden;
+overflow-x:hidden;
 }
 
 /* =========================
@@ -20,7 +20,7 @@ overflow:hidden;
 .container{
 padding-top:90px;
 max-width:430px;
-height:100vh;
+min-height:100vh;
 margin:auto;
 display:flex;
 flex-direction:column;
