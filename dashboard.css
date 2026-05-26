@@ -41,6 +41,12 @@ display:flex;
 flex-direction:column;
 }
 
+.main-content{
+flex:1;
+display:flex;
+flex-direction:column;
+}
+
 /* =========================
    SECTION GLOBAL
 ========================= */
@@ -504,10 +510,7 @@ font-weight:700;
 ========================= */
 
 .footer{
-position:relative;
-left:50%;
-transform:translateX(-50%);
-width:100vw;
+width:100%;
 margin-top:40px;
 background:#2563eb;
 border-top:1px solid #e5e7eb;
