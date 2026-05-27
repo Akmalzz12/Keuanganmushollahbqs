@@ -3,12 +3,14 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0">
 
 <title>Dashboard</title>
 
-<link rel="stylesheet" href="dashboard.css">
+<link rel="stylesheet"
+href="dashboard.css">
 
 <script src="data.js"></script>
 
@@ -93,6 +95,7 @@ content="width=device-width, initial-scale=1.0">
 
       <div class="sidebar-menu">
 
+        <!-- rekening -->
         <a href="rekening.html"
         class="sidebar-item">
 
@@ -136,6 +139,7 @@ content="width=device-width, initial-scale=1.0">
 
         </a>
 
+        <!-- struktur -->
         <a href="struktur.html"
         class="sidebar-item">
 
@@ -173,33 +177,30 @@ content="width=device-width, initial-scale=1.0">
 
         </a>
 
+        <!-- pengumuman -->
         <a href="informasi.html"
         class="sidebar-item">
 
           <div class="sidebar-icon">
 
             <svg
-xmlns="http://www.w3.org/2000/svg"
-width="22"
-height="22"
-viewBox="0 0 24 24"
-fill="none"
-stroke="currentColor"
-stroke-width="2"
-stroke-linecap="round"
-stroke-linejoin="round">
+            xmlns="http://www.w3.org/2000/svg"
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round">
 
-<path d="M3 11v2"></path>
+              <path d="M3 11v2"></path>
+              <path d="M7 9v6"></path>
+              <path d="M11 5v14"></path>
+              <path d="M15 8v8"></path>
+              <path d="M19 10v4"></path>
 
-<path d="M7 9v6"></path>
-
-<path d="M11 5v14"></path>
-
-<path d="M15 8v8"></path>
-
-<path d="M19 10v4"></path>
-
-</svg>
+            </svg>
 
           </div>
 
@@ -217,8 +218,7 @@ stroke-linejoin="round">
 
       </div>
 
-     </div>
-
+    </div>
 
     <!-- SALDO -->
     <div class="section">
@@ -258,8 +258,34 @@ stroke-linejoin="round">
 
       <div class="bulan-box">
 
-        <select id="pilih-bulan">
-        </select>
+        <!-- tombol custom -->
+        <div class="custom-bulan">
+
+          <button id="bulanBtn"
+          class="bulan-btn">
+
+            <span id="bulanText">
+              Mei 2026
+            </span>
+
+            <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round">
+
+              <path d="m6 9 6 6 6-6"/>
+
+            </svg>
+
+          </button>
+
+        </div>
 
       </div>
 
@@ -288,7 +314,7 @@ stroke-linejoin="round">
 
   </div>
 
-  <!-- MAIN CONTENT -->
+  <!-- MAIN -->
   <div class="main-content">
 
     <!-- RIWAYAT -->
@@ -302,7 +328,7 @@ stroke-linejoin="round">
             Riwayat Transaksi
           </h2>
 
-          <!-- list transaksi -->
+          <!-- list -->
           <div id="riwayat-list"></div>
 
           <!-- total -->
@@ -318,10 +344,10 @@ stroke-linejoin="round">
 
           </div>
 
-          <!-- end text -->
+          <!-- end -->
           <div class="end-text">
 
-            Anda sudah mencapai akhir.<br>
+            Anda sudah mencapai akhir.
 
           </div>
 
@@ -334,7 +360,6 @@ stroke-linejoin="round">
   </div>
 
 </div>
-
 
 <!-- FOOTER -->
 <footer class="footer">
@@ -349,6 +374,32 @@ stroke-linejoin="round">
   </span>
 
 </footer>
+
+<!-- POPUP BULAN -->
+<div id="bulanPopup"
+class="bulan-popup">
+
+  <div class="bulan-popup-content">
+
+    <div class="bulan-popup-header">
+
+      <h3>
+        Pilih Bulan
+      </h3>
+
+      <button id="closeBulanPopup">
+        ✕
+      </button>
+
+    </div>
+
+    <div id="bulanList"
+    class="bulan-list">
+    </div>
+
+  </div>
+
+</div>
 
 <script>
 
@@ -402,7 +453,7 @@ function hitungTotal(tipe){
 }
 
 /* =========================
-   TOTAL & SALDO
+   TOTAL
 ========================= */
 
 const totalPemasukan =
@@ -414,16 +465,16 @@ hitungTotal("pengeluaran");
 const saldo =
 totalPemasukan - totalPengeluaran;
 
+/* =========================
+   ANIMASI SALDO
+========================= */
+
 const saldoElement =
 document.getElementById("saldo");
 
 function animasiSaldo(target){
 
 let dots = 0;
-
-/* =========================
-   LOADING MENGHITUNG
-========================= */
 
 const loadingInterval =
 setInterval(()=>{
@@ -438,10 +489,6 @@ saldoElement.innerText =
 "Menghitung" + ".".repeat(dots);
 
 },200);
-
-/* =========================
-   ANIMASI ANGKA
-========================= */
 
 setTimeout(()=>{
 
@@ -463,24 +510,16 @@ current = target;
 
 clearInterval(interval);
 
-/* =========================
-   EFEK KEDIP
-========================= */
-
 saldoElement.animate(
 
 [
 { opacity:1 },
-{ opacity:.2 },
-{ opacity:1 },
-{ opacity:.2 },
-{ opacity:1 },
-{ opacity:.2 },
+{ opacity:.4 },
 { opacity:1 }
 ],
 
 {
-duration:1000
+duration:500
 }
 
 );
@@ -501,79 +540,148 @@ Math.floor(current)
 animasiSaldo(saldo);
 
 /* =========================
-   LAST UPDATE
+   UPDATE
 ========================= */
 
 document.getElementById("update")
 .innerText = lastUpdate;
 
 /* =========================
-   PILIH BULAN
+   CUSTOM BULAN
 ========================= */
 
-const selectBulan =
-document.getElementById("pilih-bulan");
+let bulanAktif =
+"Mei 2026";
+
+const bulanBtn =
+document.getElementById("bulanBtn");
+
+const bulanText =
+document.getElementById("bulanText");
+
+const bulanPopup =
+document.getElementById("bulanPopup");
+
+const closeBulanPopup =
+document.getElementById("closeBulanPopup");
+
+const bulanList =
+document.getElementById("bulanList");
+
+function renderBulan(){
+
+bulanList.innerHTML = "";
 
 daftarBulan.forEach((bulan)=>{
 
-  const option =
-  document.createElement("option");
+const item =
+document.createElement("div");
 
-  option.value = bulan;
+item.className =
+"bulan-item";
 
-  option.textContent = bulan;
+if(bulan === bulanAktif){
 
-  selectBulan.appendChild(option);
+item.classList.add("active");
+
+}
+
+item.innerText = bulan;
+
+item.addEventListener("click",()=>{
+
+bulanAktif = bulan;
+
+bulanText.innerText = bulan;
+
+bulanPopup.classList.remove("active");
+
+renderBulan();
+
+tampilkanTransaksi();
+
+window.scrollTo({
+
+top:0,
+behavior:"smooth"
 
 });
 
-selectBulan.value = "Mei 2026";
+});
+
+bulanList.appendChild(item);
+
+});
+
+}
+
+renderBulan();
+
+bulanBtn.addEventListener(
+"click",
+()=>{
+
+bulanPopup.classList.add(
+"active"
+);
+
+}
+);
+
+closeBulanPopup.addEventListener(
+"click",
+()=>{
+
+bulanPopup.classList.remove(
+"active"
+);
+
+}
+);
+
+bulanPopup.addEventListener(
+"click",
+(e)=>{
+
+if(e.target === bulanPopup){
+
+bulanPopup.classList.remove(
+"active"
+);
+
+}
+
+}
+);
 
 /* =========================
-   FILTER TIPE
+   FILTER
 ========================= */
 
 let tipeAktif =
 "pemasukan";
-
-let scrollPositions = {
-
-  pemasukan:0,
-  pengeluaran:0
-
-};
 
 const buttons =
 document.querySelectorAll(".menu-btn");
 
 buttons.forEach((btn)=>{
 
-  btn.addEventListener("click",()=>{
+btn.addEventListener("click",()=>{
 
-    scrollPositions[tipeAktif] =
-    window.scrollY;
+buttons.forEach((b)=>{
 
-    buttons.forEach((b)=>{
-      b.classList.remove("active");
-    });
+b.classList.remove("active");
 
-    btn.classList.add("active");
+});
 
-    tipeAktif =
-    btn.dataset.tipe;
+btn.classList.add("active");
 
-    tampilkanTransaksi();
+tipeAktif =
+btn.dataset.tipe;
 
-    window.scrollTo({
+tampilkanTransaksi();
 
-      top:
-      scrollPositions[tipeAktif],
-
-      behavior:"smooth"
-
-    });
-
-  });
+});
 
 });
 
@@ -586,105 +694,82 @@ document.getElementById("riwayat-list");
 
 function tampilkanTransaksi(){
 
-  const bulanDipilih =
-  selectBulan.value;
+const dataBulan =
+transaksi[bulanAktif] || [];
 
-  const dataBulan =
-  transaksi[bulanDipilih] || [];
+let html = "";
+let total = 0;
 
-  let html = "";
-  let total = 0;
+dataBulan.forEach((item)=>{
 
-  dataBulan.forEach((item)=>{
+const tipeItem =
+String(item.tipe)
+.trim()
+.toLowerCase();
 
-    const tipeItem =
-    String(item.tipe)
-    .trim()
-    .toLowerCase();
+if(tipeItem === tipeAktif){
 
-    if(tipeItem === tipeAktif){
+const angka =
+ambilAngka(item.nominal);
 
-      const angka =
-      ambilAngka(item.nominal);
+total += angka;
 
-      total += angka;
+html += `
 
-      html += `
+<div class="item">
 
-      <div class="item">
+<div class="item-left">
 
-        <div class="item-left">
+<h3>${item.title}</h3>
 
-          <h3>${item.title}</h3>
+<p>${item.tanggal}</p>
 
-          <p>${item.tanggal}</p>
+</div>
 
-        </div>
+<div class="
+nominal
+${tipeItem}
+">
 
-        <div class="
-          nominal
-          ${tipeItem}
-        ">
+${tipeItem === "pemasukan" ? "+" : "-"}Rp ${angka.toLocaleString("id-ID")}
 
-          ${tipeItem === "pemasukan" ? "+" : "-"}Rp ${angka.toLocaleString("id-ID")}
+</div>
 
-        </div>
+</div>
 
-      </div>
+`;
 
-      `;
+}
 
-    }
+});
 
-  });
+list.innerHTML = html;
 
-  list.innerHTML = html;
+const grandTotal =
+document.getElementById("grand-total");
 
-  const grandTotal =
-  document.getElementById("grand-total");
+grandTotal.innerText =
+"Rp " +
+total.toLocaleString("id-ID");
 
-  grandTotal.innerText =
-  "Rp " +
-  total.toLocaleString("id-ID");
+if(tipeAktif === "pemasukan"){
 
-  if(tipeAktif === "pemasukan"){
+grandTotal.style.color =
+"#16a34a";
 
-    grandTotal.style.color =
-    "#16a34a";
+} else {
 
-  } else {
+grandTotal.style.color =
+"#ef4444";
 
-    grandTotal.style.color =
-    "#ef4444";
-
-  }
+}
 
 }
 
 tampilkanTransaksi();
 
 /* =========================
-   GANTI BULAN
-========================= */
-
-selectBulan.addEventListener(
-"change",
-()=>{
-
-  tampilkanTransaksi();
-
-  window.scrollTo({
-
-    top:0,
-    behavior:"smooth"
-
-  });
-
-}
-);
-
-/* =========================
-   SCROLL TO TOP
+   SCROLL TOP
 ========================= */
 
 const scrollBtn =
@@ -761,7 +846,7 @@ overlay.classList.remove("active");
 });
 
 /* =========================
-   SWIPE GANTI MENU
+   SWIPE MENU
 ========================= */
 
 let startX = 0;
@@ -797,7 +882,7 @@ function handleSwipe(){
 const jarak =
 startX - endX;
 
-/* swipe kiri */
+/* kiri */
 
 if(jarak > 70){
 
@@ -811,7 +896,7 @@ document.querySelector(
 
 }
 
-/* swipe kanan */
+/* kanan */
 
 if(jarak < -70){
 
@@ -828,7 +913,6 @@ document.querySelector(
 }
 
 </script>
-
 
 </body>
 </html>
