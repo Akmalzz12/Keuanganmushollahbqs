@@ -375,6 +375,37 @@ href="dashboard.css">
 
 </footer>
 
+<!-- POPUP PEMBERITAHUAN -->
+<div id="popupInfo"
+class="popup-overlay">
+
+  <div class="popup-box">
+  <div class="popup-line"></div>
+  <div class="popup-icon">
+
+    📢
+
+  </div>
+
+  <h2 class="popup-title">
+    MOHON MAAF,
+  </h2>
+
+  <p class="popup-desc">
+    Website ini masih dalam tahap pengembangan awal,
+    jika ada error atau ada masalah lainnya, tolong segera
+    infokan ke grup ya. Terimakasih. 🙏
+  </p>
+
+  <button id="closePopup"
+  class="popup-close">
+
+    Oke
+
+  </button>
+</div>
+</div>
+
 <!-- POPUP BULAN -->
 <div id="bulanPopup"
 class="bulan-popup">
@@ -848,6 +879,63 @@ sidebar.classList.remove("active");
 overlay.classList.remove("active");
 
 });
+
+/* =========================
+   POPUP PEMBERITAHUAN
+========================= */
+
+const popupInfo =
+document.getElementById("popupInfo");
+
+const closePopup =
+document.getElementById("closePopup");
+
+/* munculkan popup */
+
+window.addEventListener(
+"load",
+()=>{
+
+setTimeout(()=>{
+
+popupInfo.classList.add(
+"active"
+);
+
+},500);
+
+}
+);
+
+/* tombol close */
+
+closePopup.addEventListener(
+"click",
+()=>{
+
+popupInfo.classList.remove(
+"active"
+);
+
+}
+);
+
+/* klik area gelap */
+
+popupInfo.addEventListener(
+"click",
+(e)=>{
+
+if(e.target === popupInfo){
+
+popupInfo.classList.remove(
+"active"
+);
+
+}
+
+}
+);
 
 /* =========================
    SWIPE MENU
