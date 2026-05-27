@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Rekening Mushollah</title>
+
+<link rel="stylesheet"
+href="dashboard.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- NAVBAR -->
+  <div class="navbar">
+
+    <h1 class="navbar-title">
+      Rekening Mushollah
+    </h1>
+
+    <button id="menuBtn"
+    class="menu-btn-navbar">
+
+      <span></span>
+      <span></span>
+      <span></span>
+
+    </button>
+
+  </div>
+
+  <!-- OVERLAY -->
+  <div id="overlay"
+  class="overlay"></div>
+
+  <!-- SIDEBAR -->
+  <div id="sidebar"
+  class="sidebar">
+
+    <div class="sidebar-top">
+
+      <div class="sidebar-header">
+        Menu
+      </div>
+
+      <button id="closeSidebar"
+      class="close-sidebar">
+
+        ✕
+
+      </button>
+
+    </div>
+
+    <div class="sidebar-menu">
+
+      <a href="dashboard.html"
+      class="sidebar-item">
+
+        <div class="sidebar-icon">
+
+<svg
+xmlns="http://www.w3.org/2000/svg"
+width="22"
+height="22"
+viewBox="0 0 24 24"
+fill="none"
+stroke="currentColor"
+stroke-width="2"
+stroke-linecap="round"
+stroke-linejoin="round">
+
+<rect x="3" y="3" width="7" height="7" rx="2"></rect>
+<rect x="14" y="3" width="7" height="7" rx="2"></rect>
+<rect x="3" y="14" width="7" height="7" rx="2"></rect>
+<rect x="14" y="14" width="7" height="7" rx="2"></rect>
+
+</svg>
+</div>
+
+        <div class="sidebar-text">
+
+          <h3>Dashboard</h3>
+
+          <p>
+            Laporan kas
+          </p>
+
+        </div>
+
+      </a>
+
+      <a href="struktur.html"
+      class="sidebar-item">
+
+        <div class="sidebar-icon">
+
+<svg
+xmlns="http://www.w3.org/2000/svg"
+width="22"
+height="22"
+viewBox="0 0 24 24"
+fill="none"
+stroke="currentColor"
+stroke-width="2"
+stroke-linecap="round"
+stroke-linejoin="round">
+
+<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+<circle cx="9" cy="7" r="4"></circle>
+<path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+<path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+
+</svg>
+</div>
+
+        <div class="sidebar-text">
+
+          <h3>Struktur DKM</h3>
+
+          <p>
+            Pengurus mushollah
+          </p>
+
+        </div>
+
+      </a>
+
+    </div>
+
+  </div>
+
+  <!-- CONTENT -->
+<div class="rekening-page kosong-page">
+
+  <div class="coming-soon">
+
+    <div class="coming-icon">
+      🚧
+    </div>
+
+    <h2>
+      Dalam Pengerjaan
+    </h2>
+
+    <p>
+      Halaman ini sedang dalam proses pengerjaan,
+      mohon ditunggu ya. Terimakasih.
+    </p>
+    
+    <a href="dashboard.html"
+class="back-btn">
+
+  Kembali Ke Utama
+
+</a>
+
+  </div>
+
+</div>
+
+<script>
+
+/* =========================
+   SIDEBAR
+========================= */
+
+const menuBtn =
+document.getElementById("menuBtn");
+
+const sidebar =
+document.getElementById("sidebar");
+
+const overlay =
+document.getElementById("overlay");
+
+const closeSidebar =
+document.getElementById("closeSidebar");
+
+menuBtn.addEventListener("click",()=>{
+
+  sidebar.classList.add("active");
+  overlay.classList.add("active");
+
+});
+
+overlay.addEventListener("click",()=>{
+
+  sidebar.classList.remove("active");
+  overlay.classList.remove("active");
+
+});
+
+closeSidebar.addEventListener("click",()=>{
+
+  sidebar.classList.remove("active");
+  overlay.classList.remove("active");
+
+});
+
+/* =========================
+   COPY REKENING
+========================= */
+
+function copyRekening(nomor){
+
+  navigator.clipboard.writeText(nomor);
+
+  alert("Nomor rekening berhasil disalin");
+
+}
+
+</script>
+
+</body>
+  </html>
