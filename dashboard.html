@@ -760,261 +760,75 @@ overlay.classList.remove("active");
 
 });
 
-</script>
-
-<!-- LIBRARY PDF -->
-<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/jspdf-autotable"></script>
-
-<!-- SCRIPT PDF -->
-<script>
-
-document
-.getElementById("downloadPdf")
-.addEventListener("click",()=>{
-
-const { jsPDF } = window.jspdf;
-
-const doc = new jsPDF();
-
 /* =========================
-   LOGO
+   SWIPE GANTI MENU
 ========================= */
 
-const logo = new Image();
+let startX = 0;
+let endX = 0;
 
-logo.src = "logo.png";
+const riwayatBox =
+document.querySelector(".riwayat-box");
 
-logo.onload = function(){
+riwayatBox.addEventListener(
+"touchstart",
+(e)=>{
 
-/* =========================
-   LOGO
-========================= */
+startX =
+e.touches[0].clientX;
 
-doc.addImage(
-logo,
-"PNG",
-15,
-10,
-22,
-22
-);
-
-/* =========================
-   HEADER
-========================= */
-
-doc.setFont("helvetica","bold");
-
-doc.setFontSize(18);
-
-doc.text(
-"MUSHOLLAH BAQIATUS SHOLIHAT",
-105,
-18,
-{ align:"center" }
-);
-
-doc.setFontSize(11);
-
-doc.setFont("helvetica","normal");
-
-doc.text(
-"Website Kas Keuangan Mushollah",
-105,
-25,
-{ align:"center" }
-);
-
-doc.text(
-"Dicetak Otomatis Dari Sistem",
-105,
-31,
-{ align:"center" }
-);
-
-/* garis */
-
-doc.setLineWidth(.8);
-
-doc.line(14,40,196,40);
-
-/* =========================
-   JUDUL
-========================= */
-
-doc.setFont("helvetica","bold");
-
-doc.setFontSize(15);
-
-doc.text(
-"LAPORAN KEUANGAN",
-105,
-50,
-{ align:"center" }
-);
-
-doc.setFontSize(11);
-
-doc.setFont("helvetica","normal");
-
-doc.text(
-"Periode: " + selectBulan.value,
-105,
-57,
-{ align:"center" }
-);
-
-/* =========================
-   RINGKASAN
-========================= */
-
-doc.setFontSize(11);
-
-doc.text(
-"Tanggal Cetak: " +
-new Date().toLocaleDateString("id-ID"),
-14,
-70
-);
-
-doc.text(
-"Total Pemasukan: Rp " +
-totalPemasukan.toLocaleString("id-ID"),
-14,
-78
-);
-
-doc.text(
-"Total Pengeluaran: Rp " +
-totalPengeluaran.toLocaleString("id-ID"),
-14,
-86
-);
-
-doc.text(
-"Saldo Akhir: Rp " +
-saldo.toLocaleString("id-ID"),
-14,
-94
-);
-
-/* =========================
-   DATA TRANSAKSI
-========================= */
-
-const dataBulan =
-transaksi[selectBulan.value] || [];
-
-const rows = [];
-
-dataBulan.forEach(item=>{
-
-const nominal =
-ambilAngka(item.nominal);
-
-rows.push([
-
-item.tanggal,
-
-item.title,
-
-item.tipe,
-
-"Rp " +
-nominal.toLocaleString("id-ID")
-
-]);
-
-});
-
-/* =========================
-   TABLE
-========================= */
-
-doc.autoTable({
-
-startY:105,
-
-head:[[
-"Tanggal",
-"Keterangan",
-"Tipe",
-"Nominal"
-]],
-
-body:rows,
-
-styles:{
-fontSize:10
-},
-
-headStyles:{
-fillColor:[37,99,235]
-},
-
-columnStyles:{
-3:{
-halign:"right"
 }
+);
+
+riwayatBox.addEventListener(
+"touchend",
+(e)=>{
+
+endX =
+e.changedTouches[0].clientX;
+
+handleSwipe();
+
+}
+);
+
+function handleSwipe(){
+
+const jarak =
+startX - endX;
+
+/* swipe kiri */
+
+if(jarak > 70){
+
+if(tipeAktif === "pemasukan"){
+
+document.querySelector(
+'[data-tipe="pengeluaran"]'
+).click();
+
 }
 
-});
+}
 
-/* =========================
-   TTD
-========================= */
+/* swipe kanan */
 
-const finalY =
-doc.lastAutoTable.finalY;
+if(jarak < -70){
 
-doc.text(
-"Mengetahui,",
-150,
-finalY + 25
-);
+if(tipeAktif === "pengeluaran"){
 
-doc.text(
-"DKM Mushollah",
-150,
-finalY + 32
-);
+document.querySelector(
+'[data-tipe="pemasukan"]'
+).click();
 
-doc.text(
-"(________________)",
-150,
-finalY + 55
-);
+}
 
-/* =========================
-   FOOTER
-========================= */
+}
 
-doc.setFontSize(9);
-
-doc.text(
-"Dicetak otomatis oleh sistem kas Mushollah",
-105,
-285,
-{ align:"center" }
-);
-
-/* =========================
-   DOWNLOAD
-========================= */
-
-doc.save(
-"Laporan-" +
-selectBulan.value +
-".pdf"
-);
-
-};
-
-});
+}
 
 </script>
+
 
 </body>
 </html>
