@@ -646,10 +646,9 @@ gap:12px;
 }
 
 .bulan-item{
-padding:16px 18px;
+padding:18px 18px;
 border-radius:18px;
-background:#f8fafc;
-border:2px solid #e2e8f0;
+background:#eaf2ff;
 font-size:15px;
 font-weight:600;
 color:#111827;
@@ -657,7 +656,8 @@ cursor:pointer;
 transition:.2s;
 margin-bottom:10px;
 box-shadow:
-0 4px 12px rgba(0,0,0,.04);
+inset 0 1px 0 rgba(255,255,255,.8),
+0 4px 10px rgba(37,99,235,.08);
 }
 
 .bulan-item.active{
