@@ -572,6 +572,113 @@ flex-shrink:0;
 }
 
 /* =========================
+   POPUP PEMBERITAHUAN
+========================= */
+
+.popup-overlay{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.45);
+display:flex;
+align-items:flex-end;
+justify-content:center;
+z-index:5000;
+
+opacity:0;
+pointer-events:none;
+transition:.3s;
+}
+
+.popup-overlay.active{
+opacity:1;
+pointer-events:auto;
+}
+
+/* popup naik dari bawah */
+
+.popup-box{
+width:100%;
+max-width:430px;
+background:white;
+border-radius:28px 28px 0 0;
+padding:28px 22px 24px;
+transform:translateY(100%);
+transition:
+transform .45s cubic-bezier(.22,1,.36,1);
+box-shadow:
+0 -10px 40px rgba(0,0,0,.18);
+}
+
+.popup-overlay.active .popup-box{
+transform:translateY(0);
+}
+
+/* garis atas */
+
+.popup-line{
+width:55px;
+height:5px;
+background:#dbe4ee;
+border-radius:20px;
+margin:0 auto 22px;
+}
+
+.popup-title{
+font-size:24px;
+font-weight:700;
+color:#111827;
+text-align:center;
+margin-bottom:12px;
+font-family:'Poppins',sans-serif;
+}
+
+.popup-desc{
+font-size:15px;
+line-height:1.5;
+color:#64748b;
+text-align:center;
+margin-bottom:24px;
+font-family:'Poppins',sans-serif;
+}
+
+.popup-close{
+width:100%;
+padding:14px;
+border:none;
+border-radius:18px;
+background:#2563eb;
+color:white;
+font-size:18px;
+font-weight:600;
+cursor:pointer;
+transition:.2s;
+}
+
+.popup-close:active{
+transform:scale(.98);
+}
+
+.popup-icon{
+width:75px;
+height:75px;
+margin:0 auto 18px;
+border-radius:24px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:36px;
+background:
+linear-gradient(
+135deg,
+#dbeafe,
+#bfdbfe
+);
+
+box-shadow:
+0 10px 25px rgba(37,99,235,.15);
+}
+
+/* =========================
    POPUP BULAN
 ========================= */
 
