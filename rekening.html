@@ -354,6 +354,22 @@ opacity:1;
 transform:translateX(-50%) translateY(0);
 }
 
+.safe-text{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:8px;
+margin-top:16px;
+font-size:14px;
+font-weight:500;
+color:#16a34a;
+}
+
+.safe-icon{
+width:18px;
+height:18px;
+}
+
 </style>
 
 </head>
@@ -649,8 +665,38 @@ stroke-linejoin="round">
     onclick="downloadQR()">
 
       Download QRIS
-
     </button>
+
+    <div class="safe-text">
+
+  <svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2.2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="safe-icon">
+
+    <!-- bagian warna -->
+    <path
+    d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
+    fill="rgba(34,197,94,.25)">
+    </path>
+
+    <!-- outline -->
+    <path
+    d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z">
+    </path>
+
+  </svg>
+
+  <span>
+    Donasi Anda aman dan terpercaya
+  </span>
+
+</div>
   </div>
 
 
