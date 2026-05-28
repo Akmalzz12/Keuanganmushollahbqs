@@ -1228,26 +1228,18 @@ function downloadQR(){
 }
 
 const sliderTrack =
-document.getElementById(
-"sliderTrack"
-);
+document.getElementById("sliderTrack");
 
 const dots =
-document.querySelectorAll(
-".dot"
-);
+document.querySelectorAll(".dot");
 
 const slides =
-document.querySelectorAll(
-".slide"
-);
+document.querySelectorAll(".slide");
 
 let currentIndex = 0;
 
 let startX = 0;
 let endX = 0;
-
-/* UPDATE */
 
 function updateSlider(){
 
@@ -1263,65 +1255,48 @@ function updateSlider(){
 
 }
 
-/* TOUCH START */
+/* SWIPE START */
+sliderTrack.addEventListener("touchstart",(e)=>{
+  startX = e.touches[0].clientX;
+});
 
-sliderTrack.addEventListener(
-"touchstart",
-(e)=>{
-
-  startX =
-  e.touches[0].clientX;
-
-}
-);
-
-/* TOUCH END */
-
-sliderTrack.addEventListener(
-"touchend",
-(e)=>{
-
-  endX =
-  e.changedTouches[0].clientX;
-
+/* SWIPE END */
+sliderTrack.addEventListener("touchend",(e)=>{
+  endX = e.changedTouches[0].clientX;
   handleSwipe();
-
-}
-);
-
-/* HANDLE SWIPE */
+});
 
 function handleSwipe(){
 
-  const diff =
-  startX - endX;
+  const diff = startX - endX;
 
-  /* kiri */
+  // swipe kiri (next)
   if(diff > 50){
 
-    if(currentIndex <
-    slides.length - 1){
-
+    if(currentIndex < slides.length - 1){
       currentIndex++;
-
+    } else {
+      // balik ke awal
+      currentIndex = 0;
     }
 
   }
 
-  /* kanan */
+  // swipe kanan (prev)
   else if(diff < -50){
 
     if(currentIndex > 0){
-
       currentIndex--;
-
+    } else {
+      // lompat ke terakhir
+      currentIndex = slides.length - 1;
     }
 
   }
 
   updateSlider();
 
-   }
+}
 
 </script>
 
