@@ -331,6 +331,29 @@ border:1px dashed #cbd5e1;
 margin-top:10px;
 }
 
+.toast{
+position:fixed;
+top:20px;
+left:50%;
+transform:translateX(-50%) translateY(-20px);
+background:#111827;
+color:white;
+padding:12px 18px;
+border-radius:14px;
+font-size:14px;
+font-weight:600;
+opacity:0;
+pointer-events:none;
+transition:.3s ease;
+z-index:9999;
+box-shadow:0 10px 25px rgba(0,0,0,.18);
+}
+
+.toast.show{
+opacity:1;
+transform:translateX(-50%) translateY(0);
+}
+
 </style>
 
 </head>
@@ -712,21 +735,78 @@ overlay.classList.remove(
 
 // COPY NOMOR
 function copyText(id){
-  const text = document.getElementById(id).innerText;
 
-  navigator.clipboard.writeText(text).then(()=>{
-    alert("Nomor berhasil disalin");
-  });
+  const text =
+  document.getElementById(id)
+  .innerText;
+
+  const input =
+  document.createElement("textarea");
+
+  input.value = text;
+
+  document.body.appendChild(input);
+
+  input.select();
+
+  document.execCommand("copy");
+
+  document.body.removeChild(input);
+
+  showToast("Nomor berhasil disalin");
+
+}
+
+function showToast(message){
+
+  const toast =
+  document.getElementById("toast");
+
+  toast.innerText = message;
+
+  toast.classList.add("show");
+
+  setTimeout(()=>{
+
+    toast.classList.remove("show");
+
+  },2000);
+
 }
 
 // DOWNLOAD QRIS
 function downloadQR(){
-  const link = document.createElement("a");
-  link.href = "https://files.catbox.moe/l0lzjv.png"; // ganti sesuai file kamu
-  link.download = "QRIS-Mushollah.png";
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
+
+  const imageUrl =
+  "https://files.catbox.moe/l0lzjv.png";
+
+  fetch(imageUrl)
+  .then(response => response.blob())
+  .then(blob => {
+
+    const blobUrl =
+    window.URL.createObjectURL(blob);
+
+    const link =
+    document.createElement("a");
+
+    link.href = blobUrl;
+
+    link.download =
+    "QRIS-Mushollah.png";
+
+    document.body.appendChild(link);
+
+    link.click();
+
+    document.body.removeChild(link);
+
+    window.URL.revokeObjectURL(blobUrl);
+
+    showToast("QRIS berhasil didownload");
+
+  });
+
 }
 
 </script>
@@ -747,6 +827,10 @@ function downloadQR(){
   </div>
 
 </footer>
+
+<div id="toast" class="toast">
+  Nomor berhasil disalin
+</div>
 
 </body>
 </html>
