@@ -370,6 +370,37 @@ width:15px;
 height:15px;
 }
 
+.payment-card{
+position:relative;
+}
+
+.payment-logo-row{
+position:absolute;
+top:5px;
+right:10px;
+display:flex;
+flex-direction:row;
+align-items:center;
+gap:6px;
+}
+
+.payment-logo-row img{
+width:56px;
+height:56px;
+object-fit:contain;
+display:block;
+}
+
+.payment-logo{
+position:absolute;
+top:5px;
+right:12px;
+width:56px;
+height:56px;
+object-fit:contain;
+opacity:0.9;
+}
+
 </style>
 
 </head>
@@ -575,7 +606,7 @@ stroke-linejoin="round">
 
   <!-- BANK -->
   <div class="payment-card">
-
+   <img class="payment-logo" src="https://files.catbox.moe/4eozyw.png" alt="BCA">
     <div class="payment-badge">
       BANK CENTRAL ASIA / BCA
     </div>
@@ -608,7 +639,10 @@ stroke-linejoin="round">
 
   <!-- E-WALLET -->
   <div class="payment-card">
-
+   <div class="payment-logo-row">
+    <img src="https://files.catbox.moe/h4pj0k.png" alt="DANA">
+    <img src="https://files.catbox.moe/3u0b9j.png" alt="GoPay">
+  </div>
     <div class="payment-badge">
       E-WALLET / DOMPET DIGITAL
     </div>
@@ -641,7 +675,7 @@ stroke-linejoin="round">
 
   <!-- QRIS -->
   <div class="payment-card">
-
+    <img class="payment-logo" src="https://files.catbox.moe/eingcy.png" alt="QRIS">
     <div class="payment-badge">
       QRIS ALL PAYMENT
     </div>
