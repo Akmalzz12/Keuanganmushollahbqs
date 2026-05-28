@@ -401,6 +401,188 @@ object-fit:contain;
 opacity:0.9;
 }
 
+/* =========================
+   DONASI SECTION
+========================= */
+
+.donasi-section{
+margin-top:20px;
+padding:0 16px;
+}
+
+.donasi-header{
+background:#2563eb;
+padding:32px 20px;
+text-align:center;
+color:white;
+margin-left:-16px;
+margin-right:-16px;
+margin-top:-1px;
+border-bottom-left-radius:28px;
+border-bottom-right-radius:28px;
+box-shadow:0 10px 25px rgba(37,99,235,.18);
+}
+
+.donasi-header h2{
+font-size:22px;
+font-weight:700;
+line-height:1.5;
+}
+
+/* =========================
+   SLIDER
+========================= */
+
+.slider-wrapper{
+margin-top:18px;
+}
+
+.slider-container{
+position:relative;
+overflow:hidden;
+border-radius:22px;
+width:100%;
+}
+
+.slider-track{
+display:flex;
+transition:transform .35s ease;
+width:100%;
+}
+
+.slide{
+width:100%;
+min-width:100%;
+flex:0 0 100%;
+}
+
+.slide img{
+width:100%;
+height:220px;
+object-fit:cover;
+display:block;
+pointer-events:none;
+user-select:none;
+}
+
+/* DOTS */
+
+.slider-dots{
+position:absolute;
+bottom:14px;
+left:50%;
+transform:translateX(-50%);
+
+display:flex;
+align-items:center;
+gap:7px;
+
+background:rgba(0,0,0,.25);
+backdrop-filter:blur(6px);
+
+padding:7px 10px;
+border-radius:999px;
+}
+
+.dot{
+width:7px;
+height:7px;
+border-radius:999px;
+background:rgba(255,255,255,.5);
+transition:.3s;
+}
+
+.dot.active{
+width:22px;
+background:white;
+}
+
+/* CONTENT */
+
+.donasi-content{
+margin-top:24px;
+background:white;
+border-radius:24px;
+padding:22px;
+box-shadow:0 6px 18px rgba(0,0,0,.05);
+border:1px solid #e5e7eb;
+}
+
+.salam{
+font-size:17px;
+font-weight:700;
+line-height:1.6;
+margin-bottom:14px;
+color:#111827;
+}
+
+.donasi-text{
+font-size:14px;
+line-height:1.9;
+color:#374151;
+margin-bottom:16px;
+}
+
+/* LIST */
+
+.donasi-list{
+display:flex;
+flex-direction:column;
+gap:18px;
+margin-top:20px;
+}
+
+.list-item h3{
+font-size:15px;
+font-weight:700;
+color:#111827;
+margin-bottom:6px;
+}
+
+.list-item p{
+font-size:14px;
+line-height:1.8;
+color:#4b5563;
+}
+
+.closing-text{
+margin-top:18px;
+font-size:16px;
+font-weight:700;
+text-align:center;
+color:#2563eb;
+line-height:1.7;
+}
+
+.hero-title{
+padding:28px 20px 10px;
+text-align:center;
+}
+
+.hero-subtitle{
+display:inline-block;
+font-size:14px;
+font-weight:600;
+color:#2563eb;
+letter-spacing:.5px;
+text-transform:uppercase;
+background:#eff6ff;
+border:1px solid #dbeafe;
+padding:6px 12px;
+border-radius:999px;
+margin-bottom:12px;
+}
+
+.hero-title h1{
+font-size:28px;
+line-height:1.4;
+font-weight:700;
+color:#111827;
+max-width:360px;
+margin:auto;
+font-family:'Poppins',sans-serif;
+}
+   
 </style>
 
 </head>
@@ -597,6 +779,134 @@ stroke-linejoin="round">
     </div>
 
   </div>
+
+   <!-- =========================
+     SECTION DESKRIPSI DONASI
+========================= -->
+
+<div class="donasi-section">
+
+  <!-- HEADER -->
+  <div class="hero-title">
+
+  <p class="hero-subtitle">
+    Investasi Akhirat
+  </p>
+
+  <h1>
+    BERSAMA MUSHOLLAH
+    <br>
+    BAQIATUS SHOLIHAT
+  </h1>
+
+</div>
+
+  <!-- SLIDER -->
+  <div class="slider-wrapper">
+
+  <div class="slider-container">
+
+    <div class="slider-track" id="sliderTrack">
+
+      <div class="slide">
+        <img src="image/asset1.png">
+      </div>
+
+      <div class="slide">
+        <img src="image/asset2.png">
+      </div>
+
+      <div class="slide">
+        <img src="image/asset3.png">
+      </div>
+
+      <div class="slide">
+        <img src="image/asset4.png">
+      </div>
+
+      <div class="slide">
+        <img src="image/asset5.png">
+      </div>
+
+    </div>
+
+    <!-- DOTS -->
+    <div class="slider-dots">
+
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+
+    </div>
+
+  </div>
+
+</div>
+
+  <!-- DESKRIPSI -->
+  <div class="donasi-content">
+
+    <p class="salam">
+      Assalamualaikum Warahmatullahi Wabarakatuh
+    </p>
+
+    <p class="donasi-text">
+      Puji syukur kita panjatkan kepada Allah SWT atas segala nikmat dan keberkahan yang telah diberikan. Dalam rangka mendukung kegiatan ibadah dan operasional Musholla Baqiatus Sholihat, kami membuka kesempatan bagi para jamaah dan masyarakat untuk ikut berpartisipasi melalui donasi terbaiknya.
+    </p>
+
+    <p class="donasi-text">
+      Setiap donasi yang diberikan akan digunakan untuk berbagai kebutuhan musholla demi kenyamanan bersama dan keberlangsungan kegiatan keagamaan.
+    </p>
+
+    <!-- LIST -->
+    <div class="donasi-list">
+
+      <div class="list-item">
+        <h3>Operasional Musholla</h3>
+        <p>
+          Digunakan untuk kebutuhan harian musholla seperti listrik, air, dan kebersihan lingkungan.
+        </p>
+      </div>
+
+      <div class="list-item">
+        <h3>Kegiatan Keagamaan</h3>
+        <p>
+          Mendukung pelaksanaan pengajian, kajian rutin, dan kegiatan islami lainnya.
+        </p>
+      </div>
+
+      <div class="list-item">
+        <h3>Perawatan Fasilitas</h3>
+        <p>
+          Membantu perbaikan dan pemeliharaan fasilitas musholla agar tetap nyaman digunakan.
+        </p>
+      </div>
+
+      <div class="list-item">
+        <h3>Program Sosial</h3>
+        <p>
+          Donasi juga digunakan untuk membantu kegiatan sosial dan kepedulian masyarakat sekitar.
+        </p>
+      </div>
+
+      <div class="list-item">
+        <h3>Pembangunan dan Pengembangan</h3>
+        <p>
+          Mendukung pengembangan fasilitas dan kebutuhan pembangunan musholla ke depannya.
+        </p>
+      </div>
+
+    </div>
+
+    <p class="salam" style="margin-top:24px;">
+      Wassalamu'alaikum Warahmatullahi Wabarakatuh
+    </p>
+
+  </div>
+
+</div>
 
 <!-- =========================
      PAYMENT SECTION
@@ -888,6 +1198,102 @@ function downloadQR(){
   });
 
 }
+
+const sliderTrack =
+document.getElementById(
+"sliderTrack"
+);
+
+const dots =
+document.querySelectorAll(
+".dot"
+);
+
+const slides =
+document.querySelectorAll(
+".slide"
+);
+
+let currentIndex = 0;
+
+let startX = 0;
+let endX = 0;
+
+/* UPDATE */
+
+function updateSlider(){
+
+  sliderTrack.style.transform =
+  `translateX(-${currentIndex * 100}%)`;
+
+  dots.forEach(dot=>{
+    dot.classList.remove("active");
+  });
+
+  dots[currentIndex]
+  .classList.add("active");
+
+}
+
+/* TOUCH START */
+
+sliderTrack.addEventListener(
+"touchstart",
+(e)=>{
+
+  startX =
+  e.touches[0].clientX;
+
+}
+);
+
+/* TOUCH END */
+
+sliderTrack.addEventListener(
+"touchend",
+(e)=>{
+
+  endX =
+  e.changedTouches[0].clientX;
+
+  handleSwipe();
+
+}
+);
+
+/* HANDLE SWIPE */
+
+function handleSwipe(){
+
+  const diff =
+  startX - endX;
+
+  /* kiri */
+  if(diff > 50){
+
+    if(currentIndex <
+    slides.length - 1){
+
+      currentIndex++;
+
+    }
+
+  }
+
+  /* kanan */
+  else if(diff < -50){
+
+    if(currentIndex > 0){
+
+      currentIndex--;
+
+    }
+
+  }
+
+  updateSlider();
+
+   }
 
 </script>
 
