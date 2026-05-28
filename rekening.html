@@ -308,6 +308,29 @@ cursor:pointer;
 background:white;
 }
 
+.small-btn{
+margin-top:10px;
+padding:10px;
+width:100%;
+border:none;
+border-radius:12px;
+background:#2563eb;
+color:white;
+font-weight:600;
+cursor:pointer;
+}
+
+.small-btn:hover{
+background:#1d4ed8;
+}
+
+.qr-img{
+width:100%;
+border-radius:14px;
+border:1px dashed #cbd5e1;
+margin-top:10px;
+}
+
 </style>
 
 </head>
@@ -517,6 +540,9 @@ stroke-linejoin="round">
     <div class="payment-title">Nomor Rekening</div>
     <div class="payment-value">2191229519</div>
     <div class="payment-sub">A/N Akhmad Zamyani (Bendahara 1)</div>
+    <button class="small-btn" onclick="copyText('bcaNumber')">
+    Salin Nomor
+  </button>
   </div>
 
   <!-- E-WALLET -->
@@ -525,6 +551,9 @@ stroke-linejoin="round">
     <div class="payment-title">DANA / GOPAY</div>
     <div class="payment-value">0855-3333-529</div>
     <div class="payment-sub">A/N Muhammad Akmal Apri.. (Bendahara 2)</div>
+    <button class="small-btn" onclick="copyText('ewalletNumber')">
+    Salin Nomor
+  </button>
   </div>
 
   <!-- QRIS -->
@@ -536,6 +565,9 @@ stroke-linejoin="round">
 
     <div class="payment-value">PEMBAYARAN QRIS</div>
     <div class="payment-sub">A/N Produk Digital (Bendahara 2)</div>
+    <button class="small-btn" onclick="downloadQR()">
+    Download QRIS
+  </button>
   </div>
 
   <!-- BUTTON -->
@@ -616,6 +648,25 @@ overlay.classList.remove(
 
 }
 );
+
+// COPY NOMOR
+function copyText(id){
+  const text = document.getElementById(id).innerText;
+
+  navigator.clipboard.writeText(text).then(()=>{
+    alert("Nomor berhasil disalin");
+  });
+}
+
+// DOWNLOAD QRIS
+function downloadQR(){
+  const link = document.createElement("a");
+  link.href = "https://files.catbox.moe/l0lzjv.png"; // ganti sesuai file kamu
+  link.download = "QRIS-Mushollah.png";
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
 
 </script>
 
