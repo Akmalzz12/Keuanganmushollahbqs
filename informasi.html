@@ -3,158 +3,427 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0">
 
-<title>Informasi Terbaru</title>
-
-<link rel="stylesheet"
-href="dashboard.css">
-
-</head>
+<title>Struktur Pengurus</title>
 
 <style>
 
-/* =========================
-   REKENING PAGE
-========================= */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
-.rekening-page{
-min-height:calc(100vh - 100px);
-display:flex;
-justify-content:center;
-align-items:flex-start;
-padding:20px;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
 }
 
-/* =========================
-   BOX
-========================= */
-
-.coming-soon{
-width:100%;
-max-width:380px;
-background:white;
-border:1px solid #e5e7eb;
-border-radius:28px;
-padding:35px 24px;
-text-align:center;
-box-shadow:0 8px 24px rgba(0,0,0,.05);
-position:relative;
-top:50px;
-}
-
-/* =========================
-   ICON
-========================= */
-
-.coming-icon{
-font-size:58px;
-margin-bottom:18px;
-}
-
-/* =========================
-   TITLE
-========================= */
-
-.coming-soon h2{
-font-size:24px;
-font-weight:700;
+body{
+background:#f5f7fb;
 color:#111827;
-
-margin-bottom:12px;
+overflow-x:hidden;
 }
 
-/* =========================
-   TEXT
-========================= */
+/* NAVBAR */
 
-.coming-soon p{
-font-size:14px;
-line-height:1.7;
-color:#64748b;
-
-margin-bottom:28px;
+.navbar{
+position:sticky;
+top:0;
+left:0;
+width:100%;
+height:64px;
+background:white;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 10px;
+box-shadow:0 6px 18px rgba(0,0,0,.05);
+z-index:1000;
 }
 
-/* =========================
-   BUTTON
-========================= */
+.navbar-title{
+font-size:20px;
+font-weight:700;
+font-family:'Poppins',sans-serif;
+color:#59B292;
+}
+
+.navbar-left{
+display:flex;
+align-items:center;
+gap:10px;
+}
 
 .back-btn{
-display:inline-flex;
+display:flex;
+align-items:center;
+justify-content:center;
+text-decoration:none;
+color:#59B292;
+}
+
+/* HAMBURGER */
+
+.menu-btn{
+border:none;
+background:none;
+display:flex;
+flex-direction:column;
 justify-content:center;
 align-items:center;
+gap:6px;
+cursor:pointer;
+padding:4px;
+width:42px;
+height:42px;
+}
 
+.menu-btn span{
+width:26px;
+height:2.8px;
+background:#59B292;
+border-radius:999px;
+}
+
+/* OVERLAY */
+
+.overlay{
+position:fixed;
+top:0;
+left:0;
 width:100%;
+height:100%;
+background:rgba(0,0,0,.35);
+opacity:0;
+visibility:hidden;
+transition:.25s;
+z-index:1500;
+}
 
-padding:14px 20px;
+.overlay.active{
+opacity:1;
+visibility:visible;
+}
 
-background:#2563eb;
-color:white;
+/* SIDEBAR */
 
+.sidebar{
+position:fixed;
+top:0;
+left:0;
+width:78%;
+max-width:300px;
+height:100vh;
+background:white;
+padding:24px 18px;
+box-shadow:0 10px 30px rgba(0,0,0,.12);
+transform:translateX(-100%);
+transition:.3s ease;
+z-index:2000;
+display:flex;
+flex-direction:column;
+}
+
+.sidebar.active{
+transform:translateX(0);
+}
+
+.sidebar-top{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:26px;
+}
+
+.sidebar-title{
+font-size:22px;
+font-weight:700;
+}
+
+.close-btn{
+width:40px;
+height:40px;
+border:none;
+border-radius:12px;
+background:#f1f5f9;
+font-size:18px;
+cursor:pointer;
+}
+
+/* MENU */
+
+.sidebar-menu{
+display:flex;
+flex-direction:column;
+gap:12px;
+}
+
+.sidebar-item{
+display:flex;
+align-items:center;
+gap:14px;
+padding:16px;
+border-radius:20px;
+background:#f8fafc;
 text-decoration:none;
+border:1px solid #e5e7eb;
+color:#111827;
+}
 
+.sidebar-icon{
+display:flex;
+align-items:center;
+justify-content:center;
+width:42px;
+height:42px;
+min-width:42px;
+border-radius:12px;
+background:#eff6ff;
+color:#2563eb;
+}
+
+.sidebar-text{
+display:flex;
+flex-direction:column;
+justify-content:center;
+}
+
+.sidebar-text h3{
 font-size:15px;
 font-weight:600;
+margin:0;
+line-height:1.2;
+}
 
-border-radius:18px;
+.sidebar-text p{
+font-size:12px;
+color:#64748b;
+margin-top:2px;
+line-height:1.2;
+}
 
+/* =========================
+   FOOTER STRUKTUR
+========================= */
+
+.footer-struktur{
+  width: 100%;
+  background:#2563eb;
+  border-top:1px solid #e5e7eb;
+  padding:25px 20px;
+  text-align:center;
+}
+
+.footer-struktur p{
+font-size:15px;
+color:white;
+line-height:1.6;
+margin-bottom:6px;
+font-weight:600;
+font-family:'Poppins',sans-serif;
+}
+
+.footer-struktur span{
+font-size:14px;
+color:white;
+}
+
+.container-info{
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.info-card{
+  width: 100%;
+  max-width: 1500px;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  transition: 0.3s ease;
+}
+
+.info-card:hover{
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+}
+
+/* BADGE DI ATAS JUDUL */
+.info-badge{
+  display: inline-block;
+  background: #2563eb;
+  color: white;
+  font-size: 10px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+/* TITLE */
+.info-title{
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #111827;
+}
+
+/* DESC */
+.info-desc{
+  font-size: 14px;
+  color: #4b5563;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+/* META */
+.info-meta{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+  color: #6b7280;
+  border-top: 1px solid #e5e7eb;
+  padding-top: 12px;
+}
+
+/* =========================
+   BOTTOM NAVIGATION
+========================= */
+
+.bottom-nav{
+position:fixed;
+bottom:0;
+left:0;
+width:100%;
+height:72px;
+background:#fff;
+border-top:1px solid #e5e7eb;
+display:flex;
+justify-content:space-around;
+align-items:center;
+z-index:999;
+box-shadow:0 -4px 20px rgba(0,0,0,.06);
+}
+
+.bottom-item{
+flex:1;
+height:100%;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+gap:4px;
+text-decoration:none;
+border:none;
+background:none;
+cursor:pointer;
+color:#94a3b8;
 transition:.2s;
 }
 
-.back-btn:active{
-transform:scale(.98);
+.bottom-item svg{
+width:22px;
+height:22px;
+}
+
+.bottom-item small{
+font-size:11px;
+font-weight:600;
+}
+
+.bottom-item.active{
+color:#2563eb;
+}
+
+.bottom-item:active{
+transform:scale(.95);
 }
 
 </style>
 
+</head>
+
 <body>
 
-<div class="container">
+<!-- NAVBAR -->
 
-  <!-- NAVBAR -->
-  <div class="navbar">
+<div class="navbar">
 
-    <h1 class="navbar-title">
-      Informasi Terbaru
-    </h1>
+<div class="navbar-left">
 
-    <button id="menuBtn"
-    class="menu-btn-navbar">
+<a
+href="dashboard.html"
+class="back-btn">
 
-      <span></span>
-      <span></span>
-      <span></span>
+<svg
+xmlns="http://www.w3.org/2000/svg"
+width="22"
+height="22"
+viewBox="0 0 24 24"
+fill="none"
+stroke="currentColor"
+stroke-width="2.5"
+stroke-linecap="round"
+stroke-linejoin="round">
 
-    </button>
+<path d="m15 18-6-6 6-6"/>
 
-  </div>
+</svg>
 
-  <!-- OVERLAY -->
-  <div id="overlay"
-  class="overlay"></div>
+</a>
 
-  <!-- SIDEBAR -->
-  <div id="sidebar"
-  class="sidebar">
+<div class="navbar-title">
+Informasi
+</div>
 
-    <div class="sidebar-top">
+</div>
 
-      <div class="sidebar-header">
-        Menu
-      </div>
+<button
+class="menu-btn"
+id="menuBtn">
 
-      <button id="closeSidebar"
-      class="close-sidebar">
+<span></span>
+<span></span>
+<span></span>
 
-        ✕
+</button>
 
-      </button>
+</div>
 
-    </div>
+<!-- OVERLAY -->
 
-    <div class="sidebar-menu">
+<div
+class="overlay"
+id="overlay">
+</div>
+
+<!-- SIDEBAR -->
+
+<div
+class="sidebar"
+id="sidebar">
+
+<div class="sidebar-top">
+
+<div class="sidebar-title">
+Menu
+</div>
+
+<button
+class="close-btn"
+id="closeBtn">
+
+✕
+
+</button>
+
+</div>
+
+<div class="sidebar-menu">
 
       <a href="dashboard.html"
       class="sidebar-item">
@@ -277,86 +546,239 @@ Informasi rekening
     </div>
 
   </div>
+  
+  <div class="container-info">
 
-  <!-- CONTENT -->
-<div class="rekening-page kosong-page">
+  <div class="info-card">
 
-  <div class="coming-soon">
+  <div class="info-badge">Akan Mendatang</div>
 
-    <div class="coming-icon">
-      🚧
-    </div>
+  <h2 class="info-title">Rapat Penutupan Panitia Qurban</h2>
 
-    <h2>
-      Dalam Pengerjaan
-    </h2>
+  <p class="info-desc">
+    Ini adalah deskripsi informasi yang menjelaskan detail secara singkat, jelas, dan modern.
+  </p>
 
-    <p>
-      Halaman ini sedang dalam proses pengerjaan,
-      mohon ditunggu ya. Terimakasih.
-    </p>
-    
-    <a href="dashboard.html"
-class="back-btn">
-
-  Kembali Ke Utama
-
-</a>
-
+  <div class="info-meta">
+    <span>📅 Acara: 10 Juni 2026</span>
+    <span>🕒 Dipublish: 1 Juni 2026</span>
   </div>
 
 </div>
 
+</div>
+
+<!-- BOTTOM NAVIGATION -->
+<nav class="bottom-nav">
+
+  <!-- UTAMA -->
+  <a href="index.html"
+  class="bottom-item">
+
+    <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="22"
+    height="22"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2">
+
+      <path d="M3 10.5L12 3l9 7.5"/>
+      <path d="M5 9.5V21h14V9.5"/>
+
+    </svg>
+
+    <small>Utama</small>
+
+  </a>
+
+  <!-- BERITA -->
+  <a href="informasi.html"
+  class="bottom-item active">
+
+    <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="22"
+    height="22"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2">
+
+      <path d="M4 5h16v14H4z"/>
+      <path d="M8 9h8"/>
+      <path d="M8 13h6"/>
+
+    </svg>
+
+    <small>Berita</small>
+
+  </a>
+
+  <!-- INFAQ -->
+  <a href="rekening.html"
+  class="bottom-item">
+
+    <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round">
+
+              <rect
+              x="2"
+              y="5"
+              width="20"
+              height="14"
+              rx="2">
+              </rect>
+
+              <path d="M16 12h2"></path>
+              <path d="M2 9h20"></path>
+
+            </svg>
+
+    <small>Infaq</small>
+
+  </a>
+
+  <!-- STRUKTUR -->
+  <a href="struktur.html"
+  class="bottom-item">
+
+    <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="22"
+    height="22"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2">
+
+      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+      <circle cx="9" cy="7" r="4"/>
+      <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+      <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+
+    </svg>
+
+    <small>Struktur</small>
+
+  </a>
+
+  <!-- MENU -->
+  <button
+  id="bottomMenuBtn"
+  class="bottom-item menu-nav">
+
+    <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="22"
+    height="22"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2">
+
+      <line x1="3" y1="6" x2="21" y2="6"/>
+      <line x1="3" y1="12" x2="21" y2="12"/>
+      <line x1="3" y1="18" x2="21" y2="18"/>
+
+    </svg>
+
+    <small>Menu</small>
+
+  </button>
+
+</nav>
+
 <script>
-
-/* =========================
-   SIDEBAR
-========================= */
-
 const menuBtn =
-document.getElementById("menuBtn");
+document.getElementById(
+"menuBtn"
+);
 
 const sidebar =
-document.getElementById("sidebar");
+document.getElementById(
+"sidebar"
+);
 
 const overlay =
-document.getElementById("overlay");
+document.getElementById(
+"overlay"
+);
 
-const closeSidebar =
-document.getElementById("closeSidebar");
+const closeBtn =
+document.getElementById(
+"closeBtn"
+);
 
-menuBtn.addEventListener("click",()=>{
+menuBtn.addEventListener(
+"click",
+()=>{
 
-  sidebar.classList.add("active");
-  overlay.classList.add("active");
+sidebar.classList.add(
+"active"
+);
 
-});
-
-overlay.addEventListener("click",()=>{
-
-  sidebar.classList.remove("active");
-  overlay.classList.remove("active");
-
-});
-
-closeSidebar.addEventListener("click",()=>{
-
-  sidebar.classList.remove("active");
-  overlay.classList.remove("active");
-
-});
-
-/* =========================
-   COPY REKENING
-========================= */
-
-function copyRekening(nomor){
-
-  navigator.clipboard.writeText(nomor);
-
-  alert("Nomor rekening berhasil disalin");
+overlay.classList.add(
+"active"
+);
 
 }
+);
+
+overlay.addEventListener(
+"click",
+()=>{
+
+sidebar.classList.remove(
+"active"
+);
+
+overlay.classList.remove(
+"active"
+);
+
+}
+);
+
+closeBtn.addEventListener(
+"click",
+()=>{
+
+sidebar.classList.remove(
+"active"
+);
+
+overlay.classList.remove(
+"active"
+);
+
+}
+);
+
+document.addEventListener("DOMContentLoaded",()=>{
+
+const bottomMenuBtn =
+document.getElementById("bottomMenuBtn");
+
+bottomMenuBtn.addEventListener(
+"click",
+()=>{
+
+sidebar.classList.add("active");
+overlay.classList.add("active");
+
+});
+
+});
 
 </script>
 
