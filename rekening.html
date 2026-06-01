@@ -1417,6 +1417,22 @@ function handleSwipe(){
 
 }
 
+document.addEventListener("DOMContentLoaded",()=>{
+
+const bottomMenuBtn =
+document.getElementById("bottomMenuBtn");
+
+bottomMenuBtn.addEventListener(
+"click",
+()=>{
+
+sidebar.classList.add("active");
+overlay.classList.add("active");
+
+});
+
+});
+
 </script>
 
 <footer class="footer-struktur">
@@ -1445,6 +1461,7 @@ function handleSwipe(){
 
   <!-- UTAMA -->
   <a href="index.html"
+  class="bottom-item">
 
     <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -1489,7 +1506,6 @@ function handleSwipe(){
 
   <!-- INFAQ -->
   <a href="rekening.html"
-  class="bottom-item">
   class="bottom-item active">
 
     <svg
