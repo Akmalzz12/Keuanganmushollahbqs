@@ -352,6 +352,38 @@ color:#2563eb;
 transform:scale(.95);
 }
 
+.info-badges{
+  display:flex;
+  gap:8px;
+  margin-bottom:15px;
+  flex-wrap:wrap;
+}
+
+.info-badge{
+  display:inline-block;
+  font-size:10px;
+  padding:4px 8px;
+  border-radius:999px;
+  font-weight:600;
+}
+
+/* Status acara */
+.info-badge.status{
+  background:#2563eb;
+  color:white;
+}
+
+/* Akses acara */
+.info-badge.access{
+  background:#dcfce7;
+  color:#15803d;
+}
+
+.info-badge.private{
+  background:#fee2e2;
+  color:#b91c1c;
+}
+
 </style>
 
 </head>
@@ -561,6 +593,10 @@ Informasi rekening
   <div class="info-card">
 
   <div class="info-badge">Akan Mendatang</div>
+
+  <div class="info-badge access private">
+    Privat
+  </div>
 
   <h2 class="info-title">Rapat Penutupan Panitia Qurban</h2>
 
