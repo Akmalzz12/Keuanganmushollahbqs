@@ -86,32 +86,20 @@ function login(){
 
   /* cek login */
 
-  if(
-
+  if (
   username === userBenar &&
   daftarPassword.includes(password)
-
 ){
 
-  sessionStorage.setItem(
-    "login",
-    "true"
-  );
+  sessionStorage.setItem("login", "true");
 
-  /* pindah halaman */
+  window.location.href = "loading.html";
 
-  window.location.href =
-  "loading.html";
+} else {
+
+  alert("Username atau password salah");
 
 }
-
-  } else {
-
-    alert("Username atau password salah");
-
-  }
-
-    }
 
 </script>
 
