@@ -1006,6 +1006,22 @@ document.querySelector(
 
 }
 
+document.addEventListener("DOMContentLoaded",()=>{
+
+const bottomMenuBtn =
+document.getElementById("bottomMenuBtn");
+
+bottomMenuBtn.addEventListener(
+"click",
+()=>{
+
+sidebar.classList.add("active");
+overlay.classList.add("active");
+
+});
+
+});
+
 </script>
 
 <!-- BOTTOM NAVIGATION -->
