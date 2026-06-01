@@ -210,7 +210,8 @@ line-height:1.2;
 
 .footer-struktur{
 width:100%;
-margin-top:30px;
+margin-top:10px;
+margin-bottom:70px;
 background:#2563eb;
 border-top:1px solid #e5e7eb;
 padding:25px 20px;
@@ -642,6 +643,59 @@ font-size:14px;
 font-weight:600;
 line-height:1.7;
 color:#2563eb;
+}
+
+/* =========================
+   BOTTOM NAVIGATION
+========================= */
+
+.bottom-nav{
+position:fixed;
+bottom:0;
+left:0;
+width:100%;
+height:72px;
+background:#fff;
+border-top:1px solid #e5e7eb;
+display:flex;
+justify-content:space-around;
+align-items:center;
+z-index:999;
+box-shadow:0 -4px 20px rgba(0,0,0,.06);
+}
+
+.bottom-item{
+flex:1;
+height:100%;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+gap:4px;
+text-decoration:none;
+border:none;
+background:none;
+cursor:pointer;
+color:#94a3b8;
+transition:.2s;
+}
+
+.bottom-item svg{
+width:22px;
+height:22px;
+}
+
+.bottom-item small{
+font-size:11px;
+font-weight:600;
+}
+
+.bottom-item.active{
+color:#2563eb;
+}
+
+.bottom-item:active{
+transform:scale(.95);
 }
    
 </style>
@@ -1385,6 +1439,136 @@ function handleSwipe(){
 <div id="toast" class="toast">
   Nomor berhasil disalin
 </div>
+
+<!-- BOTTOM NAVIGATION -->
+<nav class="bottom-nav">
+
+  <!-- UTAMA -->
+  <a href="index.html"
+
+    <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="22"
+    height="22"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2">
+
+      <path d="M3 10.5L12 3l9 7.5"/>
+      <path d="M5 9.5V21h14V9.5"/>
+
+    </svg>
+
+    <small>Utama</small>
+
+  </a>
+
+  <!-- BERITA -->
+  <a href="informasi.html"
+  class="bottom-item">
+
+    <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="22"
+    height="22"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2">
+
+      <path d="M4 5h16v14H4z"/>
+      <path d="M8 9h8"/>
+      <path d="M8 13h6"/>
+
+    </svg>
+
+    <small>Berita</small>
+
+  </a>
+
+  <!-- INFAQ -->
+  <a href="rekening.html"
+  class="bottom-item">
+  class="bottom-item active">
+
+    <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round">
+
+              <rect
+              x="2"
+              y="5"
+              width="20"
+              height="14"
+              rx="2">
+              </rect>
+
+              <path d="M16 12h2"></path>
+              <path d="M2 9h20"></path>
+
+            </svg>
+
+    <small>Infaq</small>
+
+  </a>
+
+  <!-- STRUKTUR -->
+  <a href="struktur.html"
+  class="bottom-item">
+
+    <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="22"
+    height="22"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2">
+
+      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+      <circle cx="9" cy="7" r="4"/>
+      <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+      <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+
+    </svg>
+
+    <small>Struktur</small>
+
+  </a>
+
+  <!-- MENU -->
+  <button
+  id="bottomMenuBtn"
+  class="bottom-item menu-nav">
+
+    <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="22"
+    height="22"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2">
+
+      <line x1="3" y1="6" x2="21" y2="6"/>
+      <line x1="3" y1="12" x2="21" y2="12"/>
+      <line x1="3" y1="18" x2="21" y2="18"/>
+
+    </svg>
+
+    <small>Menu</small>
+
+  </button>
+
+</nav>
 
 </body>
 </html>
