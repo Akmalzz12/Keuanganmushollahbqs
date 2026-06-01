@@ -697,6 +697,23 @@ color:#2563eb;
 .bottom-item:active{
 transform:scale(.95);
 }
+
+.icon-pill{
+display:flex;
+align-items:center;
+justify-content:center;
+padding:3px 14px;
+border-radius:999px;
+transition:.3s;
+}
+
+.bottom-item.active .icon-pill{
+background:#dbeafe;
+}
+
+.bottom-item.active svg{
+color:#2563eb;
+}
    
 </style>
 
@@ -1515,6 +1532,7 @@ overlay.classList.add("active");
   <a href="rekening.html"
   class="bottom-item active">
 
+    <div class="icon-pill">
     <svg
             xmlns="http://www.w3.org/2000/svg"
             width="22"
@@ -1538,6 +1556,7 @@ overlay.classList.add("active");
               <path d="M2 9h20"></path>
 
             </svg>
+            </div>
 
     <small>Infaq</small>
 
