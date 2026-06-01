@@ -239,7 +239,7 @@ padding-bottom:10px;
 
 .scroll-top{
 position:fixed;
-bottom:50px;
+bottom:80px;
 right:20px;
 width:45px;
 height:45px;
@@ -516,6 +516,7 @@ font-weight:700;
 .footer{
 width:100%;
 margin-top:10px;
+margin-bottom:70px;
 background:#2563eb;
 border-top:1px solid #e5e7eb;
 padding:25px 20px;
@@ -772,6 +773,59 @@ color:#2563eb;
 
 .bulan-item:active{
 transform:scale(.98);
+}
+
+/* =========================
+   BOTTOM NAVIGATION
+========================= */
+
+.bottom-nav{
+position:fixed;
+bottom:0;
+left:0;
+width:100%;
+height:72px;
+background:#fff;
+border-top:1px solid #e5e7eb;
+display:flex;
+justify-content:space-around;
+align-items:center;
+z-index:999;
+box-shadow:0 -4px 20px rgba(0,0,0,.06);
+}
+
+.bottom-item{
+flex:1;
+height:100%;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+gap:4px;
+text-decoration:none;
+border:none;
+background:none;
+cursor:pointer;
+color:#94a3b8;
+transition:.2s;
+}
+
+.bottom-item svg{
+width:22px;
+height:22px;
+}
+
+.bottom-item small{
+font-size:11px;
+font-weight:600;
+}
+
+.bottom-item.active{
+color:#2563eb;
+}
+
+.bottom-item:active{
+transform:scale(.95);
 }
 
 /* =========================
