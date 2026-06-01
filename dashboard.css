@@ -828,6 +828,23 @@ color:#2563eb;
 transform:scale(.95);
 }
 
+.icon-pill{
+display:flex;
+align-items:center;
+justify-content:center;
+padding:3px 14px;
+border-radius:999px;
+transition:.3s;
+}
+
+.bottom-item.active .icon-pill{
+background:#dbeafe;
+}
+
+.bottom-item.active svg{
+color:#2563eb;
+}
+
 /* =========================
    DESKTOP
 ========================= */
