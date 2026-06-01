@@ -1199,6 +1199,13 @@ stroke-linejoin="round">
 </div>
 
 <script>
+
+if(sessionStorage.getItem("login") !== "true"){
+
+window.location.href = "index.html";
+
+}
+
 function kirimWA(){
   const nomor = "6289636303141";
   const pesan = encodeURIComponent("Assalamualaikum, saya ingin mengkonfirmasi pembayaran infaq untuk Musholla Baqiatus Sholihat.");
