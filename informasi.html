@@ -389,6 +389,23 @@ transform:scale(.95);
   color:#ea580c;
 }
 
+.icon-pill{
+display:flex;
+align-items:center;
+justify-content:center;
+padding:3px 14px;
+border-radius:999px;
+transition:.3s;
+}
+
+.bottom-item.active .icon-pill{
+background:#dbeafe;
+}
+
+.bottom-item.active svg{
+color:#2563eb;
+}
+
 </style>
 
 </head>
@@ -657,6 +674,7 @@ Informasi rekening
   <a href="informasi.html"
   class="bottom-item active">
 
+    <div class="icon-pill">
     <svg
     xmlns="http://www.w3.org/2000/svg"
     width="22"
@@ -671,6 +689,7 @@ Informasi rekening
       <path d="M8 13h6"/>
 
     </svg>
+    </div>
 
     <small>Berita</small>
 
