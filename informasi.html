@@ -21,10 +21,9 @@ font-family:'Poppins',sans-serif;
 }
 
 body{
-  background:#f5f7fb;
-  color:#111827;
-  overflow-x:hidden;
-  padding-bottom:100px;
+background:#f5f7fb;
+color:#111827;
+overflow-x:hidden;
 }
 
 /* NAVBAR */
@@ -232,10 +231,10 @@ color:white;
 }
 
 .container-info{
-  padding: 20px;
+  padding: 15px;
   display: flex;
-  flex-direction: column;
-  gap: 16px;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 .info-card{
@@ -243,7 +242,7 @@ color:white;
   max-width: 1500px;
   background: #ffffff;
   border-radius: 16px;
-  padding: 20px 20px 12px 20px;
+  padding: 20px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.08);
   transition: 0.3s ease;
 }
@@ -274,18 +273,10 @@ color:white;
 
 /* DESC */
 .info-desc{
-  margin-bottom: 15px;
-}
-
-.info-desc p{
-  font-size: 13px;
+  font-size: 14px;
   color: #4b5563;
-  line-height: 1.7;
-  margin-bottom: 9px;
-}
-
-.info-desc p:last-child{
-  margin-bottom: 0;
+  line-height: 1.6;
+  margin-bottom: 15px;
 }
 
 /* META */
@@ -294,10 +285,9 @@ color:white;
   flex-direction: column;
   gap: 6px;
   font-size: 13px;
-  color: black;
+  color: #6b7280;
   border-top: 1px solid #e5e7eb;
   padding-top: 12px;
-  font-weight:600;
 }
 
 /* =========================
@@ -315,7 +305,7 @@ border-top:1px solid #e5e7eb;
 display:flex;
 justify-content:space-around;
 align-items:center;
-z-index:3000;
+z-index:999;
 box-shadow:0 -4px 20px rgba(0,0,0,.06);
 }
 
@@ -341,7 +331,7 @@ height:22px;
 }
 
 .bottom-item small{
-font-size:12px;
+font-size:11px;
 font-weight:600;
 }
 
@@ -385,52 +375,10 @@ transform:scale(.95);
   color:#b91c1c;
 }
 
-.empty-info{
-  background:#fff;
-  border-radius:16px;
-  padding:32px 20px;
-  text-align:center;
-  box-shadow:0 10px 25px rgba(0,0,0,.08);
+.info-badge.countdown{
+  background:#fff7ed;
+  color:#ea580c;
 }
-
-.empty-icon{
-  font-size:40px;
-  margin-bottom:12px;
-}
-
-.empty-info h3{
-  font-size:18px;
-  color:#111827;
-  margin-bottom:8px;
-}
-
-.empty-info p{
-  font-size:14px;
-  color:#6b7280;
-  line-height:1.6;
-}
-
-.icon-pill{
-display:flex;
-align-items:center;
-justify-content:center;
-padding:3px 14px;
-border-radius:999px;
-transition:.3s;
-}
-
-.bottom-item.active .icon-pill{
-background:#dbeafe;
-}
-
-.bottom-item.active svg{
-color:#2563eb;
-}
-
-‎.info-badge.countdown{
-‎  background:#fff7ed;
-‎  color:#ea580c;
-‎}
 
 </style>
 
@@ -638,37 +586,30 @@ Informasi rekening
   
   <div class="container-info">
 
-  ‎<div class="info-card">
-‎
-‎  <div class="info-badge">Akan Mendatang</div>
-‎
-‎ <div class="info-badge countdown" id="countdown1">
-‎    Menghitung...
-‎  </div>
-‎
-‎  <div class="info-badge access">
-‎    Umum
-‎  </div>
-‎
-‎  <h2 class="info-title">Taklim Ustadz Fatih</h2>
-‎
-‎  <div class="info-desc">
-‎
-‎   <p>
-‎    Berhubung dengan adanya majelis taklim rutin yang di pimpin oleh Ust. H. Dr. Muhammad Fatih Risyad, M.A.
-‎  </p>
-‎
-‎  <p>
-‎    Kami harap untuk semua anggota DKM Musholla Baqiatus Sholihat dapat menghadiri majelis taklim tersebut. Terimakasih 🙏.
-‎  </p>
-‎
-‎  <div class="info-meta">
-‎    <span>📅 Acara: Sen, 1 Juni 2026 (Ba'da Isya)</span>
-‎   <span>📍Tempat: Mushollah Baqiatus Sholihat</span>
-‎    <span>🕒 Dipublish: Sab, 30 Mei 2026</span>
-‎  </div>
-‎
-‎</div>
+  <div class="info-card">
+
+  <div class="info-badge">Akan Mendatang</div>
+  
+  <div class="info-badge countdown" id="countdown1">
+    Menghitung...
+  </div>
+
+  <div class="info-badge access private">
+    Privat
+  </div>
+
+  <h2 class="info-title">Rapat Penutupan Panitia Qurban</h2>
+
+  <p class="info-desc">
+    Ini adalah deskripsi informasi yang menjelaskan detail secara singkat, jelas, dan modern.
+  </p>
+
+  <div class="info-meta">
+    <span>📅 Acara: 10 Juni 2026</span>
+    <span>🕒 Dipublish: 1 Juni 2026</span>
+  </div>
+
+</div>
 
 </div>
 
@@ -676,7 +617,7 @@ Informasi rekening
 <nav class="bottom-nav">
 
   <!-- UTAMA -->
-  <a href="dashboard.html"
+  <a href="index.html"
   class="bottom-item">
 
     <svg
@@ -701,7 +642,6 @@ Informasi rekening
   <a href="informasi.html"
   class="bottom-item active">
 
-    <div class="icon-pill">
     <svg
     xmlns="http://www.w3.org/2000/svg"
     width="22"
@@ -716,7 +656,6 @@ Informasi rekening
       <path d="M8 13h6"/>
 
     </svg>
-    </div>
 
     <small>Berita</small>
 
@@ -805,13 +744,6 @@ Informasi rekening
 </nav>
 
 <script>
-
-if(sessionStorage.getItem("login") !== "true"){
-
-window.location.href = "index.html";
-
-}
-
 const menuBtn =
 document.getElementById(
 "menuBtn"
@@ -895,55 +827,55 @@ overlay.classList.add("active");
 
 </script>
 
-‎<script>
-‎
-‎function updateCountdown(id, eventDate){
-‎
-‎  const today = new Date();
-‎
-‎  today.setHours(0,0,0,0);
-‎
-‎  const event = new Date(eventDate);
-‎
-‎  event.setHours(0,0,0,0);
-‎
-‎  const diff =
-‎  Math.ceil(
-‎    (event - today) /
-‎    (1000 * 60 * 60 * 24)
-‎  );
-‎
-‎  const badge =
-‎  document.getElementById(id);
-‎
-‎  if(diff > 1){
-‎    badge.textContent =
-‎    diff + " Hari Lagi";
-‎  }
-‎
-‎  else if(diff === 1){
-‎    badge.textContent =
-‎    "Besok";
-‎  }
-‎
-‎  else if(diff === 0){
-‎    badge.textContent =
-‎    "Hari Ini";
-‎  }
-‎
-‎  else{
-‎    badge.textContent =
-‎    "Selesai";
-‎  }
-‎
-‎}
-‎
-‎updateCountdown(
-‎  "countdown1",
-‎  "2026-06-7"
-‎);
-‎
-‎</script>
+<script>
+
+function updateCountdown(id, eventDate){
+
+  const today = new Date();
+
+  today.setHours(0,0,0,0);
+
+  const event = new Date(eventDate);
+
+  event.setHours(0,0,0,0);
+
+  const diff =
+  Math.ceil(
+    (event - today) /
+    (1000 * 60 * 60 * 24)
+  );
+
+  const badge =
+  document.getElementById(id);
+
+  if(diff > 1){
+    badge.textContent =
+    diff + " Hari Lagi";
+  }
+
+  else if(diff === 1){
+    badge.textContent =
+    "Besok";
+  }
+
+  else if(diff === 0){
+    badge.textContent =
+    "Hari Ini";
+  }
+
+  else{
+    badge.textContent =
+    "Selesai";
+  }
+
+}
+
+updateCountdown(
+  "countdown1",
+  "2026-12-10"
+);
+
+</script>
 
 </body>
 </html>
