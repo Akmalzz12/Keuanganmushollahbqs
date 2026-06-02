@@ -97,3 +97,25 @@ body{
   font-size:15px;
   color:#444444;
 }
+
+.checkbox-group{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  margin-bottom:20px;
+}
+
+.checkbox-group input[type="checkbox"]{
+  width:18px;
+  height:18px;
+  margin-top:2px;
+  cursor:pointer;
+  accent-color:#2563eb;
+}
+
+.checkbox-group label{
+  font-size:13px;
+  color:#444444;
+  line-height:1.5;
+  cursor:pointer;
+}
