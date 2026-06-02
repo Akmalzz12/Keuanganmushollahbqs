@@ -17,37 +17,49 @@
     <p>Silakan masuk ke akun Anda</p>
 
     <div class="input-group">
-  <label>Username:</label>
+      <label>Username:</label>
 
-  <input
-    type="text"
-    id="username"
-    placeholder="Masukkan username">
-</div>
+      <input
+        type="text"
+        id="username"
+        placeholder="Masukkan username">
+    </div>
 
-<div class="input-group">
-  <label>Password:</label>
+    <div class="input-group">
+      <label>Password:</label>
 
-  <input
-    type="text"
-    id="password"
-    placeholder="Masukkan password">
-</div>
+      <input
+        type="text"
+        id="password"
+        placeholder="Masukkan password">
+    </div>
+
+    <div class="checkbox-group">
+
+      <input
+        type="checkbox"
+        id="agreement">
+
+      <label for="agreement">
+        Saya setuju tidak akan membagikan username atau password di luar anggota DKM
+      </label>
+
+    </div>
 
     <button
-class="login-btn"
-onclick="login()">
+      class="login-btn"
+      onclick="login()">
 
-  Masuk
+      Masuk
 
-</button>
+    </button>
 
     <div class="footer-text">
       Sistem Pencatatan Keuangan Mushollah Baqiatus Sholihat
     </div>
 
   </div>
-  
+
   <script>
 
 function login(){
@@ -58,10 +70,20 @@ function login(){
   const password =
   document.getElementById("password").value;
 
-  /* username */
+  const agreement =
+  document.getElementById("agreement").checked;
+
+  if(!agreement){
+
+    alert(
+      "Silakan centang persetujuan terlebih dahulu"
+    );
+
+    return;
+  }
+
   const userBenar = "Mei";
 
-  /* banyak password */
   const daftarPassword = [
 
     "5725",
@@ -84,25 +106,30 @@ function login(){
 
   ];
 
-  /* cek login */
+  if(
+    username === userBenar &&
+    daftarPassword.includes(password)
+  ){
 
-  if (
-  username === userBenar &&
-  daftarPassword.includes(password)
-){
+    sessionStorage.setItem(
+      "login",
+      "true"
+    );
 
-  sessionStorage.setItem("login", "true");
+    window.location.href =
+    "loading.html";
 
-  window.location.href = "loading.html";
+  }else{
 
-} else {
+    alert(
+      "Username atau password salah"
+    );
 
-  alert("Username atau password salah");
+  }
 
 }
-}
 
-</script>
+  </script>
 
 </body>
 </html>
