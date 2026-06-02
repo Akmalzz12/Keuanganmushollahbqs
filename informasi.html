@@ -427,6 +427,11 @@ background:#dbeafe;
 color:#2563eb;
 }
 
+‎.info-badge.countdown{
+‎  background:#fff7ed;
+‎  color:#ea580c;
+‎}
+
 </style>
 
 </head>
@@ -633,19 +638,37 @@ Informasi rekening
   
   <div class="container-info">
 
-  <div class="empty-info">
-
-  <div class="empty-icon">
-    📢
-  </div>
-
-  <h3>Tidak Ada Info Terbaru</h3>
-
-  <p>
-    Saat ini belum ada informasi atau pengumuman terbaru yang dapat ditampilkan.
-  </p>
-
-</div>
+  ‎<div class="info-card">
+‎
+‎  <div class="info-badge">Akan Mendatang</div>
+‎
+‎ <div class="info-badge countdown" id="countdown1">
+‎    Menghitung...
+‎  </div>
+‎
+‎  <div class="info-badge access">
+‎    Umum
+‎  </div>
+‎
+‎  <h2 class="info-title">Taklim Ustadz Fatih</h2>
+‎
+‎  <div class="info-desc">
+‎
+‎   <p>
+‎    Berhubung dengan adanya majelis taklim rutin yang di pimpin oleh Ust. H. Dr. Muhammad Fatih Risyad, M.A.
+‎  </p>
+‎
+‎  <p>
+‎    Kami harap untuk semua anggota DKM Musholla Baqiatus Sholihat dapat menghadiri majelis taklim tersebut. Terimakasih 🙏.
+‎  </p>
+‎
+‎  <div class="info-meta">
+‎    <span>📅 Acara: Sen, 1 Juni 2026 (Ba'da Isya)</span>
+‎   <span>📍Tempat: Mushollah Baqiatus Sholihat</span>
+‎    <span>🕒 Dipublish: Sab, 30 Mei 2026</span>
+‎  </div>
+‎
+‎</div>
 
 </div>
 
@@ -871,6 +894,56 @@ overlay.classList.add("active");
 });
 
 </script>
+
+‎<script>
+‎
+‎function updateCountdown(id, eventDate){
+‎
+‎  const today = new Date();
+‎
+‎  today.setHours(0,0,0,0);
+‎
+‎  const event = new Date(eventDate);
+‎
+‎  event.setHours(0,0,0,0);
+‎
+‎  const diff =
+‎  Math.ceil(
+‎    (event - today) /
+‎    (1000 * 60 * 60 * 24)
+‎  );
+‎
+‎  const badge =
+‎  document.getElementById(id);
+‎
+‎  if(diff > 1){
+‎    badge.textContent =
+‎    diff + " Hari Lagi";
+‎  }
+‎
+‎  else if(diff === 1){
+‎    badge.textContent =
+‎    "Besok";
+‎  }
+‎
+‎  else if(diff === 0){
+‎    badge.textContent =
+‎    "Hari Ini";
+‎  }
+‎
+‎  else{
+‎    badge.textContent =
+‎    "Selesai";
+‎  }
+‎
+‎}
+‎
+‎updateCountdown(
+‎  "countdown1",
+‎  "2026-06-7"
+‎);
+‎
+‎</script>
 
 </body>
 </html>
