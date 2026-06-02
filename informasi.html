@@ -632,7 +632,7 @@ Informasi rekening
 <nav class="bottom-nav">
 
   <!-- UTAMA -->
-  <a href="index.html"
+  <a href="dashboard.html"
   class="bottom-item">
 
     <svg
@@ -759,6 +759,13 @@ Informasi rekening
 </nav>
 
 <script>
+
+if(sessionStorage.getItem("login") !== "true"){
+
+window.location.href = "index.html";
+
+}
+
 const menuBtn =
 document.getElementById(
 "menuBtn"
