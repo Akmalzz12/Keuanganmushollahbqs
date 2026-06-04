@@ -168,7 +168,20 @@ const transaksi = {
 
   "Juni 2026": [
 
-  ]
+    {
+      tipe: "pemasukan",
+      title: "Infaq Dari Bu Hj. Neneng",
+      tanggal: "03 Juni 2026",
+      nominal: 250000
+    },
+    {
+      tipe: "pengeluaran",
+      title: "Insentif Marbot",
+      tanggal: "04 Juni 2026",
+      nominal: 250000
+    }
+
+  ],
 
 
 };
