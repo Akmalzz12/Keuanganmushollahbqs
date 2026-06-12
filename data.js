@@ -1,5 +1,5 @@
 const lastUpdate =
-"Terakhir diperbarui: 04 Juni 2026 | 19.20 WIB";
+"Terakhir diperbarui: 11 Juni 2026 | 11.30 WIB";
 
 const daftarBulan = [
 
