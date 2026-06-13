@@ -1,5 +1,5 @@
 const lastUpdate =
-"Terakhir diperbarui: 11 Juni 2026 | 11.30 WIB";
+"Terakhir diperbarui: 12 Juni 2026 | 09.10 WIB";
 
 const daftarBulan = [
 
@@ -178,6 +178,12 @@ const transaksi = {
       tipe: "pemasukan",
       title: "Infaq Uang Kas RT",
       tanggal: "11 Juni 2026",
+      nominal: 250000
+    },
+    {
+      tipe: "pemasukan",
+      title: "Infaq Dari Toko SB",
+      tanggal: "12 Juni 2026",
       nominal: 250000
     },
     {
