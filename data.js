@@ -209,6 +209,48 @@ const transaksi = {
       title: "Tagihan Listrik",
       tanggal: "11 Juni 2026",
       nominal: 530000
+    },
+    {
+      tipe: "pengeluaran",
+      title: "Tissue Jelly 2 Pcs",
+      tanggal: "14 Juni 2026",
+      nominal: 20000
+    },
+    {
+      tipe: "pengeluaran",
+      title: "Baterai Alkaline 2 Pack",
+      tanggal: "14 Juni 2026",
+      nominal: 16000
+    },
+    {
+      tipe: "pengeluaran",
+      title: "Sabun Rinso 5 Pcs",
+      tanggal: "22 Juni 2026",
+      nominal: 5000
+    },
+    {
+      tipe: "pengeluaran",
+      title: "Wipol Carbol 2 Pcs",
+      tanggal: "22 Juni 2026",
+      nominal: 36000
+    },
+    {
+      tipe: "pengeluaran",
+      title: "Sitrun 6 Pcs",
+      tanggal: "22 Juni 2026",
+      nominal: 18000
+    },
+    {
+      tipe: "pengeluaran",
+      title: "Kopi Kapal Api 1 Pack",
+      tanggal: "22 Juni 2026",
+      nominal: 25000
+    },
+    {
+      tipe: "pengeluaran",
+      title: "Gula Pasir 1KG",
+      tanggal: "22 Juni 2026",
+      nominal: 20000
     }
 
   ],
