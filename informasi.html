@@ -238,14 +238,14 @@ color:white;
 }
 
 .info-card{
-  width: 100%;
-  max-width: 1500px;
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 20px 20px 12px 20px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-  transition: 0.3s ease;
-}
+  width:100%;
+  max-width:1500px;
+  background:#fff;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
+  transition:.3s;
+  }
 
 .info-card:hover{
   transform: translateY(-5px);
@@ -404,6 +404,25 @@ background:#dbeafe;
 
 .bottom-item.active svg{
 color:#2563eb;
+}
+
+.banner-wrapper{
+  position:relative;
+  width:100%;
+}
+
+.info-banner{
+  width:100%;
+  height:auto;
+  display:block;
+
+  /* hanya sudut atas */
+  border-top-left-radius:20px;
+  border-top-right-radius:20px;
+}
+
+.info-content{
+  padding:20px;
 }
 
 </style>
@@ -613,6 +632,18 @@ Informasi rekening
   <div class="container-info">
 
   <div class="info-card">
+  
+  <!-- Banner -->
+  <div class="banner-wrapper">
+    <img
+      src="image/banner.png"
+      alt="Taklim Ustadz Fatih"
+      class="info-banner">
+  </div>
+
+  <div class="info-content">
+
+    <div class="info-badges">
 
   <div class="info-badge">Akan Mendatang</div>
   
@@ -622,6 +653,8 @@ Informasi rekening
 
   <div class="info-badge access">
     Umum
+  </div>
+
   </div>
 
   <h2 class="info-title">Majelis Taklim Ustadz Fatih</h2>
