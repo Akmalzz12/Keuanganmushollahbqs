@@ -446,18 +446,18 @@ window.location.href = "index.html";
    AMBIL ANGKA
 ========================= */
 
-function ambilAngka(nominal){
-
-  if(
+function ambilAngka(nominal) {
+  if (
     nominal === undefined ||
     nominal === null ||
     nominal === ""
-  ){
+  ) {
     return 0;
   }
 
-  return Number(nominal) || 0;
-
+  return Number(
+    String(nominal).replace(/\./g, "")
+  ) || 0;
 }
 
 /* =========================
