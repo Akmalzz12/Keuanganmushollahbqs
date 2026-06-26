@@ -172,7 +172,7 @@ const transaksi = {
       tipe: "pemasukan",
       title: "Infaq Dari Bu Hj. Neneng",
       tanggal: "03 Juni 2026",
-      nominal: "250.000"
+      nominal: "200.000"
     },
     {
       tipe: "pemasukan",
