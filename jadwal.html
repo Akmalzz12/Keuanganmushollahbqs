@@ -207,67 +207,96 @@ line-height:1.2;
 /* HEADER */
 
 .header{
+  background:#59B292;
+  color:white;
+  margin:-30px -15px 0;
+  padding:20px 20px 25px;
+  border-bottom-left-radius:35px;
+  border-bottom-right-radius:35px;
   text-align:center;
-  margin-bottom:30px;
-  margin-top:10px;
+  position:relative;
 }
 
 .header h1{
   font-size:28px;
   font-weight:700;
+  color:white;
+  margin-top:30px;
 }
 
 .location{
   margin-top:5px;
-  color:#64748b;
-  font-size:14px;
+  color:rgba(255,255,255,.9);
+  font-size:15px;
 }
 
 #tanggal{
-  color:#64748b;
-  font-size:13px;
-  margin-bottom:5px;
-}
+  color:rgba(255,255,255,.85);
+  font-size:15px;
+  margin-top:3px;
+  }
 
 .next-prayer{
   margin-top:20px;
-  margin-bottom:5px;
-  background:#ffffff;
-  border-radius:24px;
-  padding:25px;
-  box-shadow:0 10px 25px rgba(0,0,0,.06);
-  text-align:center;
+  margin-bottom:-50px;
+  background:#fff;
+  border-radius:22px;
+  padding:18px;
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
+  position:relative;
+  z-index:2;
 }
 
 .next-prayer small{
   display:block;
   color:#64748b;
-  font-size:13px;
-  margin-bottom:10px;
+  font-size:15px;
+  margin-bottom:15px;
 }
 
-.next-prayer h2{
-  font-size:36px;
+.next-content{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:80px;
+}
+
+.next-left{
+  text-align:left;
+}
+
+.next-left h2{
+  font-size:26px;
   color:#2563eb;
   font-weight:700;
-  margin-bottom:5px;
+  margin-bottom:2px;
 }
 
 #nextTime{
-  font-size:22px;
-  font-weight:700;
-  color:#111827;
+  font-size:15px;
+  color:#64748b;
+  font-weight:500;
+}
+
+.next-right{
+  text-align:center;
 }
 
 #countdown{
-  display:inline-block;
-  margin-top:15px;
-  padding:7px 16px;
-  border-radius:999px;
-  background:#dbeafe;
   color:#2563eb;
-  font-size:13px;
-  font-weight:600;
+  font-size:22px;
+  font-weight:700;
+  letter-spacing:2px;
+}
+
+.countdown-label{
+  display:flex;
+  justify-content:center;
+  gap:14px;
+  margin-top:4px;
+  font-size:11px;
+  color:#94a3b8;
+  font-weight:500;
 }
 
 /* LIST JADWAL */
@@ -277,13 +306,14 @@ line-height:1.2;
   border-radius:22px;
   overflow:hidden;
   box-shadow:0 8px 20px rgba(0,0,0,.06);
+  margin-top:50px;
 }
 
 .prayer-item{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:18px 20px;
+  padding:13px 20px;
   border-bottom:1px solid #f1f5f9;
 }
 
@@ -298,6 +328,7 @@ line-height:1.2;
 
 .prayer-item strong{
   font-size:17px;
+  font-weight:600;
 }
 
 .prayer-item.active{
@@ -486,7 +517,7 @@ stroke-linejoin="round">
 
   <div class="header">
 
-    <h1>🕌 Jadwal Sholat</h1>
+    <h1>Waktu Sholat</h1>
 
     <div class="location">
       Jakarta Selatan, DKI Jakarta
@@ -497,47 +528,61 @@ stroke-linejoin="round">
     </div>
 
     <div class="next-prayer">
-      <small>Waktu sholat selanjutnya</small>
 
-      <h2 id="nextPrayer">
-        Memuat...
-      </h2>
+      <small>Waktu Sholat Selanjutnya</small>
 
-      <div id="nextTime">
-        --:--
+      <div class="next-content">
+
+        <div class="next-left">
+          <h2 id="nextPrayer">Memuat...</h2>
+          <div id="nextTime">--:-- WIB</div>
+        </div>
+
+        <div class="next-right">
+
+  <div id="countdown">
+    00:00:00
+  </div>
+
+  <div class="countdown-label">
+    <span>Jam</span>
+    <span>Menit</span>
+    <span>Detik</span>
+  </div>
+
+        </div>
+
       </div>
 
-      <div id="countdown">
-        --
-      </div>
     </div>
 
   </div>
 
+
   <div class="schedule-list">
 
     <div class="prayer-item" id="item-fajr">
-      <span>Subuh</span>
+      <span>🌆 Subuh</span>
       <strong id="fajr">--:--</strong>
     </div>
 
     <div class="prayer-item" id="item-dhuhr">
-      <span>Dzuhur</span>
+      <span>☀️ Dzuhur</span>
       <strong id="dhuhr">--:--</strong>
     </div>
 
     <div class="prayer-item" id="item-asr">
-      <span>Ashar</span>
+      <span>🌅 Ashar</span>
       <strong id="asr">--:--</strong>
     </div>
 
     <div class="prayer-item" id="item-maghrib">
-      <span>Maghrib</span>
+      <span>🌇 Maghrib</span>
       <strong id="maghrib">--:--</strong>
     </div>
 
     <div class="prayer-item" id="item-isha">
-      <span>Isya</span>
+      <span>🌃 Isya</span>
       <strong id="isha">--:--</strong>
     </div>
 
@@ -546,12 +591,6 @@ stroke-linejoin="round">
 </div>
 
 <script>
-
-if(sessionStorage.getItem("login") !== "true"){
-
-window.location.href = "index.html";
-
-}
 
 const menuBtn =
 document.getElementById(
@@ -650,8 +689,8 @@ let timings = null;
 fetch(
 "https://api.aladhan.com/v1/timingsByCity?city=Jakarta%20Selatan&country=Indonesia&method=11"
 )
-.then(res=>res.json())
-.then(data=>{
+.then(res => res.json())
+.then(data => {
 
   timings = data.data.timings;
 
@@ -669,17 +708,18 @@ function updatePrayer(){
 
   if(!timings) return;
 
-  document.querySelectorAll(".prayer-item")
+  document
+  .querySelectorAll(".prayer-item")
   .forEach(item=>{
     item.classList.remove("active");
   });
 
   const prayers = [
-    ["Subuh",timings.Fajr,"item-fajr"],
-    ["Dzuhur",timings.Dhuhr,"item-dhuhr"],
-    ["Ashar",timings.Asr,"item-asr"],
-    ["Maghrib",timings.Maghrib,"item-maghrib"],
-    ["Isya",timings.Isha,"item-isha"]
+    ["Subuh", timings.Fajr, "item-fajr"],
+    ["Dzuhur", timings.Dhuhr, "item-dhuhr"],
+    ["Ashar", timings.Asr, "item-asr"],
+    ["Maghrib", timings.Maghrib, "item-maghrib"],
+    ["Isya", timings.Isha, "item-isha"]
   ];
 
   const now = new Date();
@@ -688,12 +728,12 @@ function updatePrayer(){
 
   for(let i = 0; i < prayers.length; i++){
 
-    const [name,time,id] = prayers[i];
+    const [name, time, id] = prayers[i];
 
-    const [h,m] = time.split(":");
+    const [h, m] = time.split(":");
 
     const prayer = new Date();
-    prayer.setHours(h,m,0,0);
+    prayer.setHours(h, m, 0, 0);
 
     if(now >= prayer){
       currentPrayer = id;
@@ -702,40 +742,86 @@ function updatePrayer(){
     if(prayer > now){
 
       const diff = prayer - now;
+      const totalDetik =
+      Math.floor(diff / 1000);
 
       const jam =
-      Math.floor(diff / 1000 / 60 / 60);
+      Math.floor(totalDetik / 3600);
 
       const menit =
-      Math.floor((diff / 1000 / 60) % 60);
+      Math.floor(
+        (totalDetik % 3600) / 60
+      );
+
+      const detik =
+      totalDetik % 60;
 
       nextPrayer.innerText = name;
       nextTime.innerText = time + " WIB";
 
       countdown.innerText =
-        "dalam " +
-        jam +
-        " jam " +
-        menit +
-        " menit";
+        String(jam).padStart(2,"0") +
+        ":" +
+        String(menit).padStart(2,"0") +
+        ":" +
+        String(detik).padStart(2,"0");
 
       document
-        .getElementById(currentPrayer)
-        .classList.add("active");
+      .getElementById(currentPrayer)
+      .classList.add("active");
 
       return;
     }
   }
 
-  // Setelah Isya sampai Subuh besok
   document
-    .getElementById("item-isha")
-    .classList.add("active");
+  .getElementById("item-isha")
+  .classList.add("active");
 
   nextPrayer.innerText = "Subuh";
-  nextTime.innerText = timings.Fajr + " WIB";
-  countdown.innerText = "besok";
-  }
+  nextTime.innerText =
+  timings.Fajr + " WIB";
+
+  const besokSubuh = new Date();
+
+  const [h, m] =
+  timings.Fajr.split(":");
+
+  besokSubuh.setDate(
+    besokSubuh.getDate() + 1
+  );
+
+  besokSubuh.setHours(
+    h,
+    m,
+    0,
+    0
+  );
+
+  const diff =
+  besokSubuh - now;
+
+  const totalDetik =
+  Math.floor(diff / 1000);
+
+  const jam =
+  Math.floor(totalDetik / 3600);
+
+  const menit =
+  Math.floor(
+    (totalDetik % 3600) / 60
+  );
+
+  const detik =
+  totalDetik % 60;
+
+  countdown.innerText =
+    String(jam).padStart(2,"0") +
+    ":" +
+    String(menit).padStart(2,"0") +
+    ":" +
+    String(detik).padStart(2,"0");
+}
 </script>
 
 <!-- BOTTOM NAVIGATION -->
