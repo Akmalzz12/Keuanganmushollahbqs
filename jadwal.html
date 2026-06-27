@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jadwal Sholat</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  background:#f5f7fb;
+  color:#111827;
+}
+
+.container{
+  max-width:500px;
+  margin:auto;
+  padding:30px 15px 100px;
+}
+
+/* NAVBAR */
+
+.navbar{
+position:sticky;
+top:0;
+left:0;
+width:100%;
+height:64px;
+background:white;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 10px;
+box-shadow:0 6px 18px rgba(0,0,0,.05);
+z-index:1000;
+}
+
+.navbar-title{
+font-size:20px;
+font-weight:700;
+font-family:'Poppins',sans-serif;
+color:#59B292;
+}
+
+.navbar-left{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.back-btn{
+display:flex;
+align-items:center;
+justify-content:center;
+text-decoration:none;
+color:#59B292;
+}
+
+/* HAMBURGER */
+
+.menu-btn{
+border:none;
+background:none;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+gap:6px;
+cursor:pointer;
+padding:4px;
+width:42px;
+height:42px;
+}
+
+.menu-btn span{
+width:26px;
+height:2.8px;
+background:#59B292;
+border-radius:999px;
+}
+
+/* OVERLAY */
+
+.overlay{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.35);
+opacity:0;
+visibility:hidden;
+transition:.25s;
+z-index:1500;
+}
+
+.overlay.active{
+opacity:1;
+visibility:visible;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+position:fixed;
+top:0;
+left:0;
+width:78%;
+max-width:300px;
+height:100vh;
+background:white;
+padding:24px 18px;
+box-shadow:0 10px 30px rgba(0,0,0,.12);
+transform:translateX(-100%);
+transition:.3s ease;
+z-index:2000;
+display:flex;
+flex-direction:column;
+}
+
+.sidebar.active{
+transform:translateX(0);
+}
+
+.sidebar-top{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:26px;
+}
+
+.sidebar-title{
+font-size:22px;
+font-weight:700;
+}
+
+.close-btn{
+width:40px;
+height:40px;
+border:none;
+border-radius:12px;
+background:#f1f5f9;
+font-size:18px;
+cursor:pointer;
+}
+
+/* MENU */
+
+.sidebar-menu{
+display:flex;
+flex-direction:column;
+gap:12px;
+}
+
+.sidebar-item{
+display:flex;
+align-items:center;
+gap:14px;
+padding:16px;
+border-radius:20px;
+background:#f8fafc;
+text-decoration:none;
+border:1px solid #e5e7eb;
+color:#111827;
+}
+
+.sidebar-icon{
+display:flex;
+align-items:center;
+justify-content:center;
+width:42px;
+height:42px;
+min-width:42px;
+border-radius:12px;
+background:#eff6ff;
+color:#2563eb;
+}
+
+.sidebar-text{
+display:flex;
+flex-direction:column;
+justify-content:center;
+}
+
+.sidebar-text h3{
+font-size:15px;
+font-weight:600;
+margin:0;
+line-height:1.2;
+}
+
+.sidebar-text p{
+font-size:12px;
+color:#64748b;
+margin-top:2px;
+line-height:1.2;
+  }
+
+/* HEADER */
+
+.header{
+  text-align:center;
+  margin-bottom:30px;
+  margin-top:10px;
+}
+
+.header h1{
+  font-size:28px;
+  font-weight:700;
+}
+
+.location{
+  margin-top:5px;
+  color:#64748b;
+  font-size:14px;
+}
+
+#tanggal{
+  color:#64748b;
+  font-size:13px;
+  margin-bottom:5px;
+}
+
+.next-prayer{
+  margin-top:20px;
+  margin-bottom:5px;
+  background:#ffffff;
+  border-radius:24px;
+  padding:25px;
+  box-shadow:0 10px 25px rgba(0,0,0,.06);
+  text-align:center;
+}
+
+.next-prayer small{
+  display:block;
+  color:#64748b;
+  font-size:13px;
+  margin-bottom:10px;
+}
+
+.next-prayer h2{
+  font-size:36px;
+  color:#2563eb;
+  font-weight:700;
+  margin-bottom:5px;
+}
+
+#nextTime{
+  font-size:22px;
+  font-weight:700;
+  color:#111827;
+}
+
+#countdown{
+  display:inline-block;
+  margin-top:15px;
+  padding:7px 16px;
+  border-radius:999px;
+  background:#dbeafe;
+  color:#2563eb;
+  font-size:13px;
+  font-weight:600;
+}
+
+/* LIST JADWAL */
+
+.schedule-list{
+  background:#fff;
+  border-radius:22px;
+  overflow:hidden;
+  box-shadow:0 8px 20px rgba(0,0,0,.06);
+}
+
+.prayer-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px 20px;
+  border-bottom:1px solid #f1f5f9;
+}
+
+.prayer-item:last-child{
+  border-bottom:none;
+}
+
+.prayer-item span{
+  color:#475569;
+  font-size:15px;
+}
+
+.prayer-item strong{
+  font-size:17px;
+}
+
+.prayer-item.active{
+  background:#eff6ff;
+}
+
+.prayer-item.active span,
+.prayer-item.active strong{
+  color:#2563eb;
+  font-weight:700;
+}
+</style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+
+<div class="navbar">
+
+<div class="navbar-left">
+
+<a
+href="dashboard.html"
+class="back-btn">
+
+<svg
+xmlns="http://www.w3.org/2000/svg"
+width="22"
+height="22"
+viewBox="0 0 24 24"
+fill="none"
+stroke="currentColor"
+stroke-width="2.5"
+stroke-linecap="round"
+stroke-linejoin="round">
+
+<path d="m15 18-6-6 6-6"/>
+
+</svg>
+
+</a>
+
+<div class="navbar-title">
+Jadwal Sholat
+</div>
+
+</div>
+
+<button
+class="menu-btn"
+id="menuBtn">
+
+<span></span>
+<span></span>
+<span></span>
+
+</button>
+
+</div>
+
+<!-- OVERLAY -->
+
+<div
+class="overlay"
+id="overlay">
+</div>
+
+<!-- SIDEBAR -->
+
+<div
+class="sidebar"
+id="sidebar">
+
+<div class="sidebar-top">
+
+<div class="sidebar-title">
+Menu
+</div>
+
+<button
+class="close-btn"
+id="closeBtn">
+
+✕
+
+</button>
+
+</div>
+
+<div class="sidebar-menu">
+
+      <a href="dashboard.html"
+      class="sidebar-item">
+
+        <div class="sidebar-icon">
+
+<svg
+xmlns="http://www.w3.org/2000/svg"
+width="22"
+height="22"
+viewBox="0 0 24 24"
+fill="none"
+stroke="currentColor"
+stroke-width="2"
+stroke-linecap="round"
+stroke-linejoin="round">
+
+<rect x="3" y="3" width="7" height="7" rx="2"></rect>
+<rect x="14" y="3" width="7" height="7" rx="2"></rect>
+<rect x="3" y="14" width="7" height="7" rx="2"></rect>
+<rect x="14" y="14" width="7" height="7" rx="2"></rect>
+
+</svg>
+</div>
+
+        <div class="sidebar-text">
+
+          <h3>Dashboard</h3>
+
+          <p>
+            Laporan keuangan
+          </p>
+
+        </div>
+
+      </a>
+
+      <a href="struktur.html"
+      class="sidebar-item">
+
+        <div class="sidebar-icon">
+
+<svg
+xmlns="http://www.w3.org/2000/svg"
+width="22"
+height="22"
+viewBox="0 0 24 24"
+fill="none"
+stroke="currentColor"
+stroke-width="2"
+stroke-linecap="round"
+stroke-linejoin="round">
+
+<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+<circle cx="9" cy="7" r="4"></circle>
+<path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+<path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+
+</svg>
+</div>
+
+        <div class="sidebar-text">
+
+          <h3>Struktur DKM</h3>
+
+          <p>
+            Pengurus mushollah
+          </p>
+
+        </div>
+
+      </a>
+
+<a
+href="rekening.html"
+class="sidebar-item">
+
+<div class="sidebar-icon">
+
+<svg
+xmlns="http://www.w3.org/2000/svg"
+width="22"
+height="22"
+viewBox="0 0 24 24"
+fill="none"
+stroke="currentColor"
+stroke-width="2"
+stroke-linecap="round"
+stroke-linejoin="round">
+
+<rect
+x="2"
+y="5"
+width="20"
+height="14"
+rx="2">
+</rect>
+
+<path d="M16 12h2"></path>
+<path d="M2 9h20"></path>
+
+</svg>
+
+</div>
+
+<div class="sidebar-text">
+
+<h3>
+Infaq Yuk
+</h3>
+
+<p>
+Informasi rekening
+</p>
+
+</div>
+
+</a>
+
+  <!-- pengumuman -->
+        <a href="informasi.html"
+        class="sidebar-item">
+
+          <div class="sidebar-icon">
+
+            <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round">
+
+              <path d="M3 11v2"></path>
+              <path d="M7 9v6"></path>
+              <path d="M11 5v14"></path>
+              <path d="M15 8v8"></path>
+              <path d="M19 10v4"></path>
+
+            </svg>
+
+          </div>
+
+          <div class="sidebar-text">
+
+            <h3>Pengumuman</h3>
+
+            <p>
+              Informasi terbaru
+            </p>
+
+          </div>
+
+        </a>
+
+    </div>
+
+</div>
+
+<div class="container">
+
+  <div class="header">
+
+    <h1>🕌 Jadwal Sholat</h1>
+
+    <div class="location">
+      Jakarta Selatan, DKI Jakarta
+    </div>
+
+    <div id="tanggal">
+      Memuat...
+    </div>
+
+    <div class="next-prayer">
+      <small>Waktu sholat selanjutnya</small>
+
+      <h2 id="nextPrayer">
+        Memuat...
+      </h2>
+
+      <div id="nextTime">
+        --:--
+      </div>
+
+      <div id="countdown">
+        --
+      </div>
+    </div>
+
+  </div>
+
+  <div class="schedule-list">
+
+    <div class="prayer-item" id="item-fajr">
+      <span>Subuh</span>
+      <strong id="fajr">--:--</strong>
+    </div>
+
+    <div class="prayer-item" id="item-dhuhr">
+      <span>Dzuhur</span>
+      <strong id="dhuhr">--:--</strong>
+    </div>
+
+    <div class="prayer-item" id="item-asr">
+      <span>Ashar</span>
+      <strong id="asr">--:--</strong>
+    </div>
+
+    <div class="prayer-item" id="item-maghrib">
+      <span>Maghrib</span>
+      <strong id="maghrib">--:--</strong>
+    </div>
+
+    <div class="prayer-item" id="item-isha">
+      <span>Isya</span>
+      <strong id="isha">--:--</strong>
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+
+const menuBtn =
+document.getElementById(
+"menuBtn"
+);
+
+const sidebar =
+document.getElementById(
+"sidebar"
+);
+
+const overlay =
+document.getElementById(
+"overlay"
+);
+
+const closeBtn =
+document.getElementById(
+"closeBtn"
+);
+
+menuBtn.addEventListener(
+"click",
+()=>{
+
+sidebar.classList.add(
+"active"
+);
+
+overlay.classList.add(
+"active"
+);
+
+}
+);
+
+overlay.addEventListener(
+"click",
+()=>{
+
+sidebar.classList.remove(
+"active"
+);
+
+overlay.classList.remove(
+"active"
+);
+
+}
+);
+
+closeBtn.addEventListener(
+"click",
+()=>{
+
+sidebar.classList.remove(
+"active"
+);
+
+overlay.classList.remove(
+"active"
+);
+
+}
+);
+
+document.addEventListener("DOMContentLoaded",()=>{
+
+const bottomMenuBtn =
+document.getElementById("bottomMenuBtn");
+
+bottomMenuBtn.addEventListener(
+"click",
+()=>{
+
+sidebar.classList.add("active");
+overlay.classList.add("active");
+
+});
+
+});
+   
+document.getElementById("tanggal").innerText =
+new Date().toLocaleDateString(
+"id-ID",
+{
+  weekday:"long",
+  day:"numeric",
+  month:"long",
+  year:"numeric"
+}
+);
+
+let timings = null;
+
+fetch(
+"https://api.aladhan.com/v1/timingsByCity?city=Jakarta%20Selatan&country=Indonesia&method=11"
+)
+.then(res=>res.json())
+.then(data=>{
+
+  timings = data.data.timings;
+
+  fajr.innerText = timings.Fajr;
+  dhuhr.innerText = timings.Dhuhr;
+  asr.innerText = timings.Asr;
+  maghrib.innerText = timings.Maghrib;
+  isha.innerText = timings.Isha;
+
+  updatePrayer();
+  setInterval(updatePrayer,1000);
+});
+
+function updatePrayer(){
+
+  if(!timings) return;
+
+  document.querySelectorAll(".prayer-item")
+  .forEach(item=>{
+    item.classList.remove("active");
+  });
+
+  const prayers = [
+    ["Subuh",timings.Fajr,"item-fajr"],
+    ["Dzuhur",timings.Dhuhr,"item-dhuhr"],
+    ["Ashar",timings.Asr,"item-asr"],
+    ["Maghrib",timings.Maghrib,"item-maghrib"],
+    ["Isya",timings.Isha,"item-isha"]
+  ];
+
+  const now = new Date();
+
+  let currentPrayer = "item-isha";
+
+  for(let i = 0; i < prayers.length; i++){
+
+    const [name,time,id] = prayers[i];
+
+    const [h,m] = time.split(":");
+
+    const prayer = new Date();
+    prayer.setHours(h,m,0,0);
+
+    if(now >= prayer){
+      currentPrayer = id;
+    }
+
+    if(prayer > now){
+
+      const diff = prayer - now;
+
+      const jam =
+      Math.floor(diff / 1000 / 60 / 60);
+
+      const menit =
+      Math.floor((diff / 1000 / 60) % 60);
+
+      nextPrayer.innerText = name;
+      nextTime.innerText = time + " WIB";
+
+      countdown.innerText =
+        "dalam " +
+        jam +
+        " jam " +
+        menit +
+        " menit";
+
+      document
+        .getElementById(currentPrayer)
+        .classList.add("active");
+
+      return;
+    }
+  }
+
+  // Setelah Isya sampai Subuh besok
+  document
+    .getElementById("item-isha")
+    .classList.add("active");
+
+  nextPrayer.innerText = "Subuh";
+  nextTime.innerText = timings.Fajr + " WIB";
+  countdown.innerText = "besok";
+  }
+</script>
+
+</body>
+</html>
