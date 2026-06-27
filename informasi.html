@@ -394,6 +394,27 @@ color:#2563eb;
   padding:20px;
 }
 
+@keyframes pulse{
+  0%{
+    transform:scale(1);
+    box-shadow:0 0 0 0 rgba(234,88,12,.7);
+  }
+
+  70%{
+    transform:scale(1.08);
+    box-shadow:0 0 0 10px rgba(234,88,12,0);
+  }
+
+  100%{
+    transform:scale(1);
+    box-shadow:0 0 0 0 rgba(234,88,12,0);
+  }
+}
+
+.info-badge.blink{
+  animation:pulse 1.2s infinite;
+}
+
 </style>
 
 </head>
@@ -904,8 +925,8 @@ function updateCountdown(id, eventDate){
   }
 
   else if(diff === 0){
-    badge.textContent =
-    "Hari Ini";
+  badge.textContent = "Hari Ini";
+  badge.classList.add("blink");
   }
 
   else{
