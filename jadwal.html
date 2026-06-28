@@ -365,9 +365,9 @@ line-height:1.2;
 }
 
 .prayer-item.active{
-  background:#eff6ff;
+  background:#f8fafc;
   border:1.5px solid #59B292;
-}
+  }
 
 .prayer-item.active span,
 .prayer-item.active strong{
@@ -471,6 +471,24 @@ color:#2563eb;
   width:16px;
   height:16px;
   flex-shrink:0;
+  }
+
+  .right-box{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.status:not(:empty){
+  display:inline-block;
+  padding:3px 7px;
+  border:1.5px solid #59B292;
+  border-radius:5px;
+  color:#59B292;
+  font-size:10px;
+  font-weight:600;
+  text-align:center;
+  background:transparent;
   }
 </style>
 </head>
@@ -669,28 +687,48 @@ stroke-linejoin="round">
   <div class="schedule-list">
 
     <div class="prayer-item" id="item-fajr">
-      <span>🌆 Subuh</span>
-      <strong id="fajr">Loading</strong>
+  <span>🌆 Subuh</span>
+
+  <div class="right-box">
+    <span class="status" id="status-fajr"></span>
+    <strong id="fajr">Loading</strong>
+  </div>
     </div>
 
     <div class="prayer-item" id="item-dhuhr">
-      <span>☀️ Dzuhur</span>
-      <strong id="dhuhr">Loading</strong>
+  <span>☀️ Dzuhur</span>
+
+  <div class="right-box">
+    <span class="status" id="status-dhuhr"></span>
+    <strong id="dhuhr">Loading</strong>
+  </div>
     </div>
 
     <div class="prayer-item" id="item-asr">
-      <span>🌅 Ashar</span>
-      <strong id="asr">Loading</strong>
+  <span>🌅 Ashar</span>
+
+  <div class="right-box">
+    <span class="status" id="status-asr"></span>
+    <strong id="asr">Loading</strong>
+  </div>
     </div>
 
     <div class="prayer-item" id="item-maghrib">
-      <span>🌇 Maghrib</span>
-      <strong id="maghrib">Loading</strong>
+  <span>🌇 Maghrib</span>
+
+  <div class="right-box">
+    <span class="status" id="status-maghrib"></span>
+    <strong id="maghrib">Loading</strong>
+  </div>
     </div>
 
     <div class="prayer-item" id="item-isha">
-      <span>🌃 Isya</span>
-      <strong id="isha">Loading</strong>
+  <span>🌃 Isya</span>
+
+  <div class="right-box">
+    <span class="status" id="status-isha"></span>
+    <strong id="isha">Loading</strong>
+  </div>
     </div>
 
   </div>
@@ -872,15 +910,22 @@ isha.innerText = timings.Isha;
   setInterval(updatePrayer,1000);
 });
 
-function updatePrayer(){
+
+  function updatePrayer(){
 
   if(!timings) return;
 
+  // Hapus status lama
   document
-  .querySelectorAll(".prayer-item")
-  .forEach(item=>{
-    item.classList.remove("active");
-  });
+    .querySelectorAll(".status")
+    .forEach(el => el.innerText = "");
+
+  // Hapus active lama
+  document
+    .querySelectorAll(".prayer-item")
+    .forEach(item=>{
+      item.classList.remove("active");
+    });
 
   const prayers = [
     ["Subuh", timings.Fajr, "item-fajr"],
@@ -893,16 +938,15 @@ function updatePrayer(){
   const now = new Date();
 
   const sunrise = new Date();
+  const [srH, srM] =
+    timings.Sunrise.split(":");
 
-const [srH, srM] =
-timings.Sunrise.split(":");
-
-sunrise.setHours(
-  srH,
-  srM,
-  0,
-  0
-);
+  sunrise.setHours(
+    srH,
+    srM,
+    0,
+    0
+  );
 
   let currentPrayer = null;
 
@@ -917,37 +961,37 @@ sunrise.setHours(
 
     if(id === "item-fajr"){
 
-  if(
-    now >= prayer &&
-    now < sunrise
-  ){
-    currentPrayer = id;
-  }
+      if(
+        now >= prayer &&
+        now < sunrise
+      ){
+        currentPrayer = id;
+      }
 
-}else{
+    }else{
 
-  if(now >= prayer){
-    currentPrayer = id;
-  }
+      if(now >= prayer){
+        currentPrayer = id;
+      }
 
-}
+    }
 
     if(prayer > now){
 
       const diff = prayer - now;
       const totalDetik =
-      Math.floor(diff / 1000);
+        Math.floor(diff / 1000);
 
       const jam =
-      Math.floor(totalDetik / 3600);
+        Math.floor(totalDetik / 3600);
 
       const menit =
-      Math.floor(
-        (totalDetik % 3600) / 60
-      );
+        Math.floor(
+          (totalDetik % 3600) / 60
+        );
 
       const detik =
-      totalDetik % 60;
+        totalDetik % 60;
 
       nextPrayer.innerText = name;
       nextTime.innerText = time + " WIB";
@@ -959,28 +1003,65 @@ sunrise.setHours(
         ":" +
         String(detik).padStart(2,"0");
 
+      // Tandai sholat selanjutnya
+      const nextStatus =
+        document.getElementById(
+          "status-" +
+          id.replace("item-","")
+        );
+
+      if(nextStatus){
+        nextStatus.innerText =
+          "Selanjutnya";
+      }
+
+      // Tandai sholat saat ini
       if(currentPrayer){
-  document
-    .getElementById(currentPrayer)
-    .classList.add("active");
+
+        document
+          .getElementById(currentPrayer)
+          .classList.add("active");
+
+        const currentStatus =
+          document.getElementById(
+            "status-" +
+            currentPrayer.replace(
+              "item-",
+              ""
+            )
+          );
+
+        if(currentStatus){
+          currentStatus.innerText =
+            "Saat Ini";
+        }
       }
 
       return;
     }
   }
 
+  // Setelah Isya
   document
-  .getElementById("item-isha")
-  .classList.add("active");
+    .getElementById("item-isha")
+    .classList.add("active");
+
+  document
+    .getElementById("status-isha")
+    .innerText = "Saat Ini";
+
+  document
+    .getElementById("status-fajr")
+    .innerText = "Selanjutnya";
 
   nextPrayer.innerText = "Subuh";
   nextTime.innerText =
-  timings.Fajr + " WIB";
+    timings.Fajr + " WIB";
 
   const besokSubuh = new Date();
 
   const [h, m] =
-  timings.Fajr.split(":");
+    timings.Fajr.split(":");
 
   besokSubuh.setDate(
     besokSubuh.getDate() + 1
@@ -994,21 +1075,21 @@ sunrise.setHours(
   );
 
   const diff =
-  besokSubuh - now;
+    besokSubuh - now;
 
   const totalDetik =
-  Math.floor(diff / 1000);
+    Math.floor(diff / 1000);
 
   const jam =
-  Math.floor(totalDetik / 3600);
+    Math.floor(totalDetik / 3600);
 
   const menit =
-  Math.floor(
-    (totalDetik % 3600) / 60
-  );
+    Math.floor(
+      (totalDetik % 3600) / 60
+    );
 
   const detik =
-  totalDetik % 60;
+    totalDetik % 60;
 
   countdown.innerText =
     String(jam).padStart(2,"0") +
@@ -1016,7 +1097,7 @@ sunrise.setHours(
     String(menit).padStart(2,"0") +
     ":" +
     String(detik).padStart(2,"0");
-}
+    }
 </script>
 
 <!-- BOTTOM NAVIGATION -->
