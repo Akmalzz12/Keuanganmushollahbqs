@@ -647,12 +647,18 @@ fill="none">
 
 </svg>
 
-  <span>Data menurut Kemenag (Kementerian Agama)</span>
+  <span>Data menurut Kemenag RI (Kementerian Agama)</span>
   </div>
 
 </div>
 
 <script>
+
+if(sessionStorage.getItem("login") !== "true"){
+
+window.location.href = "index.html";
+
+}
 
 const menuBtn =
 document.getElementById(
