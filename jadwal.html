@@ -240,6 +240,27 @@ line-height:1.2;
   margin-top:1px;
   }
 
+.location,
+.tanggal-box{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  color:rgba(255,255,255,.9);
+  font-size:15px;
+}
+
+.tanggal-box{
+  margin-top:2px;
+}
+
+.location svg,
+.tanggal-box svg{
+  width:15px;
+  height:15px;
+  flex-shrink:0;
+}
+
 .next-prayer{
   margin-top:20px;
   margin-bottom:-50px;
@@ -568,12 +589,40 @@ stroke-linejoin="round">
     <h1>Waktu Sholat</h1>
 
     <div class="location">
-      Jakarta Selatan, DKI Jakarta
-    </div>
+  <svg xmlns="http://www.w3.org/2000/svg"
+       width="15"
+       height="15"
+       viewBox="0 0 24 24"
+       fill="none"
+       stroke="currentColor"
+       stroke-width="2"
+       stroke-linecap="round"
+       stroke-linejoin="round">
+    <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/>
+    <circle cx="12" cy="10" r="3"/>
+  </svg>
 
-    <div id="tanggal">
-      Memuat...
-    </div>
+  <span>Jakarta Selatan, DKI Jakarta</span>
+</div>
+
+<div class="tanggal-box">
+  <svg xmlns="http://www.w3.org/2000/svg"
+       width="15"
+       height="15"
+       viewBox="0 0 24 24"
+       fill="none"
+       stroke="currentColor"
+       stroke-width="2"
+       stroke-linecap="round"
+       stroke-linejoin="round">
+    <rect x="3" y="4" width="18" height="18" rx="2"/>
+    <line x1="16" y1="2" x2="16" y2="6"/>
+    <line x1="8" y1="2" x2="8" y2="6"/>
+    <line x1="3" y1="10" x2="21" y2="10"/>
+  </svg>
+
+  <span id="tanggal">Memuat...</span>
+</div>
 
     <div class="next-prayer">
 
