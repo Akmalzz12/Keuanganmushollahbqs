@@ -767,19 +767,47 @@ new Date().toLocaleDateString(
 
 let timings = null;
 
+function tambahMenit(waktu){
+  let [jam, menit] = waktu.split(":").map(Number);
+
+  menit++;
+
+  if(menit >= 60){
+    menit = 0;
+    jam++;
+  }
+
+  if(jam >= 24){
+    jam = 0;
+  }
+
+  return (
+    String(jam).padStart(2, "0") +
+    ":" +
+    String(menit).padStart(2, "0")
+  );
+}
+
 fetch(
 "https://api.aladhan.com/v1/timingsByCity?city=Jakarta%20Selatan&country=Indonesia&method=11"
 )
 .then(res => res.json())
 .then(data => {
 
-  timings = data.data.timings;
+   timings = data.data.timings;
 
-  fajr.innerText = timings.Fajr;
-  dhuhr.innerText = timings.Dhuhr;
-  asr.innerText = timings.Asr;
-  maghrib.innerText = timings.Maghrib;
-  isha.innerText = timings.Isha;
+timings.Fajr = tambahMenit(timings.Fajr);
+timings.Sunrise = tambahMenit(timings.Sunrise);
+timings.Dhuhr = tambahMenit(timings.Dhuhr);
+timings.Asr = tambahMenit(timings.Asr);
+timings.Maghrib = tambahMenit(timings.Maghrib);
+timings.Isha = tambahMenit(timings.Isha);
+
+fajr.innerText = timings.Fajr;
+dhuhr.innerText = timings.Dhuhr;
+asr.innerText = timings.Asr;
+maghrib.innerText = timings.Maghrib;
+isha.innerText = timings.Isha;
 
   updatePrayer();
   setInterval(updatePrayer,1000);
