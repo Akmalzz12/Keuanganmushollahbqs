@@ -218,10 +218,10 @@ line-height:1.2;
 }
 
 .header h1{
-  font-size:28px;
+  font-size:30px;
   font-weight:700;
   color:white;
-  margin-top:30px;
+  margin-top:25px;
 }
 
 .location{
@@ -233,7 +233,7 @@ line-height:1.2;
 #tanggal{
   color:rgba(255,255,255,.85);
   font-size:15px;
-  margin-top:3px;
+  margin-top:1px;
   }
 
 .next-prayer{
@@ -274,7 +274,7 @@ line-height:1.2;
 
 #nextTime{
   font-size:15px;
-  color:#64748b;
+  color:#444;
   font-weight:500;
 }
 
@@ -292,10 +292,10 @@ line-height:1.2;
 .countdown-label{
   display:flex;
   justify-content:center;
-  gap:14px;
+  gap:9px;
   margin-top:4px;
-  font-size:11px;
-  color:#94a3b8;
+  font-size:12px;
+  color:#444;
   font-weight:500;
 }
 
@@ -410,6 +410,24 @@ background:#dbeafe;
 .bottom-item.active svg{
 color:#2563eb;
 }
+
+.source-info{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  margin-top:15px;
+  color:black;
+  font-size:12px;
+  font-weight:500;
+}
+
+.source-info svg{
+  color:#22c55e;
+  width:16px;
+  height:16px;
+  flex-shrink:0;
+  }
 </style>
 </head>
 <body>
@@ -603,6 +621,33 @@ stroke-linejoin="round">
       <strong id="isha">Loading</strong>
     </div>
 
+  </div>
+
+  <div class="source-info">
+  
+<svg
+xmlns="http://www.w3.org/2000/svg"
+width="14"
+height="14"
+viewBox="0 0 24 24"
+fill="none">
+
+  <circle
+    cx="12"
+    cy="12"
+    r="10"
+    fill="#22c55e"/>
+
+  <path
+    d="M8 12.5L10.5 15L16 9.5"
+    stroke="white"
+    stroke-width="2.2"
+    stroke-linecap="round"
+    stroke-linejoin="round"/>
+
+</svg>
+
+  <span>Data menurut Kemenag Jakarta Pusat</span>
   </div>
 
 </div>
@@ -981,6 +1026,7 @@ stroke-linejoin="round">
   </button>
 
 </nav>
+  
 
 </body>
 </html>
