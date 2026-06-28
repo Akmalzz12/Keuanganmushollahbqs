@@ -647,18 +647,12 @@ fill="none">
 
 </svg>
 
-  <span>Data menurut Kemenag (Kementerian Agama)</span>
+  <span>Data menurut Kemenag Jakarta Pusat</span>
   </div>
 
 </div>
 
 <script>
-
-if(sessionStorage.getItem("login") !== "true"){
-
-window.location.href = "index.html";
-
-}
 
 const menuBtn =
 document.getElementById(
@@ -792,7 +786,19 @@ function updatePrayer(){
 
   const now = new Date();
 
-  let currentPrayer = "item-isha";
+  const sunrise = new Date();
+
+const [srH, srM] =
+timings.Sunrise.split(":");
+
+sunrise.setHours(
+  srH,
+  srM,
+  0,
+  0
+);
+
+  let currentPrayer = null;
 
   for(let i = 0; i < prayers.length; i++){
 
@@ -803,9 +809,22 @@ function updatePrayer(){
     const prayer = new Date();
     prayer.setHours(h, m, 0, 0);
 
-    if(now >= prayer){
-      currentPrayer = id;
-    }
+    if(id === "item-fajr"){
+
+  if(
+    now >= prayer &&
+    now < sunrise
+  ){
+    currentPrayer = id;
+  }
+
+}else{
+
+  if(now >= prayer){
+    currentPrayer = id;
+  }
+
+}
 
     if(prayer > now){
 
@@ -834,9 +853,11 @@ function updatePrayer(){
         ":" +
         String(detik).padStart(2,"0");
 
-      document
-      .getElementById(currentPrayer)
-      .classList.add("active");
+      if(currentPrayer){
+  document
+    .getElementById(currentPrayer)
+    .classList.add("active");
+      }
 
       return;
     }
