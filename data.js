@@ -4,7 +4,8 @@ const lastUpdate =
 const daftarBulan = [
 
   "Mei 2026",
-  "Juni 2026"
+  "Juni 2026",
+  "Juli 2026"
 
 ];
 
