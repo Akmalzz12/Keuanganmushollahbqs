@@ -64,11 +64,10 @@ justify-content:flex-start;
 ========================= */
 
 .saldo-box{
-background:linear-gradient(135deg,#3b82f6,#2563eb);
+background:linear-gradient(135deg,#59B292,#59B292);
 padding:28px;
 border-radius:20px;
 color:white;
-box-shadow:0 10px 50px rgba(37,99,235,.25);
 position:relative;
 overflow:hidden;
 margin-top:5px;
@@ -150,18 +149,18 @@ margin-top:22px;
 .menu-btn{
 flex:1;
 padding:10px;
-border:2px solid #2563eb;
+border:2px solid #59B292;
 border-radius:20px;
 font-size:15px;
 font-weight:600;
 background:white;
-color:#2563eb;
+color:#59B292;
 cursor:pointer;
 transition:.2s;
 }
 
 .menu-btn.active{
-background:#2563eb;
+background:#59B292;
 color:white;
 }
 
@@ -517,7 +516,7 @@ font-weight:700;
 width:100%;
 margin-top:10px;
 margin-bottom:70px;
-background:#2563eb;
+background:#59B292;
 border-top:1px solid #e5e7eb;
 padding:25px 20px;
 text-align:center;
@@ -559,7 +558,7 @@ font-weight:600;
 color:#111827;
 cursor:pointer;
 box-shadow:0 6px 18px rgba(0,0,0,.05);
-border:2px solid #dbeafe;
+border:2px solid #59B292;
 transition:.2s;
 }
 
@@ -568,7 +567,7 @@ transform:scale(.98);
 }
 
 .bulan-btn svg{
-color:#2563eb;
+color:#59B292;
 flex-shrink:0;
 }
 
@@ -647,7 +646,7 @@ width:100%;
 padding:14px;
 border:none;
 border-radius:18px;
-background:#2563eb;
+background:#59B292;
 color:white;
 font-size:18px;
 font-weight:600;
