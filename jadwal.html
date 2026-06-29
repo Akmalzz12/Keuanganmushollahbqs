@@ -851,16 +851,18 @@ overlay.classList.add("active");
 
 });
    
-document.getElementById("tanggal").innerText =
-new Date().toLocaleDateString(
-"id-ID",
-{
-  weekday:"long",
-  day:"numeric",
-  month:"long",
-  year:"numeric"
+function updateTanggal() {
+  document.getElementById("tanggal").innerText =
+    new Date().toLocaleDateString("id-ID", {
+      weekday: "long",
+      day: "numeric",
+      month: "long",
+      year: "numeric"
+    });
 }
-);
+
+updateTanggal();
+setInterval(updateTanggal, 1000);
 
 let timings = null;
 
