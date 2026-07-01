@@ -256,5 +256,16 @@ const transaksi = {
 
   ],
 
+  "Juni 2026": [
+
+    {
+      tipe: "pengeluaran",
+      title: "Sabun Cuci Tangan 5 Liter",
+      tanggal: "01 Juli 2026",
+      nominal: "45.000"
+    }
+
+   ],
+
 
 };
