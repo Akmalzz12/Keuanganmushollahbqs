@@ -34,18 +34,6 @@
         placeholder="Masukkan password">
     </div>
 
-    <div class="checkbox-group">
-
-      <input
-        type="checkbox"
-        id="agreement">
-
-      <label for="agreement">
-        Saya setuju tidak akan membagikan username atau password di luar anggota DKM
-      </label>
-
-    </div>
-
     <button
       class="login-btn"
       onclick="login()">
@@ -72,15 +60,6 @@ function login(){
 
   const agreement =
   document.getElementById("agreement").checked;
-
-  if(!agreement){
-
-    alert(
-      "Silakan centang persetujuan terlebih dahulu"
-    );
-
-    return;
-  }
 
   const userBenar = "Baqiatus";
 
