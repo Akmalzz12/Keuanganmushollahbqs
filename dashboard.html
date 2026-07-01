@@ -734,63 +734,6 @@ overlay.classList.remove("active");
 });
 
 /* =========================
-   POPUP PEMBERITAHUAN
-========================= */
-
-const popupInfo =
-document.getElementById("popupInfo");
-
-const closePopup =
-document.getElementById("closePopup");
-
-/* munculkan popup */
-
-window.addEventListener(
-"load",
-()=>{
-
-setTimeout(()=>{
-
-popupInfo.classList.add(
-"active"
-);
-
-},500);
-
-}
-);
-
-/* tombol close */
-
-closePopup.addEventListener(
-"click",
-()=>{
-
-popupInfo.classList.remove(
-"active"
-);
-
-}
-);
-
-/* klik area gelap */
-
-popupInfo.addEventListener(
-"click",
-(e)=>{
-
-if(e.target === popupInfo){
-
-popupInfo.classList.remove(
-"active"
-);
-
-}
-
-}
-);
-
-/* =========================
    SWIPE MENU
 ========================= */
 
