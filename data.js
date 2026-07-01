@@ -256,7 +256,7 @@ const transaksi = {
 
   ],
 
-  "Juni 2026": [
+  "Juli 2026": [
 
     {
       tipe: "pengeluaran",
