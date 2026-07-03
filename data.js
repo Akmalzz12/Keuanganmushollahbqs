@@ -258,6 +258,7 @@ const transaksi = {
 
   "Juli 2026": [
 
+    {
       tipe: "pemasukan",
       title: "Infaq Dari Bu Hj. Neneng",
       tanggal: "03 Juli 2026",
