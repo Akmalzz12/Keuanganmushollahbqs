@@ -265,10 +265,22 @@ const transaksi = {
       nominal: "200.000"
     },
     {
+      tipe: "pemasukan",
+      title: "Infaq Dari Pak Adil Aseni Arafat",
+      tanggal: "03 Juli 2026",
+      nominal: "50.000"
+    },
+    {
       tipe: "pengeluaran",
       title: "Sabun Cuci Tangan 5 Liter",
       tanggal: "01 Juli 2026",
       nominal: "45.000"
+    },
+    {
+      tipe: "pengeluaran",
+      title: "Insentif Marbot",
+      tanggal: "03 Juli 2026",
+      nominal: "250.000"
     }
 
    ],
