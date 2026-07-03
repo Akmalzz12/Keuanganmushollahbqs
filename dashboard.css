@@ -844,6 +844,32 @@ background:#dbeafe;
 color:#2563eb;
 }
 
+.tanggal-header {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #6b7280;
+  background: #fff;
+  padding: 10px 0;
+  margin-top: 8px;
+}
+
+.tanggal-header::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #e5e7eb;
+}
+
+.tanggal-header:first-child {
+  margin-top: 0;
+}
+
 /* =========================
    DESKTOP
 ========================= */
