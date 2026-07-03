@@ -574,6 +574,30 @@ tampilkanTransaksi();
 });
 
 /* =========================
+   PARSE TANGGAL (untuk sorting)
+========================= */
+
+function parseTanggalIndo(str){
+
+  const bulanMap = {
+    "januari":0, "februari":1, "maret":2, "april":3,
+    "mei":4, "juni":5, "juli":6, "agustus":7,
+    "september":8, "oktober":9, "november":10, "desember":11
+  };
+
+  const parts = str.trim().split(" ");
+
+  if(parts.length < 3) return new Date(0);
+
+  const tanggal = parseInt(parts[0]);
+  const bulan = bulanMap[parts[1].toLowerCase()];
+  const tahun = parseInt(parts[2]);
+
+  return new Date(tahun, bulan, tanggal);
+
+}
+
+/* =========================
    TAMPIL TRANSAKSI
 ========================= */
 
@@ -582,27 +606,66 @@ document.getElementById("riwayat-list");
 
 function tampilkanTransaksi(){
 
-const dataBulan =
-transaksi[bulanAktif] || [];
+  const dataBulan =
+  transaksi[bulanAktif] || [];
 
-let html = "";
-let total = 0;
+  let total = 0;
 
-dataBulan.forEach((item)=>{
+  // filter sesuai tipe aktif
+  const filtered =
+  dataBulan.filter((item)=>{
 
-const tipeItem =
-String(item.tipe)
-.trim()
-.toLowerCase();
+    const tipeItem =
+    String(item.tipe)
+    .trim()
+    .toLowerCase();
 
-if(tipeItem === tipeAktif){
+    return tipeItem === tipeAktif;
 
-const angka =
-ambilAngka(item.nominal);
+  });
 
-total += angka;
+  // kelompokkan per tanggal
+  const grouped = {};
 
-html += `
+  filtered.forEach((item)=>{
+
+    const tgl = item.tanggal;
+
+    if(!grouped[tgl]){
+      grouped[tgl] = [];
+    }
+
+    grouped[tgl].push(item);
+
+  });
+
+  // urutkan tanggal (terbaru di atas)
+  const sortedTanggal =
+  Object.keys(grouped).sort((a,b)=>{
+
+    return parseTanggalIndo(b) - parseTanggalIndo(a);
+
+  });
+
+  let html = "";
+
+  sortedTanggal.forEach((tgl)=>{
+
+    html += `<div class="tanggal-header">${tgl}</div>`;
+
+    grouped[tgl].forEach((item)=>{
+
+      const tipeItem =
+      String(item.tipe)
+      .trim()
+      .toLowerCase();
+
+      const angka =
+      ambilAngka(item.nominal);
+
+      total += angka;
+
+      html += `
 
 <div class="item">
 
@@ -627,34 +690,72 @@ ${tipeItem === "pemasukan" ? "+" : "-"}Rp ${angka.toLocaleString("id-ID")}
 
 `;
 
+    });
+
+  });
+
+  list.innerHTML = html;
+
+  const grandTotal =
+  document.getElementById("grand-total");
+
+  grandTotal.innerText =
+  "Rp " +
+  total.toLocaleString("id-ID");
+
+  if(tipeAktif === "pemasukan"){
+
+    grandTotal.style.color =
+    "#16a34a";
+
+  } else {
+
+    grandTotal.style.color =
+    "#ef4444";
+
+  }
+
+    }
+
+/* =========================
+   SCROLL TOP
+========================= */
+
+const scrollBtn =
+document.getElementById(
+"scrollTopBtn"
+);
+
+window.addEventListener(
+"scroll",
+()=>{
+
+if(window.scrollY > 200){
+
+scrollBtn.style.display =
+"flex";
+
+} else {
+
+scrollBtn.style.display =
+"none";
+
 }
 
 });
 
-list.innerHTML = html;
+scrollBtn.addEventListener(
+"click",
+()=>{
 
-const grandTotal =
-document.getElementById("grand-total");
+window.scrollTo({
 
-grandTotal.innerText =
-"Rp " +
-total.toLocaleString("id-ID");
+top:0,
+behavior:"smooth"
 
-if(tipeAktif === "pemasukan"){
+});
 
-grandTotal.style.color =
-"#16a34a";
-
-} else {
-
-grandTotal.style.color =
-"#ef4444";
-
-}
-
-}
-
-tampilkanTransaksi();
+});
 
 /* =========================
    SCROLL TOP
