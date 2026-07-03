@@ -48,7 +48,19 @@
 
   </div>
 
+  <div id="toast" class="toast"></div>
+
   <script>
+
+function showToast(message, type = "error") {
+  const toast = document.getElementById("toast");
+  toast.textContent = message;
+  toast.className = "toast " + type + " show";
+
+  setTimeout(() => {
+    toast.className = "toast " + type;
+  }, 3000);
+}
 
 function login(){
 
@@ -98,9 +110,7 @@ function login(){
 
   }else{
 
-    alert(
-      "Username atau password salah"
-    );
+    showToast("Username atau password salah", "error");
 
   }
 
