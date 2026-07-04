@@ -169,7 +169,7 @@ body{
   background: linear-gradient(135deg, #2563eb, #3b82f6);
   color: white;
   text-align: left;
-  padding: clamp(2rem, 8vw, 4.5rem) clamp(1rem, 5vw, 1.5rem) clamp(11rem, 32vw, 18rem);
+  padding: clamp(3.5rem, 10vw, 4.5rem) clamp(1rem, 5vw, 1.5rem) clamp(11rem, 32vw, 18rem);
   clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%);
   margin: 0;
 }
