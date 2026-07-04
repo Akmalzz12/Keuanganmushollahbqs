@@ -67,6 +67,10 @@ function showToast(message, type = "error") {
   toast.textContent = message;
   toast.className = "toast " + type + " show";
 
+  void toast.offsetWidth;
+
+  toast.classList.add("shake");
+
   setTimeout(() => {
     toast.className = "toast " + type;
   }, 3000);
