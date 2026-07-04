@@ -163,7 +163,7 @@ body{
   background: linear-gradient(135deg, #2563eb, #3b82f6);
   color: white;
   text-align: left;
-  padding: 40px 24px 190px;
+  padding: 70px 24px 190px;
   clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%);
   margin: 0;
 }
