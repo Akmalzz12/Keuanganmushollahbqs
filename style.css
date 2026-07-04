@@ -148,6 +148,7 @@ body{
   max-width: 90vw;
   width: max-content;
   font-family:'Poppins',sans-serif;
+  text-align: center;
 }
 
 .toast.show {
