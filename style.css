@@ -210,6 +210,6 @@ body{
   height: 60px;
   object-fit: contain;
   margin-bottom: 16px;
-  margin-top: 5px;
+  margin-top: -5px;
   display: block;
 }
