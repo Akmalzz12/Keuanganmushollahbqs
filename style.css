@@ -27,7 +27,7 @@ body{
   max-width:23.75rem; /* 380px */
   padding: clamp(1.5rem, 5vw, 2.2rem);
   border-radius:20px;
-  margin-top: -120px;
+  margin-top: -140px;
   background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.5);
@@ -210,6 +210,6 @@ body{
   height: 50px;
   object-fit: contain;
   margin-bottom: 16px;
-  margin-top: -10px;
+  margin-top: -15px;
   display: block;
 }
