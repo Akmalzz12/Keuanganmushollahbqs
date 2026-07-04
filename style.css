@@ -58,7 +58,7 @@ body{
   display:block;
   margin-bottom: 0.5rem;
   font-weight: 600;
-  font-size: clamp(0.85rem, 3vw, 0.95rem);
+  font-size: clamp(0.9rem, 3vw, 0.95rem);
   color:#3b82f6;
 }
 
