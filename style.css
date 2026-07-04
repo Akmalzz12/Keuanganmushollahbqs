@@ -153,6 +153,10 @@ body{
   width: max-content;
   font-family:'Poppins',sans-serif;
   text-align: center;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .toast.show {
