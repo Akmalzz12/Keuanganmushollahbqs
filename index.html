@@ -79,6 +79,21 @@ function login(){
   const password =
   document.getElementById("password").value;
 
+  if(username === "" && password === ""){
+    showToast("Mohon isi Username & Password", "warning");
+    return;
+  }
+
+  if(username === ""){
+    showToast("Mohon isi Username", "warning");
+    return;
+  }
+
+  if(password === ""){
+    showToast("Mohon isi Password", "warning");
+    return;
+  }
+
   const userBenar = "Baqiatus";
 
   const daftarPassword = [
