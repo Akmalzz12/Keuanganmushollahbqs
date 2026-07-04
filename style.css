@@ -206,10 +206,10 @@ body{
 }
 
 .logo-musholla {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   object-fit: contain;
   margin-bottom: 16px;
-  margin-top: -5px;
+  margin-top: -10px;
   display: block;
 }
