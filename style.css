@@ -204,3 +204,11 @@ body{
   25% { transform: rotate(15deg); }
   75% { transform: rotate(-10deg); }
 }
+
+.logo-musholla {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  margin-bottom: 16px;
+  display: block;
+}
