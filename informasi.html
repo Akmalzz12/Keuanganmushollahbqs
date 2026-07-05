@@ -401,6 +401,21 @@ color:#2563eb;
   text-decoration: underline;
   }
 
+.link-belum-ada {
+  color: #94a3b8;
+  font-style: italic;
+}
+
+.youtube-link {
+  color: #ef4444;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.youtube-link:active {
+  text-decoration: underline;
+}
+
 </style>
 
 </head>
@@ -805,15 +820,19 @@ function updateCountdown(id, eventDate){
 
 updateCountdown("countdown1", "2026-07-12");
 
-const linkYoutube = ""; // kosongkan kalau belum ada, isi kalau sudah ada
+function updateStreamingInfo(id, link){
 
-const streamingInfo = document.getElementById("streaming-info");
+  const el = document.getElementById(id);
 
-if(linkYoutube === ""){
-  streamingInfo.innerHTML = "🎥 Live Streaming: <span style='color:#94a3b8; font-style:italic;'>Akan diinfokan menyusul</span>";
-} else {
-  streamingInfo.innerHTML = `🎥 Live Streaming: <a href="${linkYoutube}" target="_blank" class="youtube-link">Klik Disini</a>`;
+  if(!link || link.trim() === ""){
+    el.innerHTML = "🎥 Live Streaming: <span class='link-belum-ada'>Akan diinfokan menyusul</span>";
+  } else {
+    el.innerHTML = `🎥 Live Streaming: <a href="${link}" target="_blank" class="youtube-link">Klik Disini</a>`;
+  }
+
 }
+
+updateStreamingInfo("streaming-info", ""); // kosongkan kalau belum ada linknya
 
 </script>
 
