@@ -28,20 +28,22 @@
 
     <div class="input-group">
       <label>Username:</label>
-
-      <input
-        type="text"
-        id="username"
-        placeholder="Masukkan username">
+      <div class="input-wrapper">
+        <input type="text" id="username" placeholder="Masukkan username">
+        <svg class="check-icon" id="check-username" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"/>
+        </svg>
+      </div>
     </div>
 
     <div class="input-group">
       <label>Password:</label>
-
-      <input
-        type="text"
-        id="password"
-        placeholder="Masukkan password">
+      <div class="input-wrapper">
+        <input type="text" id="password" placeholder="Masukkan password">
+        <svg class="check-icon" id="check-password" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"/>
+        </svg>
+      </div>
     </div>
 
     <button
@@ -79,9 +81,40 @@ function showToast(message, type = "error") {
   }, 3000);
 }
 
+const userBenar = "Baqiatus";
+
+const daftarPassword = [
+  "5725","5000","5811","8419","1449","5061","5542",
+  "2035","8918","7178","5003","9060","8995","9739",
+  "7554","7617","0072","0000"
+];
+
+const usernameInput = document.getElementById("username");
+const passwordInput = document.getElementById("password");
+const checkUsername = document.getElementById("check-username");
+const checkPassword = document.getElementById("check-password");
+
+usernameInput.addEventListener("input", () => {
+  const val = usernameInput.value.trim();
+  if(val === userBenar){
+    checkUsername.classList.add("show");
+  } else {
+    checkUsername.classList.remove("show");
+  }
+});
+
+passwordInput.addEventListener("input", () => {
+  const val = passwordInput.value.trim();
+  if(daftarPassword.includes(val)){
+    checkPassword.classList.add("show");
+  } else {
+    checkPassword.classList.remove("show");
+  }
+});
+
 function login(){
 
-const username =      document.getElementById("username").value.trim();
+const username = document.getElementById("username").value.trim();
 
 const password = document.getElementById("password").value.trim();
 
@@ -99,31 +132,6 @@ const password = document.getElementById("password").value.trim();
     showToast("Mohon isi Password", "warning");
     return;
   }
-
-  const userBenar = "Baqiatus";
-
-  const daftarPassword = [
-
-    "5725",
-    "5000",
-    "5811",
-    "8419",
-    "1449",
-    "5061",
-    "5542",
-    "2035",
-    "8918",
-    "7178",
-    "5003",
-    "9060",
-    "8995",
-    "9739",
-    "7554",
-    "7617",
-    "0072",
-    "0000"
-
-  ];
 
   if(
     username === userBenar &&
