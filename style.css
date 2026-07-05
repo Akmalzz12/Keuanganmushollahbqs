@@ -250,3 +250,14 @@ body{
   transform: translateY(-50%) scale(1);
   opacity: 1;
 }
+
+.login-btn:disabled {
+  background: #cbd5e1;
+  color: #94a3b8;
+  cursor: not-allowed;
+}
+
+.login-btn:disabled:hover {
+  background: #cbd5e1;
+  transform: none;
+}
