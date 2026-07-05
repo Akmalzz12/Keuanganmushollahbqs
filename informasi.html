@@ -7,7 +7,7 @@
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0">
 
-<title>Struktur Pengurus</title>
+<title>Informasi</title>
 
 <style>
 
@@ -204,72 +204,6 @@ margin-top:2px;
 line-height:1.2;
 }
 
-.container-info{
-  padding:15px;
-  display:flex;
-  flex-direction:column;
-  gap:20px;
-  padding-bottom:100px;
-  padding-top:30px;
-}
-
-.info-card{
-  width:100%;
-  max-width:1500px;
-  background:#fff;
-  border-radius:20px;
-  overflow:hidden;
-  box-shadow:0 10px 25px rgba(0,0,0,.08);
-  transition:.3s;
-  }
-
-/* BADGE DI ATAS JUDUL */
-.info-badge{
-  display: inline-block;
-  background: #2563eb;
-  color: white;
-  font-size: 10px;
-  padding: 4px 8px;
-  border-radius: 999px;
-  font-weight: 600;
-  margin-bottom: 10px;
-}
-
-/* TITLE */
-.info-title{
-  font-size: 18px;
-  margin-bottom: 10px;
-  color: #111827;
-}
-
-/* DESC */
-.info-desc{
-  margin-bottom: 15px;
-}
-
-.info-desc p{
-  font-size: 13px;
-  color: #4b5563;
-  line-height: 1.7;
-  margin-bottom: 12px;
-}
-
-.info-desc p:last-child{
-  margin-bottom: 0;
-}
-
-/* META */
-.info-meta{
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  font-size: 13px;
-  color: black;
-  border-top: 1px solid #e5e7eb;
-  padding-top: 12px;
-  font-weight: 400;
-}
-
 /* =========================
    BOTTOM NAVIGATION
 ========================= */
@@ -323,43 +257,6 @@ color:#2563eb;
 transform:scale(.95);
 }
 
-.info-badges{
-  display:flex;
-  gap:8px;
-  margin-bottom:15px;
-  flex-wrap:wrap;
-}
-
-.info-badge{
-  display:inline-block;
-  font-size:10px;
-  padding:4px 8px;
-  border-radius:999px;
-  font-weight:600;
-}
-
-/* Status acara */
-.info-badge.status{
-  background:#2563eb;
-  color:white;
-}
-
-/* Akses acara */
-.info-badge.access{
-  background:#dcfce7;
-  color:#15803d;
-}
-
-.info-badge.private{
-  background:#fee2e2;
-  color:#b91c1c;
-}
-
-.info-badge.countdown{
-  background:#fff7ed;
-  color:#ea580c;
-}
-
 .icon-pill{
 display:flex;
 align-items:center;
@@ -377,6 +274,26 @@ background:#dbeafe;
 color:#2563eb;
 }
 
+/* CONTAINER INFO */
+
+.container-info{
+  padding:15px;
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+  padding-bottom:100px;
+  padding-top:20px;
+}
+
+.info-card{
+  width:100%;
+  background:#fff;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
+  transition:.3s;
+}
+
 .banner-wrapper{
   position:relative;
   width:100%;
@@ -386,8 +303,6 @@ color:#2563eb;
   width:100%;
   height:auto;
   display:block;
-
-  /* hanya sudut atas */
   border-top-left-radius:20px;
   border-top-right-radius:20px;
 }
@@ -396,41 +311,95 @@ color:#2563eb;
   padding:20px;
 }
 
-.empty-info{
-  text-align:center;
-  padding:200px 30px;
+/* BADGE */
+.info-badges{
+  display:flex;
+  gap:8px;
+  margin-bottom:15px;
+  flex-wrap:wrap;
 }
 
-.empty-info h3{
-  font-size:18px;
-  color:#111827;
-  margin-bottom:8px;
+.info-badge{
+  display:inline-block;
+  font-size:10px;
+  padding:4px 8px;
+  border-radius:999px;
   font-weight:600;
 }
 
-.empty-info p{
-  font-size:14px;
-  color:#6b7280;
-  line-height:1.6;
+.info-badge.status{
+  background:#2563eb;
+  color:white;
+}
+
+.info-badge.access{
+  background:#dcfce7;
+  color:#15803d;
+}
+
+.info-badge.private{
+  background:#fee2e2;
+  color:#b91c1c;
+}
+
+.info-badge.countdown{
+  background:#fff7ed;
+  color:#ea580c;
 }
 
 @keyframes pulse{
-  0%{
-    box-shadow:0 0 0 0 rgba(234,88,12,.7);
-  }
-
-  70%{
-    box-shadow:0 0 0 5px rgba(234,88,12,0);
-  }
-
-  100%{
-    box-shadow:0 0 0 0 rgba(234,88,12,0);
-  }
+  0%{ box-shadow:0 0 0 0 rgba(234,88,12,.7); }
+  70%{ box-shadow:0 0 0 5px rgba(234,88,12,0); }
+  100%{ box-shadow:0 0 0 0 rgba(234,88,12,0); }
 }
 
 .info-badge.blink{
   animation:pulse 1.3s infinite;
 }
+
+/* TITLE & DESC */
+.info-title{
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #111827;
+}
+
+.info-desc{
+  margin-bottom: 15px;
+}
+
+.info-desc p{
+  font-size: 13px;
+  color: #4b5563;
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+.info-desc p:last-child{
+  margin-bottom: 0;
+}
+
+/* META */
+.info-meta{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+  color: black;
+  border-top: 1px solid #e5e7eb;
+  padding-top: 12px;
+  font-weight: 400;
+  }
+
+.youtube-link {
+  color: #ef4444;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.youtube-link:active {
+  text-decoration: underline;
+  }
 
 </style>
 
@@ -553,12 +522,45 @@ stroke-linejoin="round">
     </div>
 
   </div>
-  
-  <div class="empty-info">
-  <h3>Afwan</h3>
-  <p>
-    Saat ini belum ada informasi terbaru yang bisa ditampilkan.
-  </p>
+
+  <!-- KONTEN INFORMASI -->
+
+<div class="container-info">
+
+  <div class="info-card">
+
+    <div class="banner-wrapper">
+      <img src="gambar/banner.png" alt="Banner Informasi" class="info-banner">
+    </div>
+
+    <div class="info-content">
+
+      <div class="info-badges">
+        <span class="info-badge status" id="countdown1">Memuat...</span>
+        <span class="info-badge access">Umum</span>
+      </div>
+
+      <h2 class="info-title">Kajian Rutin Malam Jumat</h2>
+
+      <div class="info-desc">
+        <p>
+          Lorem ipsum dolor sit amet, konten deskripsi ini masih asal-asalan dulu buat contoh tampilan. Nanti bisa diganti dengan informasi acara yang sebenarnya.
+        </p>
+        <p>
+          Paragraf kedua ini juga masih placeholder, tinggal disesuaikan lagi sama isi pengumuman yang mau ditampilkan ke jamaah musholla nantinya.
+        </p>
+      </div>
+
+      <div class="info-meta">
+  <span>📅 Tanggal: 28 Juni 2026</span>
+  <span>📍 Tempat: Musholla Baqiatus Sholihat</span>
+  <span id="streaming-info"></span>
+      </div>
+
+    </div>
+
+  </div>
+
 </div>
 
 <!-- BOTTOM NAVIGATION -->
@@ -698,7 +700,7 @@ stroke-linejoin="round">
 
     <small>Wkt Sholat</small>
 
-  </button>
+  </a>
 
 </nav>
 
@@ -775,71 +777,43 @@ overlay.classList.remove(
 }
 );
 
-document.addEventListener("DOMContentLoaded",()=>{
-
-const bottomMenuBtn =
-document.getElementById("bottomMenuBtn");
-
-bottomMenuBtn.addEventListener(
-"click",
-()=>{
-
-sidebar.classList.add("active");
-overlay.classList.add("active");
-
-});
-
-});
-
-</script>
-
-<script>
 
 function updateCountdown(id, eventDate){
 
   const today = new Date();
-
   today.setHours(0,0,0,0);
 
   const event = new Date(eventDate);
-
   event.setHours(0,0,0,0);
 
-  const diff =
-  Math.ceil(
-    (event - today) /
-    (1000 * 60 * 60 * 24)
-  );
+  const diff = Math.ceil((event - today) / (1000 * 60 * 60 * 24));
 
-  const badge =
-  document.getElementById(id);
+  const badge = document.getElementById(id);
 
   if(diff > 1){
-    badge.textContent =
-    diff + " Hari Lagi";
-  }
-
-  else if(diff === 1){
-    badge.textContent =
-    "Besok";
-  }
-
-  else if(diff === 0){
-  badge.textContent = "Hari Ini";
-  badge.classList.add("blink");
-  }
-
-  else{
-    badge.textContent =
-    "Selesai";
+    badge.textContent = diff + " Hari Lagi";
+  } else if(diff === 1){
+    badge.textContent = "Besok";
+  } else if(diff === 0){
+    badge.textContent = "Hari Ini";
+    badge.classList.add("blink");
+  } else {
+    badge.textContent = "Selesai";
   }
 
 }
 
-updateCountdown(
-  "countdown1",
-  "2026-06-28"
-);
+updateCountdown("countdown1", "2026-07-12");
+
+const linkYoutube = ""; // kosongkan kalau belum ada, isi kalau sudah ada
+
+const streamingInfo = document.getElementById("streaming-info");
+
+if(linkYoutube === ""){
+  streamingInfo.innerHTML = "🎥 Live Streaming: <span style='color:#94a3b8; font-style:italic;'>Akan diinfokan menyusul</span>";
+} else {
+  streamingInfo.innerHTML = `🎥 Live Streaming: <a href="${linkYoutube}" target="_blank" class="youtube-link">Klik Disini</a>`;
+}
 
 </script>
 
