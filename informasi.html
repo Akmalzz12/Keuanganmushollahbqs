@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -389,7 +390,7 @@ color:#2563eb;
   border-top: 1px solid #e5e7eb;
   padding-top: 12px;
   font-weight: 400;
-  }
+}
 
 .youtube-link {
   color: #ef4444;
@@ -399,21 +400,30 @@ color:#2563eb;
 
 .youtube-link:active {
   text-decoration: underline;
-  }
+}
 
 .link-belum-ada {
   color: #94a3b8;
   font-style: italic;
 }
 
-.youtube-link {
-  color: #ef4444;
-  font-weight: 600;
-  text-decoration: none;
+/* EMPTY STATE */
+.empty-info{
+  text-align:center;
+  padding:200px 30px;
 }
 
-.youtube-link:active {
-  text-decoration: underline;
+.empty-info h3{
+  font-size:18px;
+  color:#111827;
+  margin-bottom:8px;
+  font-weight:600;
+}
+
+.empty-info p{
+  font-size:14px;
+  color:#6b7280;
+  line-height:1.6;
 }
 
 </style>
@@ -538,44 +548,13 @@ stroke-linejoin="round">
 
   </div>
 
-  <!-- KONTEN INFORMASI -->
+  <!-- KONTEN INFORMASI (di-generate otomatis via JavaScript) -->
 
-<div class="container-info">
+<div class="container-info" id="containerInfo"></div>
 
-  <div class="info-card">
-
-    <div class="banner-wrapper">
-      <img src="gambar/banner.png" alt="Banner Informasi" class="info-banner">
-    </div>
-
-    <div class="info-content">
-
-      <div class="info-badges">
-        <span class="info-badge status" id="countdown1">Memuat...</span>
-        <span class="info-badge access">Umum</span>
-      </div>
-
-      <h2 class="info-title">Majelis Taklim Ustadz Fatih</h2>
-
-      <div class="info-desc">
-        <p>
-          Lorem ipsum dolor sit amet, konten deskripsi ini masih asal-asalan dulu buat contoh tampilan. Nanti bisa diganti dengan informasi acara yang sebenarnya.
-        </p>
-        <p>
-          Paragraf kedua ini juga masih placeholder, tinggal disesuaikan lagi sama isi pengumuman yang mau ditampilkan ke jamaah musholla nantinya.
-        </p>
-      </div>
-
-      <div class="info-meta">
-  <span>📅 Tanggal: 12 Juli 2026</span>
-  <span>📍 Tempat: Musholla Baqiatus Sholihat</span>
-  <span id="streaming-info"></span>
-      </div>
-
-    </div>
-
-  </div>
-
+<div class="empty-info" id="emptyState" style="display:none;">
+  <h3>Afwan</h3>
+  <p>Saat ini belum ada informasi terbaru yang bisa ditampilkan.</p>
 </div>
 
 <!-- BOTTOM NAVIGATION -->
@@ -792,6 +771,47 @@ overlay.classList.remove(
 }
 );
 
+/* =========================
+   DATA BERITA
+   Ganti tampilkan: true/false buat nampilin/sembunyiin
+========================= */
+
+const daftarBerita = [
+  {
+    id: 1,
+    tampilkan: true,
+    gambar: "gambar/banner.png",
+    judul: "Majelis Taklim Ustadz Fatih",
+    deskripsi: [
+      "Lorem ipsum dolor sit amet, konten deskripsi ini masih asal-asalan dulu buat contoh tampilan. Nanti bisa diganti dengan informasi acara yang sebenarnya.",
+      "Paragraf kedua ini juga masih placeholder, tinggal disesuaikan lagi sama isi pengumuman yang mau ditampilkan ke jamaah musholla nantinya."
+    ],
+    tanggal: "12 Juli 2026",
+    tempat: "Musholla Baqiatus Sholihat",
+    tanggalEvent: "2026-07-12",
+    linkStreaming: "https://youtube.com/live/abc123",
+    akses: "Umum"
+  },
+  {
+    id: 2,
+    tampilkan: false,
+    gambar: "gambar/banner2.png",
+    judul: "Peringatan Isra Mi'raj",
+    deskripsi: [
+      "Deskripsi berita kedua di sini, masih placeholder juga.",
+      "Paragraf kedua untuk berita kedua ini."
+    ],
+    tanggal: "15 Juli 2026",
+    tempat: "Musholla Baqiatus Sholihat",
+    tanggalEvent: "2026-07-15",
+    linkStreaming: "",
+    akses: "Umum"
+  }
+];
+
+/* =========================
+   FUNGSI COUNTDOWN
+========================= */
 
 function updateCountdown(id, eventDate){
 
@@ -818,6 +838,10 @@ function updateCountdown(id, eventDate){
 
 }
 
+/* =========================
+   FUNGSI STREAMING INFO
+========================= */
+
 function updateStreamingInfo(id, link){
 
   const el = document.getElementById(id);
@@ -830,8 +854,65 @@ function updateStreamingInfo(id, link){
 
 }
 
-updateCountdown("countdown1", "2026-07-12");
-updateStreamingInfo("streaming-info", "");
+/* =========================
+   RENDER BERITA
+========================= */
+
+function renderBerita(){
+
+  const container = document.getElementById("containerInfo");
+  const emptyState = document.getElementById("emptyState");
+
+  const beritaAktif = daftarBerita.filter(b => b.tampilkan === true);
+
+  if(beritaAktif.length === 0){
+    container.style.display = "none";
+    emptyState.style.display = "block";
+    return;
+  }
+
+  container.style.display = "flex";
+  emptyState.style.display = "none";
+
+  let html = "";
+
+  beritaAktif.forEach((berita) => {
+
+    html += `
+      <div class="info-card">
+        <div class="banner-wrapper">
+          <img src="${berita.gambar}" alt="Banner Informasi" class="info-banner">
+        </div>
+        <div class="info-content">
+          <div class="info-badges">
+            <span class="info-badge status" id="countdown${berita.id}">Memuat...</span>
+            <span class="info-badge access">${berita.akses}</span>
+          </div>
+          <h2 class="info-title">${berita.judul}</h2>
+          <div class="info-desc">
+            ${berita.deskripsi.map(p => `<p>${p}</p>`).join("")}
+          </div>
+          <div class="info-meta">
+            <span>📅 Tanggal: ${berita.tanggal}</span>
+            <span>📍 Tempat: ${berita.tempat}</span>
+            <span id="streaming-info-${berita.id}"></span>
+          </div>
+        </div>
+      </div>
+    `;
+
+  });
+
+  container.innerHTML = html;
+
+  beritaAktif.forEach((berita) => {
+    updateCountdown("countdown" + berita.id, berita.tanggalEvent);
+    updateStreamingInfo("streaming-info-" + berita.id, berita.linkStreaming);
+  });
+
+}
+
+renderBerita();
 
 </script>
 
