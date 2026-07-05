@@ -779,7 +779,7 @@ overlay.classList.remove(
 const daftarBerita = [
   {
     id: 1,
-    tampilkan: true,
+    tampilkan: false,
     gambar: "gambar/banner.png",
     judul: "Majelis Taklim Ustadz Fatih",
     deskripsi: [
@@ -845,6 +845,11 @@ function updateCountdown(id, eventDate){
 function updateStreamingInfo(id, link){
 
   const el = document.getElementById(id);
+
+  if(link === null){
+    el.style.display = "none";
+    return;
+  }
 
   if(!link || link.trim() === ""){
     el.innerHTML = "🎥 Live Streaming: <span class='link-belum-ada'>Akan Mendatang</span>";
