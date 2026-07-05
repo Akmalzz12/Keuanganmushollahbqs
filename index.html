@@ -48,7 +48,9 @@
 
     <button
       class="login-btn"
-      onclick="login()">
+      id="loginBtn"
+      onclick="login()"
+      disabled>
 
       Masuk
 
@@ -93,6 +95,18 @@ const usernameInput = document.getElementById("username");
 const passwordInput = document.getElementById("password");
 const checkUsername = document.getElementById("check-username");
 const checkPassword = document.getElementById("check-password");
+const loginBtn = document.getElementById("loginBtn");
+
+function cekFormLengkap(){
+  const usernameVal = usernameInput.value.trim();
+  const passwordVal = passwordInput.value.trim();
+
+  if(usernameVal !== "" && passwordVal !== ""){
+    loginBtn.disabled = false;
+  } else {
+    loginBtn.disabled = true;
+  }
+}
 
 usernameInput.addEventListener("input", () => {
   const val = usernameInput.value.trim();
@@ -101,6 +115,7 @@ usernameInput.addEventListener("input", () => {
   } else {
     checkUsername.classList.remove("show");
   }
+  cekFormLengkap();
 });
 
 passwordInput.addEventListener("input", () => {
@@ -110,6 +125,7 @@ passwordInput.addEventListener("input", () => {
   } else {
     checkPassword.classList.remove("show");
   }
+  cekFormLengkap();
 });
 
 function login(){
