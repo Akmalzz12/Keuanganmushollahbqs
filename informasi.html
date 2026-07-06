@@ -783,6 +783,7 @@ overlay.classList.remove(
 /* =========================
    DATA BERITA
    Ganti tampilkan: true/false buat nampilin/sembunyiin
+   Kosongkan gambar: "" kalau gak mau pakai banner
 ========================= */
 
 const daftarBerita = [
@@ -857,12 +858,12 @@ function updateStreamingInfo(id, link){
 
   const iconStreaming = `
     <svg class="meta-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9"/>
-  <path d="M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5"/>
-  <circle cx="12" cy="12" r="2"/>
-  <path d="M16.2 7.8c2.3 2.3 2.3 6.1 0 8.5"/>
-  <path d="M19.1 4.9c3.9 3.9 3.9 10.3 0 14.2"/>
-</svg>
+      <path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9"/>
+      <path d="M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5"/>
+      <circle cx="12" cy="12" r="2"/>
+      <path d="M16.2 7.8c2.3 2.3 2.3 6.1 0 8.5"/>
+      <path d="M19.1 4.9c3.9 3.9 3.9 10.3 0 14.2"/>
+    </svg>
   `;
 
   if(link === null){
@@ -902,11 +903,15 @@ function renderBerita(){
 
   beritaAktif.forEach((berita) => {
 
+    const bannerHTML = berita.gambar
+      ? `<div class="banner-wrapper">
+           <img src="${berita.gambar}" alt="Banner Informasi" class="info-banner">
+         </div>`
+      : "";
+
     html += `
       <div class="info-card">
-        <div class="banner-wrapper">
-          <img src="${berita.gambar}" alt="Banner Informasi" class="info-banner">
-        </div>
+        ${bannerHTML}
         <div class="info-content">
           <div class="info-badges">
             <span class="info-badge status" id="countdown${berita.id}">Memuat...</span>
