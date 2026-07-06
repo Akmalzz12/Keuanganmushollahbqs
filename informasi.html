@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -384,12 +383,22 @@ color:#2563eb;
 .info-meta{
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 10px;
   font-size: 13px;
   color: black;
   border-top: 1px solid #e5e7eb;
   padding-top: 12px;
   font-weight: 400;
+}
+
+.meta-item{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.meta-icon{
+  flex-shrink: 0;
 }
 
 .youtube-link {
@@ -846,15 +855,22 @@ function updateStreamingInfo(id, link){
 
   const el = document.getElementById(id);
 
+  const iconStreaming = `
+    <svg class="meta-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polygon points="23 7 16 12 23 17 23 7"/>
+      <rect x="1" y="5" width="15" height="14" rx="2"/>
+    </svg>
+  `;
+
   if(link === null){
     el.style.display = "none";
     return;
   }
 
   if(!link || link.trim() === ""){
-    el.innerHTML = "🎥 Live Streaming: <span class='link-belum-ada'>Akan Mendatang</span>";
+    el.innerHTML = iconStreaming + "Live Streaming: <span class='link-belum-ada'>Akan Mendatang</span>";
   } else {
-    el.innerHTML = `🎥 Live Streaming: <a href="${link}" target="_blank" class="youtube-link">Klik Disini</a>`;
+    el.innerHTML = iconStreaming + `Live Streaming: <a href="${link}" target="_blank" class="youtube-link">Klik Disini</a>`;
   }
 
 }
@@ -898,9 +914,23 @@ function renderBerita(){
             ${berita.deskripsi.map(p => `<p>${p}</p>`).join("")}
           </div>
           <div class="info-meta">
-            <span>📅 Tanggal: ${berita.tanggal}</span>
-            <span>📍 Tempat: ${berita.tempat}</span>
-            <span id="streaming-info-${berita.id}"></span>
+            <span class="meta-item">
+              <svg class="meta-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2"/>
+                <line x1="16" y1="2" x2="16" y2="6"/>
+                <line x1="8" y1="2" x2="8" y2="6"/>
+                <line x1="3" y1="10" x2="21" y2="10"/>
+              </svg>
+              Tanggal: ${berita.tanggal}
+            </span>
+            <span class="meta-item">
+              <svg class="meta-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+              Tempat: ${berita.tempat}
+            </span>
+            <span class="meta-item" id="streaming-info-${berita.id}"></span>
           </div>
         </div>
       </div>
