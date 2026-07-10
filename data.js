@@ -304,7 +304,7 @@ const transaksi = {
       tipe: "pengeluaran",
       title: "Tagihan Listrik",
       tanggal: "08 Juli 2026",
-      nominal: "720.000"
+      nominal: "459.000"
     }
 
    ],
