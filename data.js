@@ -271,6 +271,12 @@ const transaksi = {
       nominal: "50.000"
     },
     {
+      tipe: "pemasukan",
+      title: "Infaq Uang Kas RT",
+      tanggal: "08 Juli 2026",
+      nominal: "250.000"
+    },
+    {
       tipe: "pengeluaran",
       title: "Sabun Cuci Tangan 5 Liter",
       tanggal: "01 Juli 2026",
@@ -281,6 +287,24 @@ const transaksi = {
       title: "Insentif Marbot",
       tanggal: "03 Juli 2026",
       nominal: "250.000"
+    },
+    {
+      tipe: "pengeluaran",
+      title: "Tagihan Air PAM",
+      tanggal: "08 Juli 2026",
+      nominal: "8.000"
+    },
+    {
+      tipe: "pengeluaran",
+      title: "Tagihan Internet (WIFI)",
+      tanggal: "08 Juli 2026",
+      nominal: "253.000"
+    },
+    {
+      tipe: "pengeluaran",
+      title: "Tagihan Listrik",
+      tanggal: "08 Juli 2026",
+      nominal: "720.000"
     }
 
    ],
