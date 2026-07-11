@@ -1,5 +1,5 @@
 const lastUpdate =
-"Terakhir diperbarui: 10 Juli 2026 | 20.58 WIB";
+"Terakhir diperbarui: 11 Juli 2026 | 17.49 WIB";
 
 const daftarBulan = [
 
@@ -311,6 +311,12 @@ const transaksi = {
       title: "Tagihan Listrik",
       tanggal: "08 Juli 2026",
       nominal: "459.000"
+    },
+    {
+      tipe: "pengeluaran",
+      title: "Tambahan Bayar Ust Fatih",
+      tanggal: "11 Juli 2026",
+      nominal: "100.000"
     }
 
    ],
