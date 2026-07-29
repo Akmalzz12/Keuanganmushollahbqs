@@ -317,6 +317,12 @@ const transaksi = {
       title: "Tambahan Bayar Ust Fatih",
       tanggal: "11 Juli 2026",
       nominal: "100.000"
+    },
+    {
+      tipe: "pengeluaran",
+      title: "Konsumsi Rapat",
+      tanggal: "24 Juli 2026",
+      nominal: "100.000"
     }
 
    ],
